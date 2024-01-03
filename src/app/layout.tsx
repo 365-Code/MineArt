@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Header/>
         <hr />
-        <main className='flex-1 pt-[9rem]'>
+        <main id='main' key={"main"} className='flex-1 pt-[9rem]'>
         {children}
         </main>
         <hr />

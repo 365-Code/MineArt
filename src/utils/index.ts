@@ -15,6 +15,7 @@ export const productArray = [
   {
     id: "pId1",
     title: "This is a Product 1",
+    material: "ceremic",
     img: imgArray[0],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -22,6 +23,7 @@ export const productArray = [
   {
     id: "pId2",
     title: "This is a Product 2",
+    material: "ceremic",
     img: imgArray[1],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -29,6 +31,7 @@ export const productArray = [
   {
     id: "pId3",
     title: "This is a Product 3",
+    material: "ceremic",
     img: imgArray[2],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -36,6 +39,7 @@ export const productArray = [
   {
     id: "pId4",
     title: "This is a Product 4",
+    material: "ceremic",
     img: imgArray[3],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -43,6 +47,7 @@ export const productArray = [
   {
     id: "pId5",
     title: "This is a Product 5",
+    material: "ceremic",
     img: imgArray[4],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -50,6 +55,7 @@ export const productArray = [
   {
     id: "pId6",
     title: "This is a Product 6",
+    material: "ceremic",
     img: imgArray[5],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -57,6 +63,7 @@ export const productArray = [
   {
     id: "pId7",
     title: "This is a Product 7",
+    material: "ceremic",
     img: imgArray[6],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -64,6 +71,7 @@ export const productArray = [
   {
     id: "pId8",
     title: "This is a Product 8",
+    material: "ceremic",
     img: imgArray[7],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -71,6 +79,7 @@ export const productArray = [
   {
     id: "pId9",
     title: "This is a Product 9",
+    material: "ceremic",
     img: imgArray[8],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
@@ -78,10 +87,19 @@ export const productArray = [
   {
     id: "pId10",
     title: "This is a Product 10",
+    material: "ceremic",
     img: imgArray[9],
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
   },
+]
+
+export const cartArray = [
+  {...productArray[0], qty: 3},
+  productArray[2],
+  productArray[8],
+  productArray[4],
+  productArray[3],
 ]
 
 export const pincode = [

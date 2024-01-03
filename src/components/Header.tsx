@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import SideCart from "./SideCart";
 
 const Header = () => {
 
   const [showSearch, setShowSearch] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
 
   const pathname = usePathname();
@@ -15,6 +17,28 @@ const Header = () => {
   const onSearch = ()=>{
     console.log("Searching");
     setShowSearch(false)
+  }
+
+  useEffect(()=>{
+    const main = document.getElementById('main')
+    if(main){
+      main.onclick = ()=>{
+        setShowSearch(false)
+        setShowCart(false)
+    }
+  }
+  }, [showSearch, setShowSearch])
+
+  const toggleSearch = ()=>{
+    showSearch? 
+    setShowSearch(false): 
+    setShowSearch(true)
+  }
+  
+  const toggleCart = ()=>{
+    showCart? 
+    setShowCart(false): 
+    setShowCart(true)
   }
 
   return (
@@ -64,19 +88,22 @@ const Header = () => {
         </nav>
 
         <div className="flex gap-6 items-center">
-          {/* <Link href={"/products"} className="transition-all"> */}
-              <i onClick={()=> showSearch? setShowSearch(false): setShowSearch(true)} className="fi fi-rs-search icons"  />
-          {/* </Link> */}
-          <span className="flex gap-2 items-center cursor-pointer px-2 py-1 border border-black rounded-full hover:text-white hover:bg-slate-900">
+              <i onClick={toggleSearch} className="fi fi-rs-search icons hover:rotate-12"  />
+          <span className="flex gap-2 items-center cursor-pointer px-3 py-2 border border-black rounded-full hover:text-white hover:bg-slate-900">
             <i className="fi fi-rs-user icons" />
             <span>log in</span>
           </span>
-          <i className="fi fi-rs-shopping-cart icons" />
+          {/* <Link href={"/cart"}> */}
+            <i onClick={toggleCart} className="fi fi-rs-shopping-cart icons" />
+            <div className={`${showCart ? "translate-x-0 visible" : "translate-x-full invisible"} absolute top-full right-0 transition-all w-[400px]`}>
+              <SideCart/>
+            </div>
+          {/* </Link> */}
         </div>
       </div>
       <div className={`${showSearch ? "h-10" : "h-0"} md:w-4/5 mx-auto flex items-center bg-white px-4 rounded-lg overflow-hidden transition-all`}>
-        <i onClick={()=> showSearch? setShowSearch(false): setShowSearch(true)} className="fi fi-rs-search icons"  />
-        <input onBeforeInput={()=> setShowSearch(false)} type="text" className="font-semibold text-lg w-full h-full py-2 px-6 rounded-lg transition-all" />
+        <i className="fi fi-rs-search icons"/>
+        <input onBlur={()=> setShowSearch(false)} type="text" className="font-semibold text-lg w-full h-full py-2 px-6 rounded-lg transition-all" />
       </div>
     </header>
   );

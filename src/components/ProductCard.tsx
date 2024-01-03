@@ -12,8 +12,9 @@ const ProductCard = ({ product }: { product: any }) => {
             className="h-full w-full object-cover object-center"
           />
         </div>
+        {/* <div className='flex justify-between items-end'> */}
         <div>
-          <h3 className="text-nowrap text-lg font-bold  ">{product.title}</h3>
+          <h3 className="text-nowrap text-lg font-bold">{product.title}</h3>
           <div className="flex items-center justify-between">
             <p className="text-base font-semibold">Rs.{product.price}</p>
             <div className="flex items-center gap-2 mx-2">
