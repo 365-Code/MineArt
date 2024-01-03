@@ -12,7 +12,7 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
       </Link>
       <div className="flex-1 text-left">
         <Link href={`/products/${cartItem.id}`}  className="font-semibold flex justify-between text-center"><span>{cartItem.title}</span>
-        <i className="fi fi-ss-cross-circle text-amber-500"/>
+        <i className="fi fi-ss-cross-circle text-pink-500"/>
         </Link>
         <p className="text-sm text-gray-500">Material: <span className="italic underline font-semibold lowercase">{cartItem.material}</span></p>
 

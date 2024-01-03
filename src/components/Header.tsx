@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
+import { cartArray } from "@/utils";
 
 const Header = () => {
 
@@ -94,14 +95,17 @@ const Header = () => {
             <span>log in</span>
           </span>
           {/* <Link href={"/cart"}> */}
+          <span className="flex items-center gap-1">
             <i onClick={toggleCart} className="fi fi-rs-shopping-cart icons" />
+            <span className="flex items-center justify-center font-bold text-white text-xs h-5 w-5 rounded-full bg-pink-500">{0 || cartArray.length}</span>
+          </span>
             <div className={`${showCart ? "translate-x-0 visible" : "translate-x-full invisible"} absolute top-full right-0 transition-all w-[400px]`}>
               <SideCart/>
             </div>
           {/* </Link> */}
         </div>
       </div>
-      <div className={`${showSearch ? "h-10" : "h-0"} md:w-4/5 mx-auto flex items-center bg-white px-4 rounded-lg overflow-hidden transition-all`}>
+      <div className={`${showSearch ? "h-10" : "h-0"} absolute top-full md:w-4/5 mx-auto flex items-center bg-white px-4 rounded-lg overflow-hidden transition-all`}>
         <i className="fi fi-rs-search icons"/>
         <input onBlur={()=> setShowSearch(false)} type="text" className="font-semibold text-lg w-full h-full py-2 px-6 rounded-lg transition-all" />
       </div>

@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb{
 
 .no-scrollbar::-webkit-scrollbar{
   width: 0;
-  height: 1px;
+  height: 0;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -106,4 +106,20 @@ margin: 0;
 .nav-link::after{
   content: "";
   @apply bg-slate-900 w-0 h-[2px] absolute top-full left-0 transition-all;
+}
+
+
+.img-hover-effect::before{
+  content: '';
+  @apply -z-[1] w-full h-full absolute top-0 left-0 bg-white/30 backdrop:blur-sm -translate-x-full -translate-y-full transition-all duration-300;
+}
+
+
+.img-hover-effect::after{
+  content: '';
+  @apply -z-[1] w-full h-full absolute top-0 left-0 bg-white/30 backdrop:blur-sm translate-x-full translate-y-full transition-all duration-300;
+}
+
+.img-hover-effect:hover::before,.img-hover-effect:hover::after{
+  @apply translate-x-0 translate-y-0;
 }

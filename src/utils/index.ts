@@ -1,4 +1,6 @@
 export const imgArray = [
+    "https://prestashop.templatemela.com/PRSADD11/PRS274/modules/tm_imageslider/views/img/sample-1.jpg",
+    "https://img.freepik.com/free-psd/classic-vases-interior-decoration-white-wall-with-copyspace_176382-60.jpg?size=626&ext=jpg&ga=GA1.1.1494205593.1703951523&semt=ais",
     "https://img.freepik.com/free-photo/close-up-arrangement-modern-vases_23-2149646516.jpg?size=626&ext=jpg&ga=GA1.1.1494205593.1703951523&semt=ais",
     "https://img.freepik.com/premium-photo/interior-accessories-made-marble_500021-663.jpg?size=626&ext=jpg&ga=GA1.2.1494205593.1703951523&semt=ais",
     "https://img.freepik.com/premium-psd/white-marble-glossy-round-vase-isolated-image_623938-669.jpg?size=626&ext=jpg&ga=GA1.2.1494205593.1703951523&semt=ais",
@@ -104,4 +106,8 @@ export const cartArray = [
 
 export const pincode = [
   341505, 110023, 110024, 110025
+]
+
+export const footerArray = [
+  "Bows", "Vases", "Ashtrays", "Statues", "Decors"
 ]

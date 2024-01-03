@@ -1,13 +1,28 @@
-import React from 'react'
+import { footerArray } from "@/utils";
+import Link from "next/link";
+import React from "react";
 
 const Footer = () => {
-  return (
-    <footer className='container1'>
-        <div className='container3 text-3xl font-semibold text-center'>
-            Footer
-        </div>
-    </footer>
-  )
-}
+  const today = new Date()
 
-export default Footer
+  return (
+    <footer className="container1">
+      <div className="container3 text-center space-y-6 font-semibold ">
+        <div className="flex items-center justify-center gap-4">
+          {footerArray.map((f, i) => (
+            <Link key={i} href={`${"/" + f}`} className="hover:text-pink-500">{f}</Link>
+          ))}
+        </div>
+        <div className="flex items-center justify-center gap-6">
+          <i className="fi fi-brands-github text-slate-500 text-2xl" />
+          <i className="fi fi-brands-telegram text-blue-500 text-2xl" />
+          <i className="fi fi-brands-instagram text-pink-500 text-2xl" />
+          <i className="fi fi-brands-linkedin text-blue-500 text-2xl" />
+        </div>
+        <p className="text-sm">Copyright &copy; {today.getFullYear()}. MineArt. All Right Reserved</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
