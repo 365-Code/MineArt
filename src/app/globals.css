@@ -41,33 +41,6 @@ body::-webkit-scrollbar-thumb{
   @apply rounded-full;
 }
 
-.container1 {
-  @apply min-[900px]:px-[7rem] py-6 sm:px-[3rem] px-[1rem];
-}
-
-.container2 {
-  @apply sm:px-[1rem];
-}
-
-.container3 {
-  @apply sm:px-[1rem];
-}
-
-.no-scrollbar::-webkit-scrollbar{
-  width: 0;
-  height: 0;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  height: 3px;
-  width: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb{
-  background-color: #5a636a;
-  @apply rounded-full;
-}
-
 .fi{
   display: flex;
 }
@@ -108,12 +81,34 @@ margin: 0;
   @apply bg-slate-900 w-0 h-[2px] absolute top-full left-0 transition-all;
 }
 
+/* utilities */
 
-.img-hover-effect::before{
-  content: '';
-  @apply -z-[1] w-full h-full absolute top-0 left-0 bg-white/30 backdrop:blur-sm -translate-x-full -translate-y-full transition-all duration-300;
+.container1 {
+  @apply min-[900px]:px-[6rem] py-6 sm:px-[3rem] px-2;
 }
 
+.container2 {
+  @apply sm:px-[1rem];
+}
+
+.container3 {
+  @apply sm:px-[1rem];
+}
+
+.no-scrollbar::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+  background-color: #5a636a;
+  @apply rounded-full;
+}
 
 .img-hover-effect::after{
   content: '';
@@ -122,4 +117,9 @@ margin: 0;
 
 .img-hover-effect:hover::before,.img-hover-effect:hover::after{
   @apply translate-x-0 translate-y-0;
+}
+
+.img-hover-effect::before{
+  content: '';
+  @apply -z-[1] w-full h-full absolute top-0 left-0 bg-white/30 backdrop:blur-sm -translate-x-full -translate-y-full transition-all duration-300;
 }

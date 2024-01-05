@@ -90,10 +90,10 @@ const Header = () => {
 
         <div className="flex gap-6 items-center">
               <i onClick={toggleSearch} className="fi fi-rs-search icons hover:rotate-12"  />
-          <span className="flex gap-2 items-center cursor-pointer px-3 py-2 border border-black rounded-full hover:text-white hover:bg-slate-900">
+          <Link href={'/auth/login'} className="flex gap-2 items-center cursor-pointer px-3 py-2 border border-black rounded-full hover:text-white hover:bg-slate-900">
             <i className="fi fi-rs-user icons" />
             <span>log in</span>
-          </span>
+          </Link>
           {/* <Link href={"/cart"}> */}
           <span className="flex items-center gap-1">
             <i onClick={toggleCart} className="fi fi-rs-shopping-cart icons" />

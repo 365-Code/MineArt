@@ -96,12 +96,22 @@ export const productArray = [
   },
 ]
 
+// Cart
+export const adddToCart = (item: any)=>{
+  const ind = cartArray.findIndex((i)=> i.id==item.id)
+  if(ind != 0){
+    cartArray[0].qty += 1
+  } else{
+    cartArray.push(item)
+  }
+}
+
 export const cartArray = [
   {...productArray[0], qty: 3},
-  productArray[2],
-  productArray[8],
-  productArray[4],
-  productArray[3],
+  {...productArray[2], qty: 1},
+  {...productArray[8], qty: 1},
+  {...productArray[4], qty: 1},
+  {...productArray[3], qty: 1},
 ]
 
 export const pincode = [

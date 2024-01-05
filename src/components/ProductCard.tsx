@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Modal from "./Modal";
 import Product from "./Product";
+import { adddToCart } from "@/utils";
 
 const ProductCard = ({ product }: { product: any }) => {
   const [showModal, setShowModal] = useState(false)
@@ -19,7 +20,7 @@ const ProductCard = ({ product }: { product: any }) => {
             />
           </Link>
           <div className="h-0 absolute right-4 top-4 space-y-2 max-h-fit group-hover/product:h-[300px] duration-300 transition-all overflow-hidden">
-            <i className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
+            <i onClick={()=>(adddToCart(product))} className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
             <i onClick={()=>(setShowModal(true))} className="fi fi-rr-eye cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
             <i className="fi fi-rs-heart cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
             {/* <i className="fi fi-rr-zoom-in cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" /> */}
