@@ -102,7 +102,6 @@ const Header = () => {
             <div className={`${showCart ? "translate-x-0 visible" : "translate-x-full invisible"} absolute top-full right-0 transition-all w-[400px]`}>
               <SideCart/>
             </div>
-          {/* </Link> */}
         </div>
       </div>
       <div className={`${showSearch ? "h-10" : "h-0"} absolute top-full md:w-4/5 mx-auto flex items-center bg-white px-4 rounded-lg overflow-hidden transition-all`}>

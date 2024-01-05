@@ -1,26 +1,28 @@
-import { cartArray } from '@/utils'
-import React from 'react'
-import SideCartItem from './SideCartItem'
-import Link from 'next/link'
+import { cartArray } from "@/utils";
+import React from "react";
+import SideCartItem from "./SideCartItem";
+import Link from "next/link";
 
 const SideCart = () => {
   return (
-    <div className='rounded-lg overflow-hidden bg-white flex flex-col custom-scrollbar max-h-[40px]'>
-      <h3 className='text-lg font-semibold py-3'>Shopping Cart</h3>
+    <div className="custom-scrollbar flex max-h-[450px] flex-col overflow-hidden rounded-lg bg-white">
+      <h3 className="py-3 text-lg font-semibold">Shopping Cart</h3>
+      <div className="custom-scrollbar z-10 h-full flex-1 space-y-2 overflow-y-scroll ">
+        {cartArray.map((c, i) => (
+          <SideCartItem key={c.id} cartItem={c} />
+        ))}
+      </div>
+      {/* <SideCartItem cartItem={cartArray[0]} /> */}
       {/* <hr /> */}
-        <div className='space-y-2 flex-1 z-10 overflow-y-scroll h-full custom-scrollbar '>
-        {
-            cartArray.map((c, i)=> <SideCartItem key={c.id} cartItem={c} />)
-        }
-        </div>
-        {/* <hr /> */}
       <div>
-        <Link href={'/cart'}>
-          <button className='font-semibold bg-slate-900 transition-all w-full p-4 text-white'>Checkout</button>
+        <Link href={"/cart"}>
+          <button className="w-full bg-slate-900 p-4 font-semibold text-white transition-all">
+            Checkout
+          </button>
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideCart
+export default SideCart;
