@@ -7,8 +7,8 @@ const SideCart = () => {
   return (
     <div className="custom-scrollbar flex max-h-[450px] flex-col overflow-hidden rounded-lg bg-white">
       <h3 className="py-3 text-lg font-semibold">Shopping Cart</h3>
-      <div className="custom-scrollbar z-10 h-full flex-1 space-y-2 overflow-y-scroll ">
-        {cartArray.map((c, i) => (
+      <div className="no-scrollbar z-10 h-full flex-1 space-y-2 overflow-y-scroll ">
+        {cartArray.map((c) => (
           <SideCartItem key={c.id} cartItem={c} />
         ))}
       </div>

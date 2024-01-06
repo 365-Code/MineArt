@@ -1,4 +1,5 @@
 "use client";
+import Carousal from "@/components/Carousal";
 import Modal from "@/components/Modal";
 import Product from "@/components/Product";
 import ProductCard from "@/components/ProductCard";
@@ -14,12 +15,17 @@ export default function Home() {
     }
   };
 
+  const images = [
+    imgArray[0],imgArray[1], imgArray[2]
+  ]
+
   return (
     <main className="container1">
-      <div className="container2 space-y-12">
-        <section className="flex h-[75vh] justify-between gap-8">
-          <div className="relative h-full w-full md:w-4/5">
-            <div className="flex h-full w-full flex-col items-start justify-center gap-4 px-12">
+      <div className="container2 space-y-[5rem]">
+
+        <section className="flex md:flex-row flex-col md:h-[75vh] justify-between gap-8">
+          <div className="relative h-full w-full min-h-[350px] md:basis-4/5 ">
+            <div className="flex min-h-[350px] h-full w-full flex-col items-start justify-center gap-4 px-12">
               <p className="text-lg text-slate-500">Summer Sales Start</p>
               <h1 className="text-4xl font-semibold">
                 Buy White Marble
@@ -27,18 +33,21 @@ export default function Home() {
                 Best Quality
               </h1>
             </div>
-            <img
+            {/* <img
               src={imgArray[0]}
               alt=""
               className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
-            />
+            /> */}
+            <div className="absolute left-0 top-0 h-full w-full ">
+              <Carousal images={images}/>
+            </div>
           </div>
-          <div className="flex h-full flex-1 flex-col gap-8">
-            <div className="img-hover-effect relative flex h-[350px] w-[350px] flex-col justify-center overflow-hidden p-8">
+          <div className="flex justify-center items-center h-full flex-1 flex-col gap-8">
+            <div className="img-hover-effect relative flex h-[350px] w-full md:w-[350px] flex-col justify-center overflow-hidden p-8">
               <img
                 src={imgArray[1]}
                 alt=""
-                className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                className="-z-[2] absolute left-0 top-0 h-full w-full object-cover object-center"
               />
               <div className="space-y-2">
                 <h3 className="text-2xl font-semibold">
@@ -47,7 +56,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId2`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -67,7 +76,7 @@ export default function Home() {
                   Plate
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId3`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -76,6 +85,35 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <i className="fi fi-rs-rocket-lunch text-2xl" />
+            <div>
+              <h3>Fast Shipping</h3>
+              <p className="text-sm font-semibold text-slate-400">India orders only</p>
+            </div>
+          </div>
+          <hr className="border border-slate-400 h-10 max-h-full" />
+          <div className="flex items-center gap-4">
+            <i className="fi fi-sr-user-headset text-2xl" />
+            <div>
+              <h3>Online 24/7 supports</h3>
+              <p className="text-sm font-semibold text-slate-400">Sign up for gift</p>
+            </div>
+          </div>
+          <hr className="border border-slate-400 h-10 max-h-full" />
+          <div className="flex items-center gap-4">
+            <i className="fi fi-sr-truck-side text-2xl" />
+            <div>
+              <h3>Online 24/7 supports</h3>
+              <p className="text-sm font-semibold text-slate-400">Sign up for gift</p>
+            </div>
+          </div>
+
+        </section>
+
+        <hr />
 
         <section className="w-full">
           <div className="flex items-center justify-between">
@@ -117,7 +155,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId4`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -138,7 +176,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId5`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -158,7 +196,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId6`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -183,7 +221,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId7`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -204,7 +242,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId8`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -226,7 +264,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/new`}
+                  href={`/products/pId9`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -235,6 +273,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
       </div>
     </main>
   );

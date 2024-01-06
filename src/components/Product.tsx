@@ -1,14 +1,48 @@
 "use client";
-import { imgArray, pincode } from "@/utils";
+import { imgArray, pincode, productArray } from "@/utils";
 import { log } from "console";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-const Product = () => {
+const Product = ({ item }: { item?: any }) => {
+  const { pId } = useParams();
+  const [product, setProduct] = useState({
+    id: "",
+    title: "",
+    material: "",
+    img: "",
+    images: [],
+    rating: 0,
+    desc: "",
+    price: 0,
+    dimension: {
+      width: 0,
+      height: 0,
+      length: 0
+    }
+  });
+
   const [imgPreview, setImgPreview] = useState({
     id: 0,
-    img: imgArray[0],
+    img: "https://img.freepik.com/free-vector/images-concept-illustration_114360-298.jpg?size=626&ext=jpg&ga=GA1.1.1494205593.1703951523&semt=ais"
   });
+
+  useEffect(() => {
+    if (item) {
+      setProduct(item);
+      setImgPreview({id: 0, img: item.img})
+    }
+
+    const ind = productArray.findIndex((p) => p.id == pId);
+
+    if (ind != -1) {
+      const prod: any = productArray[ind];
+      setProduct(prod);
+      setImgPreview({id: 0, img: prod.img})
+    }
+
+  }, []);
 
   const [qty, setQty] = useState(1);
 
@@ -32,7 +66,7 @@ const Product = () => {
   //     setAvl("true")
   //   }
   //   setAvl("false")
-  // }
+  // })
 
   const handleAvl = (e: any) => {
     const num = e.target.value;
@@ -48,7 +82,7 @@ const Product = () => {
   return (
     <div className="container2">
       <div className="flex w-full flex-col gap-8 sm:flex-row">
-        <div className="w-full space-y-1 sm:w-1/2">
+        <div className=" w-full space-y-1 sm:w-1/2">
           <div id="imgPreview" className="h-[400px] transition-all">
             <img
               src={imgPreview.img}
@@ -57,7 +91,8 @@ const Product = () => {
             />
           </div>
           <div className="no-scrollbar flex max-w-full gap-2 overflow-x-scroll">
-            {imgArray?.map((img, index) => (
+            {/* {imgArray?.map((img, index) => ( */}
+            {product.images?.map((img, index) => (
               <div
                 key={index}
                 className={`h-[112px] min-h-[112px] w-[112px] min-w-[112px] cursor-pointer border-slate-600 transition-all focus-visible:w-0 ${
@@ -78,18 +113,20 @@ const Product = () => {
           <span className="font-semibold">
             Material:
             <Link href="#" className="px-1 italic text-slate-500 underline">
-              Veitnam
+              {/* Veitnam */}
+              {product.material}
             </Link>
           </span>
           <h2 className="text-3xl font-semibold">Product-Title</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
             similique soluta nam ab dolores dolore consequuntur sit illum
-            facilis non!
+            facilis non! */}
+            {product.desc}
           </p>
           <hr />
           <div className="flex items-center gap-8">
-            <p className="text-lg font-semibold">Rs. 300</p>
+            <p className="text-lg font-semibold">Rs. {product.price}</p>
             <div className="flex items-center">
               <i
                 className="fi fi-sr-square-minus cursor-pointer text-2xl"
@@ -128,15 +165,15 @@ const Product = () => {
               </li>
               <li className="grid grid-cols-3 gap-8">
                 <span>
-                  {unit == "inches" ? 5 : 5 * 2.5}
+                  {unit == "inches" ? product.dimension.width : product.dimension.width * 2.5}
                   {unit}
                 </span>
                 <span>
-                  {unit == "inches" ? 5 : 5 * 2.5}
+                  {unit == "inches" ? product.dimension.height : product.dimension.height * 2.5}
                   {unit}
                 </span>
                 <span>
-                  {unit == "inches" ? 5 : 5 * 2.5}
+                  {unit == "inches" ? product.dimension.length : product.dimension.length * 2.5}
                   {unit}
                 </span>
               </li>
@@ -145,11 +182,11 @@ const Product = () => {
           <hr />
 
           <div className="w-full space-y-4">
-            <div className="flex sm:flex-row flex-col gap-2">
-              <button className="flex-1 min-w-fit w-full border border-slate-900 p-2 transition-all hover:bg-slate-900 hover:text-white">
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <button className="w-full min-w-fit flex-1 border border-slate-900 p-2 transition-all hover:bg-slate-900 hover:text-white">
                 Add to Cart
               </button>
-              <button className="basis-1/2 w-full border border-slate-900 bg-slate-900 p-2 text-white hover:bg-slate-950">
+              <button className="w-full basis-1/2 border border-slate-900 bg-slate-900 p-2 text-white hover:bg-slate-950">
                 Buy Now
               </button>
             </div>
@@ -181,7 +218,6 @@ const Product = () => {
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
