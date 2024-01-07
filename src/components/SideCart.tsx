@@ -1,4 +1,4 @@
-import { cartArray } from "@/utils";
+import { cartArray, subTotal } from "@/utils";
 import React from "react";
 import SideCartItem from "./SideCartItem";
 import Link from "next/link";
@@ -15,6 +15,9 @@ const SideCart = () => {
       {/* <SideCartItem cartItem={cartArray[0]} /> */}
       {/* <hr /> */}
       <div>
+        <p className="p-4 font-semibold border-t">
+          Subtotal: Rs.{ parseFloat((subTotal()).toFixed(2)) }
+        </p>
         <Link href={"/cart"}>
           <button className="w-full bg-slate-900 p-4 font-semibold text-white transition-all">
             Checkout

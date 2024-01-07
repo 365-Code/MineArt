@@ -255,6 +255,14 @@ export const adddToCart = (item: any)=>{
   }
 }
 
+export const subTotal = ()=>{
+  let sum = 0
+  cartArray.forEach((e: any)=>{
+    sum += (e.qty*e.price)
+  })
+  return sum
+}
+
 export const cartArray = [
   {...productArray[0], qty: 3},
   {...productArray[2], qty: 1},
