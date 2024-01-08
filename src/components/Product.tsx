@@ -96,6 +96,9 @@ const Product = ({ item }: { item?: any }) => {
         <div className=" w-full space-y-1 sm:w-1/2">
           <div id="imgPreview" className="h-[400px] w-full transition-all overflow-hidden">
           <Image
+          width="0"
+          height="0"
+          sizes="100vw"
               src={imgPreview.img}
               className="h-full w-full object-cover object-center"
               alt=""
@@ -112,6 +115,9 @@ const Product = ({ item }: { item?: any }) => {
                 onClick={() => handlePreview({ id: index, img })}
               >
                 <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                   src={img}
                   alt=""
                   className="h-full w-full object-cover object-center"

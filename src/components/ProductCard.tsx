@@ -15,6 +15,9 @@ const ProductCard = ({ product }: { product: any }) => {
         <div className="relative h-[300px]">
           <Link href={`/products/${product._id}`}>
             <Image
+          width="0"
+          height="0"
+          sizes="100vw"
               src={product.thumbnail}
               alt=""
               className="h-full w-full object-cover object-center"

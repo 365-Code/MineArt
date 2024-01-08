@@ -9,7 +9,6 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   const pathname = usePathname();
   pathname.includes("/products");

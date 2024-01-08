@@ -57,6 +57,9 @@ const Page = () => {
         </div>
         <div className="sm:relative sm:opacity-100 absolute top-0 left-0 -z-[1] opacity-50 h-full w-full flex-shrink basis-1/2">
           <Image
+          width="0"
+          height="0"
+          sizes="100vw"
             src={imgArray[0]}
             alt=""
             className="h-full w-full object-cover object-center"

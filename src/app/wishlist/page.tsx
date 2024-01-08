@@ -18,6 +18,9 @@ const Page = () => {
           <div key={c._id} className="p-2 grid grid-cols-3 sm:grid-cols-4  items-center justify-between">
             <div className="h-[112px] w-[112px] overflow-hidden rounded-lg">
               <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                 src={c.img}
                 alt=""
                 className="h-full w-full object-cover object-center"

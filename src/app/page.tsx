@@ -43,6 +43,9 @@ export default function Home() {
           <div className="flex h-full flex-1 flex-col sm:flex-row md:flex-col items-center justify-center gap-8">
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
               <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                 src={imgArray[1]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -63,6 +66,9 @@ export default function Home() {
             </div>
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
               <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                 src={imgArray[2]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -149,6 +155,9 @@ export default function Home() {
           <div className="flex md:w-1/2 flex-col gap-2 ">
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
               <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -171,6 +180,9 @@ export default function Home() {
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -192,6 +204,9 @@ export default function Home() {
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -217,6 +232,9 @@ export default function Home() {
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -238,6 +256,9 @@ export default function Home() {
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -260,6 +281,9 @@ export default function Home() {
 
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
               <Image
+          width="0"
+          height="0"
+          sizes="100vw"
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
