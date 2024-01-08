@@ -1,7 +1,5 @@
 "use client";
 import Carousal from "@/components/Carousal";
-import Modal from "@/components/Modal";
-import Product from "@/components/Product";
 import ProductCard from "@/components/ProductCard";
 import { imgArray, productArray } from "@/utils";
 import Image from "next/image";
@@ -17,6 +15,7 @@ export default function Home() {
 
   const images = [imgArray[0], imgArray[1], imgArray[2]];
 
+
   return (
     <main className="container1">
       <div className="container2 space-y-[5rem]">
@@ -31,7 +30,7 @@ export default function Home() {
                 Best Quality
               </h1>
             </div>
-            {/* <img
+            {/* <Image
               src={imgArray[0]}
               alt=""
               className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -43,7 +42,7 @@ export default function Home() {
 
           <div className="flex h-full flex-1 flex-col sm:flex-row md:flex-col items-center justify-center gap-8">
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
-              <img
+              <Image
                 src={imgArray[1]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -63,7 +62,7 @@ export default function Home() {
               </div>
             </div>
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
-              <img
+              <Image
                 src={imgArray[2]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -110,7 +109,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <i className="fi fi-sr-truck-side text-2xl" />
             <div>
-              <h3>Online 24/7 supports</h3>
+              <h3>Saftey Sure delivery</h3>
               <p className="text-sm font-semibold text-slate-400">
                 Sign up for gift
               </p>
@@ -140,7 +139,7 @@ export default function Home() {
             className="no-scrollbar flex max-w-full items-center gap-4 overflow-x-scroll"
           >
             {productArray.map((p, i) => (
-              <ProductCard key={p.id} product={p} />
+              <ProductCard key={p._id} product={p} />
             ))}
           </div>
         </section>
@@ -149,7 +148,7 @@ export default function Home() {
         <section className="flex w-full flex-col justify-between gap-2 overflow-hidden border border-black md:h-[80vh] md:flex-row">
           <div className="flex md:w-1/2 flex-col gap-2 ">
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
-              <img
+              <Image
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -171,7 +170,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
-                <img
+                <Image
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -192,7 +191,7 @@ export default function Home() {
               </div>
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
-                <img
+                <Image
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -217,7 +216,7 @@ export default function Home() {
           <div className="flex md:w-1/2 flex-col gap-2 ">
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
-                <img
+                <Image
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -238,7 +237,7 @@ export default function Home() {
               </div>
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
-                <img
+                <Image
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -260,7 +259,7 @@ export default function Home() {
             </div>
 
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
-              <img
+              <Image
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"

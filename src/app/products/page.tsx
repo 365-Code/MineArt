@@ -1,21 +1,37 @@
 "use client"
 import Pagination from '@/components/Pagination'
 import ProductCard from '@/components/ProductCard'
-import { productArray } from '@/utils'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Page = () => {
 
-  const pL = productArray.length
-  const pages = pL/9 > 1 ? Math.round(pL/9) + ( pL%9 ? 1 : 0) : pL;
+  
   const [currentPage, setCurrentPage] = useState(1);
-  const [products, setProducts] = useState(Array(0));
+  const [allProducts, setAllProducts] = useState(Array)
+  const [products, setProducts] = useState(Array<any>);
+  const pL = allProducts.length
+  const pages = pL/9 > 1 ? Math.round(pL/9) + ( pL%9 ? 1 : 0) : 1;
+
+  
+  const fetchAllProducts = async ()=>{
+    try{
+      const result = await fetch('/api/product/getAllProducts');
+      const res = await result.json()
+      if(res.success){
+        setAllProducts(res.products)
+        setProducts(res.products)
+      }
+    } catch(error){
+      console.log(error)
+    }
+  }
 
   useEffect(()=>{
-    
-    const p = productArray.slice( (currentPage-1)*9, currentPage*9)
-    setProducts(()=> (productArray.slice( (currentPage-1)*9, currentPage*9)) )
-  
+    fetchAllProducts()
+  }, [allProducts])
+
+  useEffect(()=>{
+    setProducts(()=> (allProducts.slice( (currentPage-1)*9, currentPage*9)) )
   }, [currentPage, setCurrentPage])
 
   return (
@@ -38,7 +54,7 @@ const Page = () => {
           <div>
             <div className='grid grid-cols-3 gap-6'>
               {
-                products.map((p, i)=> <ProductCard key={i} product={p} />)
+                products.map((p, i)=> <ProductCard key={p._id} product={p} />)
               }
             </div>
             <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>

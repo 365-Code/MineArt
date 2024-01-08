@@ -11,7 +11,7 @@ const CartItems = () => {
         </div>
         <div className='flex-1 overflow-y-scroll no-scrollbar py-2'>
         {
-            cartArray.map((c,i)=><CartItem key={c.id} cartItem={c}/>)
+            cartArray.map((c,i)=><CartItem key={c._id} cartItem={c}/>)
         }
         </div>
     </div>

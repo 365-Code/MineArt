@@ -9,7 +9,7 @@ const SideCart = () => {
       <h3 className="py-3 text-lg font-semibold">Shopping Cart</h3>
       <div className="no-scrollbar z-10 h-full flex-1 space-y-2 overflow-y-scroll ">
         {cartArray.map((c) => (
-          <SideCartItem key={c.id} cartItem={c} />
+          <SideCartItem key={c._id} cartItem={c} />
         ))}
       </div>
       {/* <SideCartItem cartItem={cartArray[0]} /> */}

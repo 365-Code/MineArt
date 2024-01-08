@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Carousal = ({ images }: { images: Array<string> }) => {
@@ -8,7 +9,7 @@ const Carousal = ({ images }: { images: Array<string> }) => {
     <div className="relative flex h-full w-full">
       {images.map((image, i) => (
         <div key={i} className={`-z-[2] h-full overflow-hidden max-w-full transition-all ${selected == i ? "w-screen opacity-100": "w-0 opacity-0" }`}>
-          <img
+          <Image
             src={image}
             alt=""
             className={`-z-[2] h-full w-full object-cover object-center transition-all `}

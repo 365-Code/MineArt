@@ -5,11 +5,6 @@ module.exports = nextConfig
 
 module.exports = {
     images: {
-        remotePatterns: [
-            {
-              protocol: 'https',
-              hostname: 'img.freepik.com',
-            },
-        ]
+      domains: ['img.freepik.com']
     },
   }

@@ -101,7 +101,7 @@ const Header = () => {
                 <i className="fi fi-ss-user-pen" />
                 <span>Profile</span>
               </Link>
-              <Link href={'/user/wishlist'} className="hover:text-pink-500 flex items-center gap-2">
+              <Link href={'/wishlist'} className="hover:text-pink-500 flex items-center gap-2">
                 <i className="fi fi-ss-heart" />
                 <span>wishlist</span>
               </Link>

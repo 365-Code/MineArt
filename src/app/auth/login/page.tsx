@@ -1,4 +1,5 @@
 import { imgArray } from "@/utils";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -55,7 +56,7 @@ const Page = () => {
           </form>
         </div>
         <div className="sm:relative sm:opacity-100 absolute top-0 left-0 -z-[1] opacity-50 h-full w-full flex-shrink basis-1/2">
-          <img
+          <Image
             src={imgArray[0]}
             alt=""
             className="h-full w-full object-cover object-center"

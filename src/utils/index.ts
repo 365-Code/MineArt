@@ -14,7 +14,7 @@ export const imgArray = [
     "https://img.freepik.com/premium-photo/restored-piala-bowl-by-traditional-kintsugi-method-connection-art-heritage-ai-generated_166373-4317.jpg?ga=GA1.1.1494205593.1703951523&semt=ais_ai_generated",
     "https://img.freepik.com/free-photo/close-up-arrangement-modern-vases_23-2149646508.jpg?size=626&ext=jpg",
     "https://img.freepik.com/premium-photo/close-up-arrangement-modern-vases_23-2149646544.jpg?size=626&ext=jpg",
-  ]
+]
 
 const imgs = {
   img0 : [
@@ -80,180 +80,138 @@ const materialArray = [
   "","Banswara", "Veitnam", "Doongri", "Jodhpur", "Pink", "Granite", "Gujrati", "Marble Slab", "Yellow Marble", "Inlay"
 ]
 
-
-
 export const productArray = [
   {
-    id: "pId1",
+    _id: "pId1",
     title: "This is a Product 1",
     material: materialArray[1],
-    img: imgs.img9,
+    thumbnail: imgs.img9,
     images: imgs.img9,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId2",
+    _id: "pId2",
     title: "This is a Product 2",
     material: materialArray[2],
-    img: imgs.img0[0],
+    thumbnail: imgs.img0[0],
     images: imgs.img0,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId3",
+    _id: "pId3",
     title: "This is a Product 3",
     material: materialArray[3],
-    img: imgs.img1,
+    thumbnail: imgs.img1,
     images: imgs.img1,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId4",
+    _id: "pId4",
     title: "This is a Product 4",
     material: materialArray[4],
-    img: imgs.img2,
+    thumbnail: imgs.img2,
     images: imgs.img2,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId5",
+    _id: "pId5",
     title: "This is a Product 5",
     material: materialArray[5],
-    img: imgs.img3,
+    thumbnail: imgs.img3,
     images: imgs.img3,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
 },
-},
   {
-    id: "pId6",
+    _id: "pId6",
     title: "This is a Product 6",
     material: materialArray[6],
-    img: imgs.img4,
+    thumbnail: imgs.img4,
     images: imgs.img4,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId7",
+    _id: "pId7",
     title: "This is a Product 7",
     material: materialArray[7],
-    img: imgs.img5,
+    thumbnail: imgs.img5,
     images: imgs.img5,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId8",
+    _id: "pId8",
     title: "This is a Product 8",
     material: materialArray[8],
-    img: imgs.img6,
+    thumbnail: imgs.img6,
     images: imgs.img6,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId9",
+    _id: "pId9",
     title: "This is a Product 9",
     material: materialArray[9],
-    img: imgs.img7,
+    thumbnail: imgs.img7,
     images: imgs.img7,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
   width: Math.round(((Math.random()*10)%13)+1),
   height: Math.round(((Math.random()*10)%13)+1),
   length: Math.round(((Math.random()*10)%13)+1),
-},
   },
   {
-    id: "pId10",
+    _id: "pId10",
     title: "This is a Product 10",
     material: materialArray[1],
-    img: imgs.img8,
+    thumbnail: imgs.img8,
     images: imgs.img8,
     rating: (Math.random()*10+1)%6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam aspernatur exercitationem quasi reiciendis voluptate minima nostrum culpa numquam placeat libero.",
     price: 20,
-    
-dimension: {
-  width: Math.round(((Math.random()*10)%13)+1),
-  height: Math.round(((Math.random()*10)%13)+1),
-  length: Math.round(((Math.random()*10)%13)+1),
-},
+    width: Math.round(((Math.random()*10)%13)+1),
+    height: Math.round(((Math.random()*10)%13)+1),
+    length: Math.round(((Math.random()*10)%13)+1),
   },
 ]
-
-// Cart
-export const adddToCart = (item: any)=>{
-  const ind = cartArray.findIndex((i)=> i.id==item.id)
-  if(ind != 0){
-    cartArray[0].qty += 1
-  } else{
-    cartArray.push(item)
-  }
-}
 
 export const subTotal = ()=>{
   let sum = 0
@@ -264,15 +222,11 @@ export const subTotal = ()=>{
 }
 
 export const cartArray = [
-  {...productArray[0], qty: 3},
-  {...productArray[2], qty: 1},
-  {...productArray[8], qty: 1},
-  {...productArray[4], qty: 1},
-  {...productArray[3], qty: 1},
-]
-
-export const pincode = [
-  341505, 110023, 110024, 110025
+  {...productArray[0],img: productArray[0].thumbnail, qty: 3},
+  {...productArray[2],img: productArray[2].thumbnail, qty: 1},
+  {...productArray[8],img: productArray[8].thumbnail, qty: 1},
+  {...productArray[4],img: productArray[4].thumbnail, qty: 1},
+  {...productArray[3],img: productArray[3].thumbnail, qty: 1},
 ]
 
 export const footerArray = [
