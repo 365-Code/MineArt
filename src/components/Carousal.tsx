@@ -20,14 +20,14 @@ const Carousal = ({ images }: { images: Array<string> }) => {
         </div>
       ))}
       <i
-        onClick={() => setSelected(0 || selected - 1)}
+        onClick={() => setSelected(selected - 1 || 0 )}
         className="fi fi-rs-angle-left icons absolute left-4 top-1/2 -translate-y-1/2 hover:text-pink-500"
       />
       <i
         onClick={() => setSelected((selected + 1) % images.length)}
         className="fi fi-rs-angle-right icons absolute right-4 top-1/2 -translate-y-1/2 hover:text-pink-500"
       />
-      <div className="absolute bottom-8 z-[4] flex gap-4 justify-center w-full"> 
+      <div className="absolute bottom-8 -z-[3] flex gap-4 justify-center w-full"> 
       {images.map((image, i) => (
           <span key={i} className={`h-4 w-4 transition-all rounded-full border border-pink-500 hover:bg-pink-500 ${selected == i && "bg-pink-500"}`} />
           ))}

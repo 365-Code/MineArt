@@ -1,6 +1,7 @@
 "use client";
 import Carousal from "@/components/Carousal";
 import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { imgArray, productArray } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,11 +31,6 @@ export default function Home() {
                 Best Quality
               </h1>
             </div>
-            {/* <Image
-              src={imgArray[0]}
-              alt=""
-              className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
-            /> */}
             <div className="absolute left-0 top-0 h-full w-full ">
               <Carousal images={images} />
             </div>
@@ -144,9 +140,14 @@ export default function Home() {
             id="featured"
             className="no-scrollbar flex max-w-full items-center gap-4 overflow-x-scroll"
           >
-            {productArray.map((p, i) => (
+            {
+            productArray.length ?
+            productArray.map((p, i) => (
               <ProductCard key={p._id} product={p} />
-            ))}
+            ))
+            :
+            <ProductCardSkeleton/>
+            }
           </div>
         </section>
 
