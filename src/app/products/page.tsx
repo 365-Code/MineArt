@@ -7,7 +7,7 @@ const Page = () => {
 
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [allProducts, setAllProducts] = useState(Array)
+  const [allProducts, setAllProducts] = useState(Array<any>)
   const [products, setProducts] = useState(Array<any>);
   const pL = allProducts.length
   const pages = pL/9 > 1 ? Math.round(pL/9) + ( pL%9 ? 1 : 0) : 1;
@@ -28,11 +28,17 @@ const Page = () => {
 
   useEffect(()=>{
     fetchAllProducts()
-  }, [allProducts])
+  }, [])
+
+  
+  const handleSort = ()=>{
+    const pr = allProducts.reverse()
+    setAllProducts(pr)
+  }
 
   useEffect(()=>{
     setProducts(()=> (allProducts.slice( (currentPage-1)*9, currentPage*9)) )
-  }, [currentPage, setCurrentPage])
+  }, [allProducts, currentPage, setCurrentPage])
 
   return (
     <main className='container1'>
@@ -42,19 +48,19 @@ const Page = () => {
         
         <div className='flex justify-end font-semibold items-center gap-4'>
           <p className='flex gap-2 items-center'>Filter <i className="fi fi-ss-filter" /> </p>
-          <p className='flex gap-2 items-center'>Sort <i className="fi fi-ss-sort" /></p>
+          <p className='flex gap-2 items-center cursor-pointer' onClick={handleSort} >Sort <i className="fi fi-ss-sort" /></p>
         </div>
 
-        <div className='md:flex justify-between py-4'>
-          <div className='md:block hidden flex-1 space-y-2'>
+        <div className='flex py-4'>
+          <div className='md:block hidden w-[280px] space-y-2'>
             <p className='text-lg font-semibold px-2 cursor-pointer underline'>All</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>TableWare</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>Bowls</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>Vases</p>
           </div>
           
-          <div>
-            <div className='gap-6 grid grid-cols-1 sm:justify-start justify-items-center sm:grid-cols-2 md:grid-cols-3'>
+          <div className='w-full'>
+            <div className='grid justify-items-center justify-between grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4'>
               {
                 products.map((p, i)=> <ProductCard key={p._id} product={p} />)
               }

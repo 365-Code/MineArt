@@ -3,9 +3,10 @@ import { Fira_Code, Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ReactProvider from '@/redux/provider'
 
-const inter = Inter({ subsets: ['latin'] })
-const firaCode = Fira_Code({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+// const firaCode = Fira_Code({ subsets: ['latin'] })
 const poppins = Poppins({ subsets: ['latin'], weight: ["300"]} )
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       {/* <body className={inter.className}>{children}</body> */}
       <body className={poppins.className}>
+        <ReactProvider>
         <Header/>
         <hr />
         <main id='main' key={"main"} className='flex-1 pt-[6rem]'>
@@ -29,6 +31,7 @@ export default function RootLayout({
         </main>
         <hr />
         <Footer/>
+        </ReactProvider>
       </body>
     </html>
   )

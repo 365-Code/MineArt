@@ -10,7 +10,7 @@ export async function GET(req: NextRequest){
         const material = searchParams.get('material') || ""
         const filter = searchParams.get('filter') || ""
         
-        let product
+        let product;
         if(pId){
             product = await productModel.findById(pId).select('category')
         }

@@ -6,9 +6,19 @@ import Product from "./Product";
 import Rating from "./Rating";
 import Image from "next/image";
 import ProductCardSkeleton from "./ProductCardSkeleton";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { addToCart } from "@/redux/features/cartSlice";
 
 const ProductCard = ({ product }: { product: any }) => {
   const [showModal, setShowModal] = useState(false)
+  // console.log(product)
+
+  const dispatch = useDispatch<AppDispatch>();
+  const handleAdd = ()=>{
+    dispatch(addToCart(product))
+  }
+
   return (
     <div>
       {
@@ -26,7 +36,7 @@ const ProductCard = ({ product }: { product: any }) => {
           </Link>
 
           <div className="h-0 absolute left-4 top-4 space-y-2 max-h-fit group-hover/product:h-[300px] duration-300 transition-all overflow-hidden">
-              <i className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
+              <i onClick={handleAdd} className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
 
             <i onClick={()=>(setShowModal(true))} className="fi fi-rr-eye cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
             <i className="fi fi-rs-heart cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />

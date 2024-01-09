@@ -84,6 +84,7 @@ export const productArray = [
   {
     _id: "pId1",
     title: "This is a Product 1",
+    minQty: 4,
     material: materialArray[1],
     thumbnail: imgs.img9[0],
     images: imgs.img9,
@@ -97,6 +98,7 @@ export const productArray = [
   {
     _id: "pId2",
     title: "This is a Product 2",
+    minQty: 1,
     material: materialArray[2],
     thumbnail: imgs.img0[0],
     images: imgs.img0,
@@ -110,6 +112,7 @@ export const productArray = [
   {
     _id: "pId3",
     title: "This is a Product 3",
+    minQty: 1,
     material: materialArray[3],
     thumbnail: imgs.img1[0],
     images: imgs.img1,
@@ -123,6 +126,7 @@ export const productArray = [
   {
     _id: "pId4",
     title: "This is a Product 4",
+    minQty: 1,
     material: materialArray[4],
     thumbnail: imgs.img2[0],
     images: imgs.img2,
@@ -136,6 +140,7 @@ export const productArray = [
   {
     _id: "pId5",
     title: "This is a Product 5",
+    minQty: 1,
     material: materialArray[5],
     thumbnail: imgs.img3[0],
     images: imgs.img3,
@@ -149,6 +154,7 @@ export const productArray = [
   {
     _id: "pId6",
     title: "This is a Product 6",
+    minQty: 1,
     material: materialArray[6],
     thumbnail: imgs.img4[0],
     images: imgs.img4,
@@ -162,6 +168,7 @@ export const productArray = [
   {
     _id: "pId7",
     title: "This is a Product 7",
+    minQty: 1,
     material: materialArray[7],
     thumbnail: imgs.img5[0],
     images: imgs.img5,
@@ -175,6 +182,7 @@ export const productArray = [
   {
     _id: "pId8",
     title: "This is a Product 8",
+    minQty: 1,
     material: materialArray[8],
     thumbnail: imgs.img6[0],
     images: imgs.img6,
@@ -188,6 +196,7 @@ export const productArray = [
   {
     _id: "pId9",
     title: "This is a Product 9",
+    minQty: 1,
     material: materialArray[9],
     thumbnail: imgs.img7[0],
     images: imgs.img7,
@@ -201,6 +210,7 @@ export const productArray = [
   {
     _id: "pId10",
     title: "This is a Product 10",
+    minQty: 1,
     material: materialArray[1],
     thumbnail: imgs.img8[0],
     images: imgs.img8,
@@ -230,5 +240,5 @@ export const cartArray = [
 ]
 
 export const footerArray = [
-  "Bows", "Vases", "Ashtrays", "Statues", "Decors"
+  "Bows", "Vases", "Ashtrays", "Statues", "Decors", "bathroom-accessories"
 ]

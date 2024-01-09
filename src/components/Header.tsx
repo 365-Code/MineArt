@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
 import { cartArray } from "@/utils";
+import { useAppSelector } from "@/redux/store";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -18,6 +19,8 @@ const Header = () => {
     console.log("Searching");
     setShowSearch(false);
   };
+
+  const cart = useAppSelector((state) => state.cartReducer.value)
 
   useEffect(() => {
     const main = document.getElementById("main");
@@ -110,7 +113,7 @@ const Header = () => {
           <span className="flex items-center gap-1">
             <i onClick={toggleCart} className="fi fi-rs-shopping-cart icons" />
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-white">
-              {0 || cartArray.length}
+              {0 || cart.items.length}
             </span>
           </span>
           <div

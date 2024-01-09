@@ -84,7 +84,7 @@ margin: 0;
 /* utilities */
 
 .container1 {
-  @apply min-[900px]:px-[6rem] py-6 sm:px-[3rem] px-2;
+  @apply min-[900px]:px-[5rem] py-6 sm:px-[3rem] px-2;
 }
 
 .container2 {
