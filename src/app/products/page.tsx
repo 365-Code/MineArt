@@ -44,21 +44,24 @@ const Page = () => {
           <p className='flex gap-2 items-center'>Filter <i className="fi fi-ss-filter" /> </p>
           <p className='flex gap-2 items-center'>Sort <i className="fi fi-ss-sort" /></p>
         </div>
-        <div className='flex justify-between py-4'>
-          <div className='flex-1 space-y-2'>
+
+        <div className='md:flex justify-between py-4'>
+          <div className='md:block hidden flex-1 space-y-2'>
             <p className='text-lg font-semibold px-2 cursor-pointer underline'>All</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>TableWare</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>Bowls</p>
             <p className='text-lg font-semibold px-2 cursor-pointer'>Vases</p>
           </div>
+          
           <div>
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='gap-6 grid grid-cols-1 sm:justify-start justify-items-center sm:grid-cols-2 md:grid-cols-3'>
               {
                 products.map((p, i)=> <ProductCard key={p._id} product={p} />)
               }
             </div>
             <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
           </div>
+
         </div>
       </div>
     </main>

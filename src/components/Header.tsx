@@ -41,7 +41,7 @@ const Header = () => {
     <header
       id="header"
       key={"working"}
-      className="container1 fixed left-0 top-0 z-10 w-full space-y-4 bg-white/30 text-center drop-shadow-xl transition-all backdrop:blur-sm"
+      className="container1 fixed left-0 z-10 top-0 w-full space-y-4 bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
     >
       <div className="container3 flex items-center justify-between">
         <Link href={"/"} className="w-fit text-2xl font-bold">
@@ -87,10 +87,10 @@ const Header = () => {
             onClick={toggleSearch}
             className="fi fi-rs-search icons hover:rotate-12"
           />
-          {/* <Link href={'/auth/login'} className="flex gap-2 items-center cursor-pointer px-3 py-2 border border-black rounded-full hover:text-white hover:bg-slate-900"> */}
+
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
-            <div className=" group-hover/pMenu:p-4 group-hover/pMenu:h-[120px] h-0 bg-[#f5f5f5] rounded-lg space-y-2 absolute right-0 top-[30px] w-[300px] overflow-hidden shadow-sm shadow-black/30 transition-all">
+            <div className="group-hover/pMenu:p-4 group-hover/pMenu:h-[120px] group-hover/pMenu:w-[200px] h-0 w-0 bg-[#f5f5f5] rounded-lg space-y-2 absolute right-0 top-[30px] overflow-hidden shadow-sm shadow-black/30 transition-all">
               <Link href={'/auth/login'} className="hover:text-pink-500 flex items-center gap-2">
                 <i className="fi fi-rr-sign-in-alt icons" />
                 <span>login</span>
@@ -107,9 +107,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* <span>log in</span> */}
-          {/* </Link> */}
-          {/* <Link href={"/cart"}> */}
           <span className="flex items-center gap-1">
             <i onClick={toggleCart} className="fi fi-rs-shopping-cart icons" />
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-white">

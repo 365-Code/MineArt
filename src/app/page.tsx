@@ -16,7 +16,6 @@ export default function Home() {
 
   const images = [imgArray[0], imgArray[1], imgArray[2]];
 
-
   return (
     <main className="container1">
       <div className="container2 space-y-[5rem]">
@@ -36,12 +35,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex h-full flex-1 flex-col sm:flex-row md:flex-col items-center justify-center gap-8">
+          <div className="flex h-full flex-1 flex-col items-center justify-center gap-8 sm:flex-row md:flex-col">
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
               <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+              width={400}
+              height={400}
                 src={imgArray[1]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -62,9 +60,8 @@ export default function Home() {
             </div>
             <div className="img-hover-effect relative flex h-[350px] w-full flex-col justify-center overflow-hidden p-8 md:w-[350px]">
               <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                 src={imgArray[2]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -87,7 +84,7 @@ export default function Home() {
         </section>
 
         {/* Section 2 */}
-        <section className="flex flex-col items-center justify-between gap-2 sm:flex-row">
+        <section className="flex flex-col items-center justify-center gap-8 sm:flex-row">
           <div className="flex items-center gap-4">
             <i className="fi fi-rs-rocket-lunch text-2xl" />
             <div>
@@ -140,25 +137,23 @@ export default function Home() {
             id="featured"
             className="no-scrollbar flex max-w-full items-center gap-4 overflow-x-scroll"
           >
-            {
-            productArray.length ?
-            productArray.map((p, i) => (
-              <ProductCard key={p._id} product={p} />
-            ))
-            :
-            <ProductCardSkeleton/>
-            }
+            {productArray.length ? (
+              productArray.map((p, i) => (
+                <ProductCard key={p._id} product={p} />
+              ))
+            ) : (
+              <ProductCardSkeleton />
+            )}
           </div>
         </section>
 
         {/* Section 4 */}
         <section className="flex w-full flex-col justify-between gap-2 overflow-hidden border border-black md:h-[80vh] md:flex-row">
-          <div className="flex md:w-1/2 flex-col gap-2 ">
+          <div className="flex flex-col gap-2 md:w-1/2 ">
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
               <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -181,9 +176,8 @@ export default function Home() {
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -205,9 +199,8 @@ export default function Home() {
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -229,13 +222,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex md:w-1/2 flex-col gap-2 ">
+          <div className="flex flex-col gap-2 md:w-1/2 ">
             <div className="flex flex-col gap-2 overflow-hidden sm:flex-row md:h-[250px]">
               <div className="relative flex h-[250px] max-h-full w-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                   src={imgArray[7]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -257,9 +249,8 @@ export default function Home() {
 
               <div className="relative flex h-[250px] max-h-full flex-col justify-center overflow-hidden p-8 sm:w-[350px]">
                 <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                   src={imgArray[8]}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
@@ -282,9 +273,8 @@ export default function Home() {
 
             <div className="relative flex min-h-[250px] flex-1 flex-col justify-center overflow-hidden p-8">
               <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
                 src={imgArray[6]}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"

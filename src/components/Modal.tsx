@@ -18,7 +18,7 @@ const Modal = ({
   return (
     <>
       {
-    //   showModal &&
+      showModal &&
         <div
           className={`${showModal? "h-screen container1" : "h-0 bg-white"} w-screen overflow-hidden fixed left-0 top-0 z-[20] flex flex-col justify-center bg-black/30 transition-all backdrop:blur-sm`}
         >

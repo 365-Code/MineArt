@@ -10,9 +10,8 @@ const Carousal = ({ images }: { images: Array<string> }) => {
       {images.map((image, i) => (
         <div key={i} className={`-z-[2] h-full overflow-hidden max-w-full transition-all ${selected == i ? "w-screen opacity-100": "w-0 opacity-0" }`}>
           <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+            width={400}
+            height={400}
             src={image}
             alt=""
             className={`-z-[2] h-full w-full object-cover object-center transition-all `}
@@ -20,7 +19,7 @@ const Carousal = ({ images }: { images: Array<string> }) => {
         </div>
       ))}
       <i
-        onClick={() => setSelected(selected - 1 || 0 )}
+        onClick={() => setSelected( (selected - 1) != -1 ? (selected - 1) :  images.length-1 )}
         className="fi fi-rs-angle-left icons absolute left-4 top-1/2 -translate-y-1/2 hover:text-pink-500"
       />
       <i

@@ -12,9 +12,8 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
         className="h-[102px] w-[102px] overflow-hidden rounded-lg"
       >
         <Image
-          width="0"
-          height="0"
-          sizes="100vw"
+                width={400}
+                height={400}
           src={cartItem.img}
           alt=""
           className="h-full w-full object-cover object-center"
