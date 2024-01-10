@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 
 
 
-export const connectDB = async ()=>{
+const connectDB = async ()=>{
     try {
         const uri = (process.env.NEXT_PUBLIC_MONGO_URL || "")
         await mongoose.connect(uri)
@@ -11,3 +11,5 @@ export const connectDB = async ()=>{
         return error.msg
     }
 }
+
+export default connectDB

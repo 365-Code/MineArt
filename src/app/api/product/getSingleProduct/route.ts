@@ -1,8 +1,8 @@
-import { connectDB } from "@/lib/db";
+import connectDB from "@/lib/db";
 import productModel from "@/models/productModel";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest){
+export async function GET(req: Request){
     try{
         connectDB()
         const {searchParams} = new URL(req.url)

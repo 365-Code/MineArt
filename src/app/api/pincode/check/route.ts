@@ -1,4 +1,4 @@
-import { connectDB } from "@/lib/db";
+import connectDB from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
 const pincodes = [
