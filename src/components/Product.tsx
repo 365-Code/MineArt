@@ -1,4 +1,6 @@
 "use client";
+import { imgArray, productArray } from "@/utils";
+import { log } from "console";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -48,8 +50,7 @@ const Product = ({ item }: { item?: any }) => {
         setImgPreview({id:0, img: res.product.thumbnail})
       }
     }catch(error){
-      console.log("Error in PID: ",error)
-      return error
+      console.log(error)
     }
   }
 
