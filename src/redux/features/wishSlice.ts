@@ -1,4 +1,3 @@
-import { subTotal } from "@/utils"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type ProductType = {

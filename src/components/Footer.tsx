@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="container1">
       <div className="container3 text-center space-y-6 font-semibold ">
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           {footerArray.map((f, i) => (
             <Link key={i} href={`${"/collections/" + f}`} className="hover:text-pink-500">{f}</Link>
           ))}

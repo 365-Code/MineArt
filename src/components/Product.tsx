@@ -50,7 +50,7 @@ const Product = ({ item }: { item?: any }) => {
         setImgPreview({id:0, img: res.product.thumbnail})
       }
     }catch(error){
-      console.log(error)
+      console.log("Error in PID: ",error)
     }
   }
 

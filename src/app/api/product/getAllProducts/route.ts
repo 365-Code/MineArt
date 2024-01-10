@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(){
     try{
-        await connectDB()
+        connectDB()
         const products = await productModel.find({})
         return NextResponse.json({products ,success: true, msg: "All Fetced"})
     }catch(error: any){

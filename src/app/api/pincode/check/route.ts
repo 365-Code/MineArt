@@ -11,7 +11,7 @@ const pincodes = [
 
 export async function GET(req: NextRequest) {
     try{
-        await connectDB()
+        connectDB()
         const {searchParams} = new URL(req.url);
         const pin = searchParams.get('pin');
         let msg = "none"

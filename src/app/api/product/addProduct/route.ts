@@ -5,7 +5,7 @@ import slugify from "slugify";
 
 export async function POST(request: NextRequest) {
     try{
-        await connectDB()
+        connectDB()
         const body = await request.json();
         const images = [body.thumbnail, ...body.images]
         const product = {...body, images, slug: slugify(body.title.toLowerCase(), "-")}

@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(request: NextRequest) {
     try{
-        await connectDB()
+        connectDB()
         const {searchParams} = new URL(request.url)
         const pId = searchParams.get('pId')
         await productModel.findByIdAndDelete(pId)

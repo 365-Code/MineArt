@@ -5,7 +5,7 @@ import slugify from "slugify";
 
 export async function PUT(request: NextRequest) {
     try{
-        await connectDB()
+        connectDB()
         const body = await request.json()
         const {searchParams} = new URL(request.url)
         const pId = searchParams.get('pId')
