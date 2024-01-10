@@ -27,8 +27,9 @@ const Page = () => {
     <main className="container1">
         {products.length ? 
         <>
-        <h2 className="text-3xl font-semibold py-4">{cId}</h2>
-      <div className="flex flex-wrap justify-between text-center">
+        <h2 className="text-3xl font-semibold py-4 capitalize">{cId}</h2>
+      {/* <div className="flex flex-wrap justify-between text-center"> */}
+      <div className="display-cards border">
         {
             (
                 products.map((p, i) => <ProductCard key={p._id} product={p} />)
