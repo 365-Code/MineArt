@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useParams } from "next/navigation";
 
-const SuggestedProducts = () => {
-  const { pId } = useParams();
+const SuggestedProducts = ({pId}: {pId?: any}) => {
+  // const { pId } = useParams();
   const [products, setProducts] = useState(Array<any>);
 
-  const fetchProducts = async ()=>{
+  const relatedProducts = async ()=>{
     try{
       const result = await fetch(`/api/product/searchProducts?pId=${pId}`)
       const res = await result.json()
@@ -21,7 +21,7 @@ const SuggestedProducts = () => {
   }
 
   useEffect(()=>{
-    pId && fetchProducts()
+    pId && relatedProducts()
   }, [pId])
 
 
