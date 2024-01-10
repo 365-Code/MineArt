@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest){
     try{
-        connectDB()
+        await connectDB()
         const {searchParams} = new URL(req.url)
         const pId = searchParams.get('pId') || ""
         const material = searchParams.get('material') || ""

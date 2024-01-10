@@ -73,7 +73,7 @@ const Header = () => {
             href="/collections"
             className={`nav-link ${
               pathname.startsWith("/collections") && "nav-link-selected"
-            } relative transition-all border`}
+            } relative transition-all`}
           >
             collections
           </Link>
