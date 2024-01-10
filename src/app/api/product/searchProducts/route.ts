@@ -2,23 +2,20 @@ import connectDB from "@/lib/db";
 import productModel from "@/models/productModel";
 import { NextRequest, NextResponse } from "next/server";
 
-export const revalidate = 1
-
 export async function GET(req: NextRequest){
-    try{
+    try {
         await connectDB()
-        const {searchParams} = new URL(req.nextUrl)
+        const {searchParams} = new URL(req.url)
         const pId = searchParams.get('pId') || ""
+        const search = searchParams.get('search') || ""
         const material = searchParams.get('material') || ""
         const filter = searchParams.get('filter') || ""
         
         let product;
         if(pId){
-            product = await productModel.findById(pId).select('category')
+            product = await productModel.findById(pId).select("category")
         }
-        
-        const search = searchParams.get('search') || ""
-        const category = searchParams.get('category') || ""
+        const category = searchParams.get('category') || product.category || ""
 
         const products = await productModel.find({
             $and:[
@@ -37,8 +34,11 @@ export async function GET(req: NextRequest){
             ]
         })
 
-        return NextResponse.json({total: products.length, products ,success: true, msg: "All Fetched"})
-    }catch(error: any){
-        return NextResponse.json({success: false, msg: error.message})
+
+
+        return NextResponse.json({success: true, products}, {status: 200})
+        
+    } catch (err: any) {
+        return NextResponse.json({success: false, msg: err.message}, {status: 500})
     }
 }

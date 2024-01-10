@@ -14,6 +14,6 @@ export async function PUT(request: NextRequest) {
         return NextResponse.json({product: pro, success: true, msg: "Product Deleted Successfully"}, {status: 200})
     } catch (err: any){
         console.log(err)
-        return NextResponse.json({success: false, msg: err.msg}, {status: 500})
+        return NextResponse.json({success: false, msg: err.message}, {status: 500})
     }
 }

@@ -10,6 +10,6 @@ export async function GET(req: NextRequest) {
         const product = await productModel.findById(pId)
         return NextResponse.json({success: true, product}, {status: 200})
     }catch(err: any){
-        return NextResponse.json({msg: err.msg, success: false},{status: 500})
+        return NextResponse.json({msg: err.message, success: false},{status: 500})
     }
 }

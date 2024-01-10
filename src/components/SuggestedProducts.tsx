@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useParams } from "next/navigation";
 
-const SuggestedProducts = ({pId}: {pId?: any}) => {
-  // const { pId } = useParams();
+const SuggestedProducts = () => {
+  const { pId } = useParams();
   const [products, setProducts] = useState(Array<any>);
 
   const relatedProducts = async ()=>{
@@ -14,6 +14,7 @@ const SuggestedProducts = ({pId}: {pId?: any}) => {
       const res = await result.json()
       if(res.success){
         setProducts(res.products)
+        console.log(res.products)
       }
     }catch(error){
       console.log(error)

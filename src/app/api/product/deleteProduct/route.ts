@@ -10,6 +10,6 @@ export async function DELETE(request: NextRequest) {
         await productModel.findByIdAndDelete(pId)
         return NextResponse.json({success: true, msg: "Product Deleted Successfully"}, {status: 200})
     } catch (err: any){
-        return NextResponse.json({success: false, msg: err.msg})
+        return NextResponse.json({success: false, msg: err.message})
     }
 }

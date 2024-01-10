@@ -12,6 +12,6 @@ export async function POST(request: NextRequest) {
         const pro = await productModel.create(product)
         return NextResponse.json({pro, success: true, msg: "Product Added Successfully"}, {status: 200})
     } catch (err: any){
-        return NextResponse.json({success: false, msg: err.msg})
+        return NextResponse.json({success: false, msg: err.message})
     }
 }
