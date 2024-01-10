@@ -1,8 +1,8 @@
-import { subTotal } from "@/utils"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type ProductType = {
     _id: string,
+    thumbnail: string,
     title: string,
     description: string,
     price: number,
@@ -12,7 +12,6 @@ type ProductType = {
 }
 
 const initialState = {
-    // value: [...Array(), Array<ProductType>]
     value: {
         items: [] as Array<ProductType>,
         subtotal: 0
@@ -26,11 +25,11 @@ const cart = createSlice({
         addToCart: (state, action: PayloadAction<ProductType>)=>{
             const index = state.value.items.findIndex((p: ProductType) => p._id == action.payload._id)
             if(index != -1){
-                state.value.items[index].qty += 1
-                state.value.subtotal += action.payload.price
+                state.value.items[index].qty += action.payload.qty || 1
+                state.value.subtotal += action.payload.price * action.payload.qty
             } else{
-                state.value.items.push({...action.payload, qty: action.payload.minQty})
-                state.value.subtotal += action.payload.price * action.payload.minQty
+                state.value.items.push({...action.payload, qty: action.payload.qty})
+                state.value.subtotal += action.payload.price * action.payload.qty
             }
             // subTotal()
         },

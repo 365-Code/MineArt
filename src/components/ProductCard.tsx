@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: any }) => {
 
   const dispatch = useDispatch<AppDispatch>();
   const handleAdd = ()=>{
-    dispatch(addToCart(product))
+    dispatch(addToCart({...product, qty: product.minQty}))
   }
 
   return (

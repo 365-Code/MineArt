@@ -1,19 +1,20 @@
 "use client";
-import { imgArray, productArray } from "@/utils";
-import { log } from "console";
+import { addToCart, productQuantity } from "@/redux/features/cartSlice";
+import { AppDispatch } from "@/redux/store";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const Product = ({ item }: { item?: any }) => {
   const { pId } = useParams();
 
   const [product, setProduct] = useState({
-    id: "",
+    _id: "",
     title: "",
     material: "",
-    img: "",
+    thumbnail: "",
     images: [],
     rating: 0,
     description: "",
@@ -21,6 +22,7 @@ const Product = ({ item }: { item?: any }) => {
     width: 0,
     height: 0,
     length: 0,
+    minQty: 1
   });
 
   const [imgPreview, setImgPreview] = useState({
@@ -28,7 +30,25 @@ const Product = ({ item }: { item?: any }) => {
     img: "https://img.freepik.com/free-vector/images-concept-illustration_114360-298.jpg?size=626&ext=jpg&ga=GA1.1.1494205593.1703951523&semt=ais",
   });
 
-  const [qty, setQty] = useState(1);
+  
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleAddToCart = ()=>{
+    const itm = {
+    _id: product._id,
+    thumbnail: product.thumbnail,
+    title: product.title,
+    description: product.description,
+    price: product.price,
+    qty: qty,
+    minQty: product.minQty,
+    material: product.material
+    }
+    console.log(itm)
+    dispatch(addToCart(itm))
+  }
+
+  const [qty, setQty] = useState(product.minQty || 1);
 
   const [unit, setUnit] = useState("inches");
 
@@ -69,10 +89,12 @@ const Product = ({ item }: { item?: any }) => {
   }, [pId, item]);
 
   const handleQty = (q: number) => {
-    if (qty + q >= 1 && qty + q <= 20) {
-      setQty(qty + q);
+    if (qty + q >= 1 && qty + q <= 150) {
+      setQty((preQ: number) =>  preQ + q);
     }
   };
+
+
 
   const handlePreview = (img: any) => {
     setImgPreview(img);
@@ -203,7 +225,7 @@ const Product = ({ item }: { item?: any }) => {
 
           <div className="w-full space-y-4">
             <div className="flex flex-col gap-2 sm:flex-row">
-              <button className="w-full min-w-fit flex-1 border border-slate-900 p-2 transition-all hover:bg-slate-900 hover:text-white">
+              <button onClick={handleAddToCart} className="w-full min-w-fit flex-1 border border-slate-900 p-2 transition-all hover:bg-slate-900 hover:text-white">
                 Add to Cart
               </button>
               <button className="w-full basis-1/2 border border-slate-900 bg-slate-900 p-2 text-white hover:bg-slate-950">

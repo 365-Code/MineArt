@@ -18,7 +18,7 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
   }
 
   const handleQty = (qty: any)=>{
-    dispatch(productQuantity({qty, _id: cartItem._id}))
+    dispatch(productQuantity({qty: qty, _id: cartItem._id}))
   }
 
 

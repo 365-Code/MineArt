@@ -4,7 +4,7 @@ const Quantity = ({ Qty, minQty, handleChangeQty }: { Qty?: number; minQty?: num
   const [qty, setQty] = useState(Qty || 1);
 
   const handleQty = (q: number) => {
-    if (qty + q >= (minQty || 1) && qty + q <= 20) {
+    if (qty + q >= (minQty || 1) && qty + q <= 150) {
       setQty(qty + q);
       handleChangeQty(qty+q)
     }
