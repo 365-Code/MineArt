@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest){
     try{
         await connectDB()
-        const {searchParams} = new URL(req.url)
+        const {searchParams} = new URL(req.nextUrl)
         const pId = searchParams.get('pId')
         const product = await productModel.findById(pId)
         return NextResponse.json({product ,success: true, msg: "All Fetced"})

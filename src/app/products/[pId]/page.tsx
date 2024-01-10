@@ -1,3 +1,4 @@
+"use client"
 import Product from "@/components/Product";
 import Suggested from "@/components/SuggestedProducts";
 import React from "react";

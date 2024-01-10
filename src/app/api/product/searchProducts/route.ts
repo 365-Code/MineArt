@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest){
     try{
         await connectDB()
-        const {searchParams} = new URL(req.url)
+        const {searchParams} = new URL(req.nextUrl)
         const pId = searchParams.get('pId') || ""
         const material = searchParams.get('material') || ""
         const filter = searchParams.get('filter') || ""
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest){
         }
         
         const search = searchParams.get('search') || ""
-        const category = searchParams.get('category') || product.category || ""
+        const category = searchParams.get('category') || ""
 
         const products = await productModel.find({
             $and:[
