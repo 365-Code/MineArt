@@ -7,21 +7,21 @@ const Page = () => {
   const { cId } = useParams();
   const [products, setProducts] = useState(Array<any>);
 
-  const searchProduct = async () => {
-    try {
-      const result = await fetch(`/api/product/searchProducts?category=${cId}`);
-      const res = await result.json();
-      if (res.success) {
-        setProducts(res.products);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const searchProduct = async () => {
+  //   try {
+  //     const result = await fetch(`/api/product/searchProducts?category=${cId}`);
+  //     const res = await result.json();
+  //     if (res.success) {
+  //       setProducts(res.products);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    cId && searchProduct();
-  }, []);
+  // useEffect(() => {
+  //   cId && searchProduct();
+  // }, []);
 
   return (
     <main className="container1">
