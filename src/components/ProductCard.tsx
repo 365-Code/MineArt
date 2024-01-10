@@ -20,11 +20,9 @@ const ProductCard = ({ product }: { product: any }) => {
   }
 
   return (
-    <div>
-      {
-        product ?
-      <div className="group/product h-auto w-[320px] space-y-2 overflow-hidden">
-        <div className="relative h-[300px]">
+    <>
+      <div className=" group/product h-auto w-fit min-w-[280px] max-w-[350px] space-y-2">
+        <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
                 width={400}
@@ -51,12 +49,10 @@ const ProductCard = ({ product }: { product: any }) => {
           <p className="text-base ">Rs.{product.price}</p>
         </div>
       </div>
-      :
-      <ProductCardSkeleton />
-      }
 
-        <Modal compo={<Product item={product} />} showModal={showModal} setShowModal={setShowModal} />
-    </div>
+      <Modal compo={<Product item={product} />} showModal={showModal} setShowModal={setShowModal} />
+    </>
+
   );
 };
 

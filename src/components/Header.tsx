@@ -3,13 +3,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
-import { cartArray } from "@/utils";
 import { useAppSelector } from "@/redux/store";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
 
   const pathname = usePathname();
   pathname.includes("/products");
@@ -20,7 +19,7 @@ const Header = () => {
     setShowSearch(false);
   };
 
-  const cart = useAppSelector((state) => state.cartReducer.value)
+  const cart = useAppSelector((state) => state.cartReducer.value);
 
   useEffect(() => {
     const main = document.getElementById("main");
@@ -28,9 +27,10 @@ const Header = () => {
       main.onclick = () => {
         setShowSearch(false);
         setShowCart(false);
+        setShowMenu(false);
       };
     }
-  }, [showSearch, setShowSearch]);
+  }, [showSearch, showCart, showMenu]);
 
   const toggleSearch = () => {
     showSearch ? setShowSearch(false) : setShowSearch(true);
@@ -40,22 +40,40 @@ const Header = () => {
     showCart ? setShowCart(false) : setShowCart(true);
   };
 
+  const toggleMenu = () => {
+    showMenu ? setShowMenu(false) : setShowMenu(true);
+  };
+
   return (
     <header
       id="header"
-      key={"working"}
-      className="container1 fixed left-0 z-10 top-0 w-full space-y-4 bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
+      className="container1 fixed left-0 top-0 z-10 w-full space-y-4 bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
     >
       <div className="container3 flex items-center justify-between">
-        <Link href={"/"} className="w-fit text-2xl font-bold">
-          MineArt
-        </Link>
-        <nav className="invisible absolute flex flex-col items-center gap-8 text-lg font-semibold md:visible md:relative md:flex-row">
+        <div className="flex w-fit gap-4 items-center">
+          <button onClick={toggleMenu} className="md:hidden relative">
+            <i className="fi fi-sr-bars-staggered icons" />
+          </button>
+          <Link href={"/"} className="w-fit text-2xl font-bold ">
+            MineArt
+          </Link>
+        </div>
+
+        <nav
+          className={`${
+            showMenu
+              ? "visible w-[300px] translate-x-0 bg-[#f5f5f5]"
+              : "invisible -translate-x-full "
+          } container1 absolute left-0 top-0 md:translate-x-0 flex h-screen flex-col items-center gap-6 text-lg font-semibold transition-all md:visible md:relative md:h-auto md:flex-row md:gap-8 md:border-none md:p-0`}
+        >
+          <button onClick={toggleMenu} className={`text-sm md:hidden`}>
+            <i className="fi fi-sr-cross" />
+          </button>
           <Link
             href="/collections"
             className={`nav-link ${
               pathname.startsWith("/collections") && "nav-link-selected"
-            } relative transition-all`}
+            } relative transition-all border`}
           >
             collections
           </Link>
@@ -93,17 +111,26 @@ const Header = () => {
 
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
-            <div className="group-hover/pMenu:p-4 group-hover/pMenu:h-[120px] group-hover/pMenu:w-[200px] h-0 w-0 bg-[#f5f5f5] rounded-lg space-y-2 absolute right-0 top-[30px] overflow-hidden shadow-sm shadow-black/30 transition-all">
-              <Link href={'/auth/login'} className="hover:text-pink-500 flex items-center gap-2">
+            <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-[120px] group-hover/pMenu:w-[200px] group-hover/pMenu:p-4">
+              <Link
+                href={"/auth/login"}
+                className="flex items-center gap-2 hover:text-pink-500"
+              >
                 <i className="fi fi-rr-sign-in-alt icons" />
                 <span>login</span>
               </Link>
               <hr />
-              <Link href={'/user/profile'} className="hover:text-pink-500 flex items-center gap-2">
+              <Link
+                href={"/user/profile"}
+                className="flex items-center gap-2 hover:text-pink-500"
+              >
                 <i className="fi fi-ss-user-pen" />
                 <span>Profile</span>
               </Link>
-              <Link href={'/wishlist'} className="hover:text-pink-500 flex items-center gap-2">
+              <Link
+                href={"/wishlist"}
+                className="flex items-center gap-2 hover:text-pink-500"
+              >
                 <i className="fi fi-ss-heart" />
                 <span>wishlist</span>
               </Link>

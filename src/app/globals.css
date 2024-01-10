@@ -84,16 +84,16 @@ margin: 0;
 /* utilities */
 
 .container1 {
-  @apply min-[900px]:px-[5rem] py-6 sm:px-[3rem] px-2;
+  @apply min-[900px]:px-[5rem] py-6 sm:px-[3rem] px-4;
 }
 
-.container2 {
+/* .container2 {
   @apply sm:px-[1rem];
-}
+} */
 
-.container3 {
+/* .container3 {
   @apply sm:px-[1rem];
-}
+} */
 
 .no-scrollbar::-webkit-scrollbar{
   width: 0;
@@ -122,4 +122,11 @@ margin: 0;
 .img-hover-effect::before{
   content: '';
   @apply -z-[1] w-full h-full absolute top-0 left-0 bg-white/30 backdrop:blur-sm -translate-x-full -translate-y-full transition-all duration-300;
+}
+
+.display-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  @apply justify-items-center;
 }
