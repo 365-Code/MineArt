@@ -1,11 +1,9 @@
-import { cartArray, subTotal } from "@/utils";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SideCartItem from "./SideCartItem";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import { useAppSelector } from "@/redux/store";
 
-const SideCart = () => {
+const SideCart = ({setShowCart}: {setShowCart: any}) => {
 
   const cart = useAppSelector((state) => state.cartReducer.value)
 
@@ -26,7 +24,7 @@ const SideCart = () => {
           Subtotal: Rs.{ parseFloat((cart.subtotal).toFixed(2)) }
         </p>
         <Link href={"/cart"}>
-          <button className="w-full bg-slate-900 p-4 font-semibold text-white transition-all">
+          <button onClick={() => setShowCart(false)} className="w-full bg-slate-900 p-4 font-semibold text-white transition-all">
             Checkout
           </button>
         </Link>

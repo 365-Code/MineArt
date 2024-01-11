@@ -22,7 +22,7 @@ const wish = createSlice({
     name: "wish",
     initialState,
     reducers:{
-        addTowish: (state, action: PayloadAction<ProductType>)=>{
+        addToWish: (state, action: PayloadAction<ProductType>)=>{
             const index = state.value.items.findIndex((p: ProductType) => p._id == action.payload._id)
             if(index != -1){
                 state.value.items[index].qty += 1
@@ -33,7 +33,7 @@ const wish = createSlice({
             }
             // subTotal()
         },
-        removeFromwish: (state, action: PayloadAction<string>) => {
+        removeFromWish: (state, action: PayloadAction<string>) => {
             state.value.items = state.value.items.filter((p: ProductType) => {
                 if(p._id == action.payload){
                     state.value.subtotal -= p.price * p.qty
@@ -57,4 +57,4 @@ const wish = createSlice({
 
 const wishReducer = wish.reducer
 export default wishReducer
-export const {addTowish, removeFromwish, productQuantity} = wish.actions;
+export const {addToWish, removeFromWish, productQuantity} = wish.actions;

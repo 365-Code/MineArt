@@ -25,11 +25,9 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ReactProvider>
         <Header/>
-        <hr />
-        <main id='main' key={"main"} className='flex-1 pt-[6rem]'>
+        <main id='main' key={"main"} className='flex-1 pt-[5.2rem]'>
         {children}
         </main>
-        <hr />
         <Footer/>
         </ReactProvider>
       </body>

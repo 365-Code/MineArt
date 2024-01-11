@@ -1,11 +1,51 @@
-import React from 'react'
+"use client"
+import { imgArray } from '@/utils'
+import React, { useEffect, useState } from 'react'
 
 const Page = () => {
+
+  const [scrollBy, setScrollBy] = useState<number>(100)
+
+  const handleSlide = ()=>{
+
+    const slideShow = document.getElementById('slide-show')
+
+    if(slideShow){
+      slideShow.scroll(0, scrollBy+100)
+    }
+  } 
+
+  useEffect(()=>{
+    const slideShow = document.getElementById('slide-show')
+    if(slideShow){
+      slideShow.onscroll = () => setScrollBy(slideShow.scrollTop)
+    }
+
+  })
+
+
   return (
-    <main className='container1'>
-      <h1 className='text-3xl'>
-          All collections
-      </h1>
+    <main id='slide-show'>
+
+      <section className='slide text-3xl flex'>
+        <img className='h-full w-full object-center object-cover absolute' src={imgArray[0]} alt="" />
+      </section>
+      <section className='slide text-3xl'>
+        {/* Collection 1 */}
+        <img className='h-full w-full object-center object-cover absolute' src={imgArray[1]} alt="" />
+
+      </section>
+      <section className='slide text-3xl'>
+        Collection 3
+      </section>
+      <section className='slide text-3xl'>
+        Collection 4
+      </section>
+
+      <div className='bg-black/30 backdrop:blur-sm flex justify-center items-center fixed bottom-0 w-full p-2'>
+      <i onClick={()=>handleSlide()} className="fi fi-rr-angle-down text-3xl" />
+      </div>
+
     </main>
   )
 }

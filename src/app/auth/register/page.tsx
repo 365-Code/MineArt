@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <main className="container1">
       <div className="relative mx-auto w-[900px] flex h-[500px] items-center justify-center shadow-sm shadow-black/30 sm:flex-row max-w-[90%]">
-        <div className="flex h-full basis-1/2 flex-1 items-center justify-center p-12">
+        <div className="flex h-full basis-1/2 flex-1 items-center justify-center p-4 sm:p-8 md:p-12">
           <form action="" className="flex w-full flex-col gap-4">
           <div className="space-y-1">
               <label htmlFor="name" className="block text-sm font-semibold">
@@ -51,7 +51,7 @@ const Page = () => {
             </button>
           </form>
         </div>
-        <div className="sm:relative sm:opacity-100 absolute top-0 left-0 -z-[1] opacity-50 h-full w-full flex-shrink basis-1/2">
+        <div className="md:relative md:opacity-100 absolute top-0 left-0 -z-[1] opacity-50 h-full w-full flex-shrink basis-1/2">
           <Image
             width={400}
             height={400}
