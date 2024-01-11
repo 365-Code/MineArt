@@ -21,7 +21,7 @@ const ProductCard = ({ product }: { product: any }) => {
 
   return (
     <>
-      <div className="justify-self-start group/product h-auto w-fit min-w-[280px] max-w-[350px] space-y-2">
+      <div className="justify-self-center md:justify-self-start group/product h-auto w-fit min-w-[280px] max-w-[350px] space-y-2">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image

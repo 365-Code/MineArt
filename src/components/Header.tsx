@@ -23,7 +23,7 @@ const Header = () => {
 
   useEffect(() => {
     const main = document.getElementById("main");
-    const navBefore = document.getElementById("navBefore")
+    const navBefore = document.getElementById("navBefore");
     if (main) {
       main.onclick = () => {
         setShowSearch(false);
@@ -32,10 +32,9 @@ const Header = () => {
       };
     }
 
-    if(navBefore){
-      navBefore.onclick = ()=> setShowMenu(false)
+    if (navBefore) {
+      navBefore.onclick = () => setShowMenu(false);
     }
-
   }, [showSearch, showCart, showMenu]);
 
   const toggleSearch = () => {
@@ -53,7 +52,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="container1 space-y-2 fixed left-0 top-0 z-10 w-full bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
+      className="container1 fixed left-0 top-0 z-10 w-full space-y-2 bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
     >
       <div className="container3 flex items-center justify-between">
         <div className="flex w-fit items-center gap-4">
@@ -71,7 +70,7 @@ const Header = () => {
             showMenu
               ? "visible z-30 w-[300px] translate-x-0 border bg-[#f5f5f5]"
               : "invisible -translate-x-full "
-          } py-8 absolute left-0 top-0 flex h-screen flex-col items-center gap-6 text-lg font-semibold transition-all md:visible md:relative md:h-auto md:translate-x-0 md:flex-row md:gap-8 md:border-none md:p-0`}
+          } absolute left-0 top-0 flex h-screen flex-col items-center gap-6 py-8 text-lg font-semibold transition-all md:visible md:relative md:h-auto md:translate-x-0 md:flex-row md:gap-8 md:border-none md:p-0`}
         >
           <button onClick={toggleMenu} className={`text-sm md:hidden`}>
             <i className="fi fi-sr-cross" />
@@ -112,7 +111,10 @@ const Header = () => {
           >
             services
           </Link>
-          <div id="navBefore" className="w-screen h-screen bg-black/40 sm:hidden backdrop:blur-sm absolute top-0 left-full" />
+          <div
+            id="navBefore"
+            className="absolute left-full top-0 h-screen w-screen bg-black/40 backdrop:blur-sm sm:hidden"
+          />
         </nav>
 
         <div className="flex items-center gap-6">
@@ -123,7 +125,7 @@ const Header = () => {
 
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
-            <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-[150px] group-hover/pMenu:w-[200px] group-hover/pMenu:p-4">
+            <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-[190px] group-hover/pMenu:w-[220px] group-hover/pMenu:p-4">
               <Link
                 href={"/auth/login"}
                 className="flex items-center gap-2 hover:text-pink-500"
@@ -153,6 +155,14 @@ const Header = () => {
                 <i className="fi fi-ss-shopping-cart" />
                 <span>cart</span>
               </Link>
+              <hr />
+              <Link
+                href={"/auth/admin"}
+                className="flex items-center gap-2 hover:text-pink-500"
+              >
+                <i className="fi fi-sr-user-pen" />
+                <span>admin</span>
+              </Link>
             </div>
           </div>
 
@@ -167,26 +177,25 @@ const Header = () => {
               showCart ? "visible translate-x-0" : "invisible translate-x-full"
             } absolute right-0 top-full w-[400px] transition-all`}
           >
-            <SideCart setShowCart={setShowCart}/>
+            <SideCart setShowCart={setShowCart} />
           </div>
         </div>
       </div>
-      
+
       <div
         className={`${
           showSearch ? "h-10" : "h-0"
-        } absolute top-full left-0 w-full flex justify-center px-4 items-center overflow-hidden transition-all`}
+        } absolute left-0 top-full flex w-full items-center justify-center overflow-hidden px-4 transition-all`}
       >
-        <div className="w-[800px] h-10 flex items-center max-w-full bg-white px-4 rounded-lg overflow-hidden">
+        <div className="flex h-10 w-[800px] max-w-full items-center overflow-hidden rounded-lg bg-white px-4">
           <i className="fi fi-rs-search icons" />
           <input
             onBlur={() => setShowSearch(false)}
             type="text"
-            className=" w-full rounded-lg py-2 px-6 text-lg font-semibold transition-all"
-            />
+            className=" w-full rounded-lg px-6 py-2 text-lg font-semibold transition-all"
+          />
         </div>
       </div>
-
     </header>
   );
 };

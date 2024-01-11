@@ -1,7 +1,10 @@
 "use client";
 import Pagination from "@/components/Pagination";
 import ProductCard from "@/components/ProductCard";
+import { fetchProducts } from "@/redux/features/productSlice";
+import { AppDispatch } from "@/redux/store";
 import React, { useEffect, useState } from "react";
+import { Provider, useDispatch } from "react-redux";
 
 const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,6 +13,8 @@ const Page = () => {
   const pL = allProducts.length;
   const pages = pL / 9 > 1 ? Math.round(pL / 9) + (pL % 9 ? 1 : 0) : 1;
 
+  const dispatch = useDispatch<AppDispatch>()
+  
   const fetchAllProducts = async () => {
     try {
       const result = await fetch("/api/product/getAllProducts");
@@ -17,7 +22,9 @@ const Page = () => {
       if (res.success) {
         setAllProducts(res.products);
         setProducts(res.products);
+        dispatch(fetchProducts(res.products))
       }
+      return res.products
     } catch (error) {
       console.log(error);
     }

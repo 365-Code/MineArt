@@ -1,31 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
-
-
-
-const initialState = {
-    value: []
+export type ProductType = {
+    _id: string,
+    thumbnail: string,
+    title: string,
+    price: number,
+    images?: Array<string>,
+    material: string
+    description: string,
+    qty: number,
+    minQty: number,
+    category?: string,
 }
 
-// {
-//     _id: "",
-//     title: "",
-//     description: "",
-//     price: 0,
-//     thumbnail: "",
-//     images: Array<string>,
-//     rating: 0,
-//     category: "",
-//     keywords: "",
-//     material: ""
-// }
+const initialState = {
+    value: [] as Array<ProductType>
+}
+
+const product = createSlice({
+    name: 'products',
+    initialState,
+    reducers:{
+        fetchProducts: (state, action:PayloadAction<Array<ProductType>>)=>{
+            state.value = action.payload
+        }
+    }
+})
 
 
-// const productState = createSlice({
-//     name: "auth",
-//     initialState,
-//     reducers:{
-//         addProduct
-//     }
-// })
+const productReducer = product.reducer
+export default productReducer
+
+export const {fetchProducts} = product.actions

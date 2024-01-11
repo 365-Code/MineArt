@@ -1,15 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-
-type ProductType = {
-    _id: string,
-    thumbnail: string,
-    title: string,
-    description: string,
-    price: number,
-    qty: number,
-    minQty: number,
-    material: string
-}
+import { ProductType } from "./productSlice"
 
 const initialState = {
     value: {

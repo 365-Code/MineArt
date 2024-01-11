@@ -36,15 +36,15 @@ const Page = () => {
 
       </section>
       <section className='slide text-3xl'>
-        Collection 3
+        <img className='h-full w-full object-center object-cover absolute' src={imgArray[2]} alt="" />
       </section>
       <section className='slide text-3xl'>
-        Collection 4
+        <img className='h-full w-full object-center object-cover absolute' src={imgArray[2]} alt="" />
       </section>
 
-      <div className='bg-black/30 backdrop:blur-sm flex justify-center items-center fixed bottom-0 w-full p-2'>
+      {/* <div className='bg-black/30 backdrop:blur-sm flex justify-center items-center fixed bottom-0 w-full p-2'>
       <i onClick={()=>handleSlide()} className="fi fi-rr-angle-down text-3xl" />
-      </div>
+      </div> */}
 
     </main>
   )
