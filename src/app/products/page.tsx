@@ -103,7 +103,7 @@ const Page = () => {
               {
                 products.length
                 ? products.map((p, i) => <ProductCard key={p._id} product={p} /> )
-                : [...Array(3)].map((v, i)=><ProductCardSkeleton />)
+                : [...Array(3)].map((v, i)=><ProductCardSkeleton key={i}/>)
               }
             </div>
             <Pagination
