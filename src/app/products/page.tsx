@@ -2,18 +2,15 @@
 import Pagination from "@/components/Pagination";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
-import { fetchProducts } from "@/redux/features/productSlice";
-import { AppDispatch } from "@/redux/store";
+import { fetchProducts, sortProducts } from "@/redux/features/productSlice";
+import { AppDispatch, useAppSelector } from "@/redux/store";
 import React, { useEffect, useState } from "react";
 import { Provider, useDispatch } from "react-redux";
 
 const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [allProducts, setAllProducts] = useState(Array<any>);
   const [products, setProducts] = useState(Array<any>);
-  const pL = allProducts.length;
-  const pages = pL / 9 > 1 ? Math.round(pL / 9) + (pL % 9 ? 1 : 0) : 1;
-
+  
   const dispatch = useDispatch<AppDispatch>()
   
   const fetchAllProducts = async () => {
@@ -21,7 +18,6 @@ const Page = () => {
       const result = await fetch("/api/product/getAllProducts");
       const res = await result.json();
       if (res.success) {
-        setAllProducts(res.products);
         setProducts(res.products);
         dispatch(fetchProducts(res.products))
       }
@@ -30,15 +26,17 @@ const Page = () => {
       console.log(error);
     }
   };
+  
+  const allProducts = useAppSelector((state) => state.productReducer.value)
+  const pL = allProducts.length;
+  const pages = pL / 9 > 1 ? Math.round(pL / 9) + (pL % 9 ? 1 : 0) : 1;
 
   useEffect(() => {
     fetchAllProducts();
   }, []);
 
   const handleSort = () => {
-    const pr = allProducts.reverse();
-    setAllProducts(pr);
-    setProducts(pr);
+    dispatch(sortProducts())
   };
 
   useEffect(() => {
@@ -102,15 +100,19 @@ const Page = () => {
             <div className="display-cards">
               {
                 products.length
-                ? products.map((p, i) => <ProductCard key={p._id} product={p} /> )
+                ? 
+                products.map((p, i) => <ProductCard key={p._id} product={p} /> )
                 : [...Array(3)].map((v, i)=><ProductCardSkeleton key={i}/>)
               }
             </div>
+            {
+              allProducts.length &&
             <Pagination
-              pages={pages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
+            pages={pages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
             />
+          }
           </div>
         </div>
       </div>

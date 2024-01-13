@@ -23,6 +23,9 @@ const product = createSlice({
     reducers:{
         fetchProducts: (state, action:PayloadAction<Array<ProductType>>)=>{
             state.value = action.payload
+        },
+        sortProducts: (state)=>{
+            state.value = state.value.reverse()
         }
     }
 })
@@ -31,4 +34,4 @@ const product = createSlice({
 const productReducer = product.reducer
 export default productReducer
 
-export const {fetchProducts} = product.actions
+export const {fetchProducts, sortProducts} = product.actions

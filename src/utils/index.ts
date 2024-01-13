@@ -242,3 +242,45 @@ export const cartArray = [
 export const footerArray = [
   "Bows", "Vases", "Ashtrays", "Statues", "Decors", "bathroom-accessories"
 ]
+
+export const orderArray = [
+  {
+    id: '#affy97yffg8728dff23',
+    username: "Blank Storm",
+    phone: 9829153221,
+    address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+    status: 'pending'
+},{
+  id: '#affy97sdrg9728dff23',
+  username: "Blank",
+  phone: 9028374651,
+  address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+  status: 'pending'
+},{
+  id: '#affy97yitnu728dff23',
+  username: "Storm",
+  phone: 9123987765,
+  address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+  status: 'pending'
+}
+]
+
+
+export const userArray = [
+  {
+    id: '#affy97yffg8728dff23',
+    username: "Blank Storm",
+    phone: 9829153221,
+    address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+},{
+  id: '#affy97sdrg9728dff23',
+  username: "Blank",
+  phone: 9028374651,
+  address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+},{
+  id: '#affy97yitnu728dff23',
+  username: "Storm",
+  phone: 9123987765,
+  address: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, adipisci?",
+}
+]
