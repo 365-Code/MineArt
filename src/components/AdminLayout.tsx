@@ -14,7 +14,7 @@ const AdminLayout = ({children}: {children: React.ReactNode}) => {
         </h1>
         <div className='flex gap-4 h-[70vh]'>
             <AdminMenu activeMenu={(pathname.split('/').at(-1) || "")}/>
-            <div className='flex-1 rounded-lg p-4 shadow-sm shadow-black/30 overflow-hidden'>
+            <div className='flex-1 rounded-lg p-4 space-y-2 shadow-sm shadow-black/30 overflow-hidden'>
                 {children}
             </div>
         </div>

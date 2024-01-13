@@ -1,6 +1,7 @@
 "use client";
 import Pagination from "@/components/Pagination";
 import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { fetchProducts } from "@/redux/features/productSlice";
 import { AppDispatch } from "@/redux/store";
 import React, { useEffect, useState } from "react";
@@ -99,9 +100,11 @@ const Page = () => {
           <div className="flex-1 space-y-4">
             {/* <div className="flex flex-wrap justify-center gap-4 sm:justify-between"> */}
             <div className="display-cards">
-              {products.map((p, i) => (
-                <ProductCard key={p._id} product={p} />
-              ))}
+              {
+                products.length
+                ? products.map((p, i) => <ProductCard key={p._id} product={p} /> )
+                : [...Array(3)].map((v, i)=><ProductCardSkeleton />)
+              }
             </div>
             <Pagination
               pages={pages}

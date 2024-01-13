@@ -5,7 +5,7 @@ import React from 'react'
 const Page = () => {
   return (
     <AdminLayout>
-        <h1>Users</h1>
+        <h1 className='mb-4 text-left font-semibold text-xl'>All Users</h1>
     </AdminLayout>
   )
 }

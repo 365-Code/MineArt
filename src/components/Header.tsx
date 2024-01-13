@@ -47,7 +47,7 @@ const Header = () => {
 
   const toggleMenu = () => {
     showMenu ? setShowMenu(false) : setShowMenu(true);
-  };
+  };  
 
   return (
     <header
@@ -125,7 +125,7 @@ const Header = () => {
 
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
-            <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-[190px] group-hover/pMenu:w-[220px] group-hover/pMenu:p-4">
+            <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-auto group-hover/pMenu:w-[220px] group-hover/pMenu:p-4">
               <Link
                 href={"/auth/login"}
                 className="flex items-center gap-2 hover:text-pink-500"
@@ -155,7 +155,10 @@ const Header = () => {
                 <i className="fi fi-ss-shopping-cart" />
                 <span>cart</span>
               </Link>
-              <hr />
+              {
+                process.env.NEXT_PUBLIC_DEV_MODE == "true" &&
+                <>
+                <hr />
               <Link
                 href={"/auth/admin"}
                 className="flex items-center gap-2 hover:text-pink-500"
@@ -163,6 +166,10 @@ const Header = () => {
                 <i className="fi fi-sr-user-pen" />
                 <span>admin</span>
               </Link>
+                </>
+
+              }
+
             </div>
           </div>
 
@@ -175,7 +182,7 @@ const Header = () => {
           <div
             className={`${
               showCart ? "visible translate-x-0" : "invisible translate-x-full"
-            } absolute right-0 top-full w-[400px] transition-all`}
+            } absolute right-0 top-full transition-all`}
           >
             <SideCart setShowCart={setShowCart} />
           </div>

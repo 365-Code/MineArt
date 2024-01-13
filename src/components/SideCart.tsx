@@ -9,7 +9,7 @@ const SideCart = ({setShowCart}: {setShowCart: any}) => {
 
 
   return (
-    <div className="custom-scrollbar flex max-h-[450px] flex-col overflow-hidden rounded-lg bg-white">
+    <div className="custom-scrollbar flex max-w-[380px] w-[380px] max-h-[450px] flex-col overflow-hidden rounded-lg bg-white">
       <h3 className="py-3 text-lg font-semibold">Shopping Cart</h3>
       <div className="no-scrollbar z-10 h-full flex-1 space-y-2 overflow-y-scroll ">
         {/* {cartArray.map((c) => ( */}

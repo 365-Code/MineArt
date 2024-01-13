@@ -115,6 +115,10 @@ margin: 0;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.btn{
+  @apply py-2 px-4 rounded-lg border border-black hover:bg-black hover:text-white;
+}
+
 
 /* Effects */
 .img-hover-effect::after{

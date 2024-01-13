@@ -114,7 +114,7 @@ const Product = ({ item }: { item?: any }) => {
 
   return (
     <div className="container2">
-      <div className="flex w-full flex-col gap-8 sm:flex-row">
+      <div className="flex w-[800px] max-w-full flex-col gap-8 sm:flex-row">
         <div className=" w-full space-y-1 sm:w-1/2">
           <div id="imgPreview" className="h-[400px] w-full transition-all overflow-hidden">
           <Image
