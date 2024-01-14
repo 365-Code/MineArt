@@ -55,7 +55,7 @@ input, textarea{
 }
 
 img{
-  @apply w-full h-full object-cover object-center
+  @apply w-full h-full object-cover object-center;
 }
 
 input::-webkit-outer-spin-button,
@@ -158,5 +158,25 @@ margin: 0;
 
 .in-slide{
   scroll-snap-align: start;
-  @apply relative h-[89vh] min-w-full overflow-hidden; 
+  @apply relative h-[89vh] min-w-full overflow-hidden;
+}
+
+
+
+@keyframes bounce-h {
+  0%, 100% {
+      transform: translateX(-25%);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-bounce-h {
+  animation: bounce-h 1s infinite;
+}
+
+.grid-template-cols-\[sze\] {
+  grid-template-columns: repeat(auto-fit, minmax(sze, 1fr));
 }
