@@ -54,6 +54,10 @@ input, textarea{
   outline: none;
 }
 
+img{
+  @apply w-full h-full object-cover object-center
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 -webkit-appearance: none;
@@ -119,6 +123,10 @@ margin: 0;
   @apply py-2 px-4 rounded-lg border border-black hover:bg-black hover:text-white;
 }
 
+.res-img{
+  @apply w-full h-full object-cover object-center;
+}
+
 
 /* Effects */
 .img-hover-effect::after{
@@ -143,7 +151,12 @@ margin: 0;
 }
 
 .slide{
+  scroll-snap-type: x mandatory;
   scroll-snap-align: start;
-  @apply w-full h-full relative overflow-hidden;
-  
+  @apply relative w-screen h-[89vh] overflow-x-scroll flex no-scrollbar overflow-y-hidden; 
+}
+
+.in-slide{
+  scroll-snap-align: start;
+  @apply relative h-[89vh] min-w-full overflow-hidden; 
 }

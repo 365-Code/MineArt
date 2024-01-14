@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { stringify } from "querystring";
 import React, { useState } from "react";
 
@@ -91,7 +92,7 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
         <div className="flex h-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-400 hover:bg-gray-500">
           {
             productData.thumbnail 
-            ? <img src={imgPreview.img || productData.thumbnail} className="h-full w-full object-cover object-center"/>
+            ? <Image width={500} height={500} alt='preview' src={imgPreview.img || productData.thumbnail} className="h-full w-full object-cover object-center"/>
             :
             <svg
               width="115px"
@@ -129,7 +130,7 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
             {
               productData.images && images.map((image: string, i: number) => 
               <div key={i} className={`min-h-[102px] h-[102px] min-w-[102px] w-[102px] cursor-pointer flex justify-center items-center rounded-lg bg-gray-400 hover:bg-gray-500 overflow-y-hidden ${imgPreview.id == i && "border-2 border-pink-500"}`}>
-                <img src={image} onClick={()=> setImgPreview({id: i, img: image})} className="w-full h-full object-cover object-center"/>
+                <Image width={200} height={200} alt="imagesi" src={image} onClick={()=> setImgPreview({id: i, img: image})} className="w-full h-full object-cover object-center"/>
               </div>
               )
             }

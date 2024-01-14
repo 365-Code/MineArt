@@ -8,6 +8,7 @@ const CloudinaryUpload = ({ setResource }: { setResource: any }) => {
         options={{ sources: ["local", "url", "unsplash"] }}
         signatureEndpoint="/api/sign-cloudinary-params"
         onSuccess={(result, { widget }) => {
+          console.log(result)
           setResource(result?.info);
           widget.close();
         }}
