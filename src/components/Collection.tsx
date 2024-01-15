@@ -9,7 +9,7 @@ const Collection = ({collName, items}: {collName?: string, items?: Array<any> })
         <h1 className='text-center text-3xl font-semibold'>{collName || "Collection Name"}</h1>
         <div className='display-cards py-8'>
             {
-                items?.map((itm, i) => <CollectionCard item={{title: "MyProduct", thumbnail: imgArray[i]}}/>)
+                items?.map((itm, i) => <CollectionCard key={i} item={{title: "MyProduct", thumbnail: imgArray[i]}}/>)
             }
         </div>
     </div>

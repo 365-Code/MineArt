@@ -148,7 +148,7 @@ margin: 0;
 #slide-show {
   scroll-snap-type: y mandatory;
   /* height: 100vh; */
-  @apply overflow-y-scroll h-[89vh] relative no-scrollbar;
+  @apply overflow-y-scroll w-screen h-[89vh] relative no-scrollbar;
 }
 
 .slide{
