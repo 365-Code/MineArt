@@ -54,9 +54,6 @@ input, textarea{
   outline: none;
 }
 
-img{
-  @apply w-full h-full object-cover object-center;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -78,6 +75,10 @@ margin: 0;
 
 .nav-link-selected{
   font-weight: bold;
+}
+
+.res-img{
+  @apply w-full h-full object-cover object-center pointer-events-none
 }
 
 .nav-link::after{
@@ -153,7 +154,7 @@ margin: 0;
 .slide{
   scroll-snap-type: x mandatory;
   scroll-snap-align: start;
-  @apply relative w-screen h-[89vh] overflow-x-scroll flex no-scrollbar overflow-y-hidden; 
+  @apply relative min-w-[100vw] h-full overflow-y-scroll no-scrollbar; 
 }
 
 .in-slide{

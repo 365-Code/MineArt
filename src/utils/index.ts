@@ -240,7 +240,7 @@ export const cartArray = [
 ]
 
 export const footerArray = [
-  "Bows", "Vases", "Ashtrays", "Statues", "Decors", "bathroom-accessories"
+  "Bowls", "Vases", "Ashtrays", "Statues", "Decors", "bathroom-accessories"
 ]
 
 export const orderArray = [
