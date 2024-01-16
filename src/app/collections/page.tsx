@@ -29,7 +29,7 @@ const Page = () => {
       <section id="slide1" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll1.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll1.jpg" alt="" className="res-img" />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Home Decor Set</h2>
@@ -41,7 +41,7 @@ const Page = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex w-full flex-col justify-between">
             <div className="h-[450px]">
-              <img src="/coll2.jpg" alt="" className="res-img" />
+              <Image height={500} width={500} src="/coll2.jpg" alt="" className="res-img" />
             </div>
             <div>
             <h2 className="font-semibold text-lg">Coaster Set</h2>
@@ -50,7 +50,7 @@ const Page = () => {
           </div>
           <div className="flex flex-col justify-between">
             <div className="h-[450px]">
-              <img src="/coll3.jpg" alt="" className="res-img" />
+              <Image height={500} width={500} src="/coll3.jpg" alt="" className="res-img" />
             </div>
             <div>
             <h2 className="font-semibold text-lg">Tablewares</h2>
@@ -64,7 +64,7 @@ const Page = () => {
 
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll4.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll4.jpg" alt="" className="res-img" />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Kitchen Set</h2>
@@ -76,7 +76,7 @@ const Page = () => {
 
         <div className=" flex w-full gap-2 flex-col md:flex-col-reverse justify-between">
           <div className="h-[450px]">
-            <img src="/coll5.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll5.jpg" alt="" className="res-img" />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Bathroom Set</h2>
@@ -91,7 +91,7 @@ const Page = () => {
 
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll6.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll6.jpg" alt="" className="res-img" />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Sugar Salt Containter</h2>
@@ -102,7 +102,7 @@ const Page = () => {
 
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll7.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll7.jpg" alt="" className="res-img" />
           </div>
           <div className="">
             <h2 className="text-lg font-semibold">Candle Stand</h2>
@@ -113,7 +113,7 @@ const Page = () => {
         
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll8.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll8.jpg" alt="" className="res-img" />
           </div>
           <div className="">
             <h2 className="text-lg font-semibold">Chess Board Set</h2>
@@ -124,7 +124,7 @@ const Page = () => {
         
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll9.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll9.jpg" alt="" className="res-img" />
           </div>
           <div className="">
             <h2 className="text-lg font-semibold">Marble Plates</h2>
@@ -140,7 +140,7 @@ const Page = () => {
         
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
         <div className="h-[350px] max-h-full w-full md:w-1/2">
-          <img src="/coll10.jpg" alt="" className="res-img" />
+          <Image height={500} width={500} src="/coll10.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
           <h2 className="text-lg font-semibold">This is a product</h2>
@@ -153,7 +153,7 @@ const Page = () => {
       
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
         <div className="h-[350px] max-h-full w-full md:w-1/2">
-          <img src="/coll11.jpg" alt="" className="res-img" />
+          <Image height={500} width={500} src="/coll11.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
           <h2 className="text-lg font-semibold">This is a product</h2>
@@ -166,7 +166,7 @@ const Page = () => {
       
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
         <div className="h-[350px] max-h-full w-full md:w-1/2">
-          <img src="/coll12.jpg" alt="" className="res-img" />
+          <Image height={500} width={500} src="/coll12.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
           <h2 className="text-lg font-semibold">This is a product</h2>
@@ -179,7 +179,7 @@ const Page = () => {
       
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
         <div className="h-[350px] max-h-full w-full md:w-1/2">
-          <img src="/coll13.jpg" alt="" className="res-img" />
+          <Image height={500} width={500} src="/coll13.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
           <h2 className="text-lg font-semibold">This is a product</h2>
@@ -198,7 +198,7 @@ const Page = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex w-full flex-col justify-between">
             <div className="h-[450px]">
-              <img src="/coll14.jpg" alt="" className="res-img" />
+              <Image height={500} width={500} src="/coll14.jpg" alt="" className="res-img" />
             </div>
             <div>
             <h2 className="font-semibold text-lg">Coaster Set</h2>
@@ -207,7 +207,7 @@ const Page = () => {
           </div>
           <div className="flex flex-col justify-between">
             <div className="h-[450px]">
-              <img src="/coll15.jpg" alt="" className="res-img" />
+              <Image height={500} width={500} src="/coll15.jpg" alt="" className="res-img" />
             </div>
             <div>
             <h2 className="font-semibold text-lg">Tablewares</h2>
@@ -217,7 +217,7 @@ const Page = () => {
         </div>
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
-            <img src="/coll16.jpg" alt="" className="res-img" />
+            <Image height={500} width={500} src="/coll16.jpg" alt="" className="res-img" />
           </div>
           <div>
             <h2 className="text-lg font-semibold">Home Decor</h2>
@@ -236,14 +236,14 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
             <div className="h-[300px] relative p-4">
-              <img src="/coll17.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll17.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
               </div>
             </div>
             <div className="h-[300px] relative p-4">
-              <img src="/coll18.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll18.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -256,7 +256,7 @@ const Page = () => {
           <div className="">
 
             <div className="h-[300px]  relative p-4">
-              <img src="/coll19.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll19.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -272,14 +272,14 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
             <div className="h-[300px] relative p-4">
-              <img src="/coll20.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll20.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
               </div>
             </div>
             <div className="h-[300px] relative p-4">
-              <img src="/coll21.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll21.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -292,7 +292,7 @@ const Page = () => {
           <div className="">
 
             <div className="h-[300px]  relative p-4">
-              <img src="/coll22.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll22.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -310,7 +310,7 @@ const Page = () => {
         <div className="grid grid-cols-2 gap-2">
           
             <div className="h-full min-h-[300px] flex flex-col justify-center relative p-4">
-              <img src="/coll23.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll23.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -318,7 +318,7 @@ const Page = () => {
             </div>
             
             <div className="h-full min-h-[300px] flex flex-col justify-center relative p-4">
-              <img src="/coll24.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll24.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -332,14 +332,14 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
             <div className="h-[300px] relative p-4">
-              <img src="/coll25.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll25.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
               </div>
             </div>
             <div className="h-[300px] relative p-4">
-              <img src="/coll26.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll26.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
@@ -352,7 +352,7 @@ const Page = () => {
           <div className="">
 
             <div className="h-[300px]  relative p-4">
-              <img src="/coll27.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <Image height={500} width={500} src="/coll27.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
               <div>
                 <h1>This is a products</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
