@@ -32,10 +32,9 @@ const Page = () => {
             <img src="/coll1.jpg" alt="" className="res-img" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">Home Decor</h2>
+            <h2 className="text-lg font-semibold">Home Decor Set</h2>
             <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            Introducing our elegant white shelf adorned with a captivating assortment of vases, perfect for adding a touch of sophistication to any space. Crafted with meticulous attention to detail, this versatile shelf offers a stylish and practical solution for displaying your cherished vases.
             </p>
           </div>
         </div>
@@ -46,7 +45,7 @@ const Page = () => {
             </div>
             <div>
             <h2 className="font-semibold text-lg">Coaster Set</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime expedita iure est numquam quo.</p>
+            <p>Crafted with precision, these coasters are designed to protect your surfaces while adding a touch of sophistication to your home decor.</p>
             </div>
           </div>
           <div className="flex flex-col justify-between">
@@ -82,8 +81,7 @@ const Page = () => {
           <div>
             <h2 className="text-lg font-semibold">Bathroom Set</h2>
             <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            This beautifully crafted table showcases a curated collection of items, including candles, bottles, and towels, adding a touch of sophistication to your home decor
             </p>
           </div>
         </div>
@@ -96,10 +94,8 @@ const Page = () => {
             <img src="/coll6.jpg" alt="" className="res-img" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">This is a product</h2>
-            <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            <h2 className="text-lg font-semibold">Sugar Salt Containter</h2>
+            <p className="w-[450px] max-w-full">This beautifully crafted table showcases a curated collection of items, including candles, bottles, and towels, adding a touch of sophistication to your home decor
             </p>
           </div>
         </div>
@@ -109,10 +105,8 @@ const Page = () => {
             <img src="/coll7.jpg" alt="" className="res-img" />
           </div>
           <div className="">
-            <h2 className="text-lg font-semibold">This is a product</h2>
-            <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            <h2 className="text-lg font-semibold">Candle Stand</h2>
+            <p className="w-[450px] max-w-full">The contrasting black and white marble design adds a touch of modernity, while the sturdy construction ensures durability and stability.
             </p>
           </div>
         </div>
@@ -122,10 +116,8 @@ const Page = () => {
             <img src="/coll8.jpg" alt="" className="res-img" />
           </div>
           <div className="">
-            <h2 className="text-lg font-semibold">This is a product</h2>
-            <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            <h2 className="text-lg font-semibold">Chess Board Set</h2>
+            <p className="w-[450px] max-w-full">Our exquisite marble chess board with black and white pieces, a perfect blend of elegance and strategy. Crafted from high-quality marble, this board showcases a timeless design that will enhance any setting
             </p>
           </div>
         </div>
@@ -135,10 +127,8 @@ const Page = () => {
             <img src="/coll9.jpg" alt="" className="res-img" />
           </div>
           <div className="">
-            <h2 className="text-lg font-semibold">This is a product</h2>
-            <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            <h2 className="text-lg font-semibold">Marble Plates</h2>
+            <p className="w-[450px] max-w-full"> Crafted with precision, this set features stunning marble plates that add a touch of sophistication to any dining experience.
             </p>
           </div>
         </div>
