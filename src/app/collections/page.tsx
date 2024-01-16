@@ -26,7 +26,7 @@ const Page = () => {
   return (
     <main id="slide-show">
 
-      <section id="slide1" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
+      <section id="slide1" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
             <img src="/coll1.jpg" alt="" className="res-img" />
@@ -55,13 +55,13 @@ const Page = () => {
             </div>
             <div>
             <h2 className="font-semibold text-lg">Tablewares</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime expedita iure est numquam quo.</p>
+            <p>Made from high-quality materials, its unique design resembles a fruit bowl, making it a versatile piece that can also be used as a decorative item in other areas of your home.  </p>
             </div>
           </div>
         </div>
       </section>
       
-      <section id="slide2" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
+      <section id="slide2" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
 
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
@@ -70,8 +70,7 @@ const Page = () => {
           <div>
             <h2 className="text-lg font-semibold">Kitchen Set</h2>
             <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            Crafted with attention to detail, this black vase doubles as a fruit bowl, making it a practical and stylish choice for your tableware collection.
             </p>
           </div>
         </div>
@@ -90,7 +89,7 @@ const Page = () => {
         </div>
       </section>
       
-      <section id="slide3" className="slide grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-8">
+      <section id="slide3" className="slide grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-8">
 
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
@@ -147,7 +146,7 @@ const Page = () => {
       </section>
       
       
-      <section id="slide4" className="slide grid grid-cols-1 md:grid-rows-2 sm:grid-cols-2 gap-4 p-8">
+      <section id="slide4" className="slide grid grid-cols-1 md:grid-rows-2 sm:grid-cols-2 gap-4 p-4 sm:p-8">
 
         
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
@@ -204,6 +203,173 @@ const Page = () => {
 
 
       </section>
+
+      <section id="slide5" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="flex w-full flex-col justify-between">
+            <div className="h-[450px]">
+              <img src="/coll2.jpg" alt="" className="res-img" />
+            </div>
+            <div>
+            <h2 className="font-semibold text-lg">Coaster Set</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime expedita iure est numquam quo.</p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between">
+            <div className="h-[450px]">
+              <img src="/coll3.jpg" alt="" className="res-img" />
+            </div>
+            <div>
+            <h2 className="font-semibold text-lg">Tablewares</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime expedita iure est numquam quo.</p>
+            </div>
+          </div>
+        </div>
+        <div className=" flex w-full gap-2 flex-col justify-between">
+          <div className="h-[450px]">
+            <img src="/coll1.jpg" alt="" className="res-img" />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold">Home Decor</h2>
+            <p className="w-[450px] max-w-full">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+              consequatur cupiditate eaque alias, ipsa harum.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+      <section id="slide6" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
+        
+        <div className="flex flex-col gap-2">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          <div className="">
+
+            <div className="h-[300px]  relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+        
+        <div className="flex flex-col gap-2">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          <div className="">
+
+            <div className="h-[300px]  relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+ 
+      </section>
+
+      
+      <section id="slide7" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
+        
+        <div className="flex flex-col gap-2">
+          
+            <div className="h-full min-h-[300px] flex flex-col justify-center relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+
+        </div>
+        
+        <div className="flex flex-col gap-2">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            <div className="h-[300px] relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          <div className="">
+
+            <div className="h-[300px]  relative p-4">
+              <img src="/coll2.jpg" alt="" className="-z-[1] absolute top-0 left-0 res-img" />
+              <div>
+                <h1>This is a products</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, at natus veritatis nesciunt illum similique? Totam voluptates iste aliquam deserunt.</p>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+ 
+      </section>
+      
 
     </main>
   );
