@@ -14,7 +14,6 @@ const SuggestedProducts = () => {
       const res = await result.json()
       if(res.success){
         setProducts(res.products)
-        console.log(res.products)
       }
     }catch(error){
       console.log(error)
@@ -23,7 +22,7 @@ const SuggestedProducts = () => {
 
   useEffect(()=>{
     pId && relatedProducts()
-  }, [pId])
+  }, [pId, relatedProducts])
 
 
   return (

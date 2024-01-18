@@ -1,25 +1,47 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
-import { useAppSelector } from "@/redux/store";
+import { AppDispatch, useAppSelector } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { setAllProducts } from "@/redux/features/productSlice";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [searchInput, setSearchInput] = useState('')
 
   const pathname = usePathname();
-  pathname.includes("/products");
-  pathname.split("/");
+  const nav = useRouter();
+  const dispatch = useDispatch<AppDispatch>()
 
   const onSearch = () => {
     console.log("Searching");
     setShowSearch(false);
   };
 
+  const searchProduct = async ()=>{
+    try {
+      const result = await fetch(`/api/product/searchProducts?search=${searchInput}&filter=${searchInput}`)
+      if(result.ok){
+        const res = await result.json()
+        dispatch(setAllProducts(res.products))
+      }
+    } catch (error) {
+      return error
+    }
+  }
+
+
   const cart = useAppSelector((state) => state.cartReducer.value);
+
+  const handleSearch = (e?: React.FormEvent)=>{
+    e?.preventDefault()
+    searchProduct()
+    nav.push(`/products?search=${searchInput}`)
+  }
 
   useEffect(() => {
     const main = document.getElementById("main");
@@ -36,6 +58,10 @@ const Header = () => {
       navBefore.onclick = () => setShowMenu(false);
     }
   }, [showSearch, showCart, showMenu]);
+
+  useEffect(()=>{
+    handleSearch()
+  }, [searchInput])
 
   const toggleSearch = () => {
     showSearch ? setShowSearch(false) : setShowSearch(true);
@@ -118,10 +144,12 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-6">
+          <label htmlFor="search">
           <i
             onClick={toggleSearch}
             className="fi fi-rs-search icons hover:rotate-12"
-          />
+            />
+          </label>
 
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
@@ -194,14 +222,20 @@ const Header = () => {
           showSearch ? "h-10" : "h-0"
         } absolute left-0 top-full flex w-full items-center justify-center overflow-hidden px-4 transition-all`}
       >
-        <div className="flex h-10 w-[800px] max-w-full items-center overflow-hidden rounded-lg bg-white px-4">
+        <form onSubmit={handleSearch} className="flex h-10 w-[800px] max-w-full items-center overflow-hidden rounded-lg bg-white px-4">
           <i className="fi fi-rs-search icons" />
           <input
+            value={searchInput}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>)=> setSearchInput(e.target.value)}
             onBlur={() => setShowSearch(false)}
-            type="text"
-            className=" w-full rounded-lg px-6 py-2 text-lg font-semibold transition-all"
+            type="search"
+            id="search"
+            autoComplete="off"
+            autoFocus={true}
+            className="input-fill w-full rounded-lg px-6 py-2 text-lg font-semibold transition-all"
           />
-        </div>
+          <button type="submit" className="hidden" />
+        </form>
       </div>
     </header>
   );

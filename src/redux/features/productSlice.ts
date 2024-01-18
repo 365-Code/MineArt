@@ -21,7 +21,7 @@ const product = createSlice({
     name: 'products',
     initialState,
     reducers:{
-        fetchProducts: (state, action:PayloadAction<Array<ProductType>>)=>{
+        setAllProducts: (state, action:PayloadAction<Array<ProductType>>)=>{
             state.value = action.payload
         },
         sortProducts: (state)=>{
@@ -34,4 +34,4 @@ const product = createSlice({
 const productReducer = product.reducer
 export default productReducer
 
-export const {fetchProducts, sortProducts} = product.actions
+export const {setAllProducts, sortProducts} = product.actions

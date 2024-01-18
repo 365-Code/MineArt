@@ -29,7 +29,6 @@ const Product = ({ item }: { item?: any }) => {
     id: 0,
     img: "https://img.freepik.com/free-vector/images-concept-illustration_114360-298.jpg?size=626&ext=jpg&ga=GA1.1.1494205593.1703951523&semt=ais",
   });
-
   
   const dispatch = useDispatch<AppDispatch>();
 
@@ -74,9 +73,6 @@ const Product = ({ item }: { item?: any }) => {
     }
   }
 
-  // useEffect(()=>{
-  //   pId && fetchProduct()
-  // }, [pId])
 
   useEffect(() => {
     if (item) {
@@ -86,7 +82,7 @@ const Product = ({ item }: { item?: any }) => {
 
     pId && fetchProduct()
 
-  }, [pId, item]);
+  }, [pId, item, fetchProduct]);
 
   const handleQty = (q: number) => {
     if (qty + q >= 1 && qty + q <= 150) {

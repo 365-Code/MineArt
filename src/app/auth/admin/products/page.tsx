@@ -4,7 +4,7 @@ import AdminProductCard from '@/components/AdminProductCard'
 import EditProduct from '@/components/EditProduct'
 import Modal from '@/components/Modal'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton'
-import { fetchProducts } from '@/redux/features/productSlice'
+import { setAllProducts } from '@/redux/features/productSlice'
 import { AppDispatch, useAppSelector } from '@/redux/store'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -20,7 +20,7 @@ const Page = () => {
       const result = await fetch("/api/product/getAllProducts");
       const res = await result.json();
       if (res.success) {
-        dispatch(fetchProducts(res.products))
+        dispatch(setAllProducts(res.products))
       }
       return res.products
     } catch (error) {

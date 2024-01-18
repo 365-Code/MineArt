@@ -34,7 +34,7 @@ const ProductCard = ({ product }: { product: any }) => {
             />
           </Link>
 
-          <div className="absolute left-4 top-4 h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 md:group-hover/product:h-[300px]">
+          <div className="absolute left-4 top-4 md:h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 h-[300px] md:group-hover/product:h-[300px]">
             <i
               onClick={handleAdd}
               className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white"

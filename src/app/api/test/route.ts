@@ -7,8 +7,6 @@ export async function GET(req: NextRequest){
     try{
 
         await connectDB()
-
-
         return NextResponse.json({success: true, msg: "Nothing Found"}, {status: 400})
 
     }catch (err: any){
