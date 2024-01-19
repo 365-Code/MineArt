@@ -1,4 +1,5 @@
 "use client";
+import CollectionCard from "@/components/CollectionCard";
 import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -7,9 +8,11 @@ const Page = () => {
   const { cId } = useParams();
   const [products, setProducts] = useState(Array<any>);
 
+
   const searchProduct = async () => {
     try {
-      const result = await fetch(`/api/product/searchProducts?category=${cId}`);
+      // const result = await fetch(`/api/product/searchProducts?category=${cId}`);
+      const result = await fetch(`/api/product/searchProducts?search=${cId}`);
       const res = await result.json();
       if (res.success) {
         setProducts(res.products);
@@ -28,11 +31,13 @@ const Page = () => {
         {products.length ? 
         <>
         <h2 className="text-3xl font-semibold py-4 capitalize">{cId}</h2>
-      {/* <div className="flex flex-wrap justify-between text-center"> */}
-      <div className="display-cards border">
+      <div className="display-cards">
         {
             (
-                products.map((p, i) => <ProductCard key={p._id} product={p} />)
+                products.map((p, i) => 
+                // <ProductCard key={p._id} product={p} />
+                <CollectionCard key={p._id} item={p}/>
+                )
             ) 
         }
       </div>

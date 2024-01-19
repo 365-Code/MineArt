@@ -9,19 +9,24 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addToCart } from "@/redux/features/cartSlice";
+import { addToWish } from "@/redux/features/wishSlice";
 
 const ProductCard = ({ product }: { product: any }) => {
   const [showModal, setShowModal] = useState(false);
   // console.log(product)
 
   const dispatch = useDispatch<AppDispatch>();
-  const handleAdd = () => {
+  const handleAddToCart = () => {
     dispatch(addToCart({ ...product, qty: product.minQty }));
   };
+  
+  const handleAddToWishlist = ()=>{
+    dispatch(addToWish({ ...product, qty: product.minQty }));
+  }
 
   return (
     <>
-      <div className="group/product h-auto w-fit min-w-[280px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
+      <div className="group/product h-auto w-fit min-w-[250px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
@@ -36,14 +41,16 @@ const ProductCard = ({ product }: { product: any }) => {
 
           <div className="absolute left-4 top-4 md:h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 h-[300px] md:group-hover/product:h-[300px]">
             <i
-              onClick={handleAdd}
+              onClick={handleAddToCart}
               className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white"
             />
             <i
               onClick={() => setShowModal(true)}
               className="fi fi-rr-eye cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white"
             />
-            <i className="fi fi-rs-heart cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
+            <i 
+              onClick={handleAddToWishlist}
+            className="fi fi-rs-heart cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
             {/* <i className="fi fi-rr-zoom-in cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" /> */}
           </div>
         </div>

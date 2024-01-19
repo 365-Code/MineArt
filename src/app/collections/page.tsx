@@ -1,34 +1,14 @@
-"use client";
-import Collection from "@/components/Collection";
-import CollectionCard from "@/components/CollectionCard";
-import { imgArray } from "@/utils";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Page = () => {
-  const [scrollBy, setScrollBy] = useState<number>(100);
-
-  const handleSlide = () => {
-    const slideShow = document.getElementById("slide-show");
-
-    if (slideShow) {
-      slideShow.scroll(0, scrollBy + 100);
-    }
-  };
-
-  useEffect(() => {
-    const slideShow = document.getElementById("slide-show");
-    if (slideShow) {
-      slideShow.onscroll = () => setScrollBy(slideShow.scrollTop);
-    }
-  });
 
   return (
     <main id="slide-show">
 
       <section id="slide1" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
         <div className=" flex w-full gap-2 flex-col justify-between">
-          <div className="h-[450px]">
+          <div className="h-[400px]">
             <Image height={500} width={500} src="/coll1.jpg" alt="" className="res-img" />
           </div>
           <div>
@@ -61,7 +41,6 @@ const Page = () => {
       </section>
       
       <section id="slide2" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
-
         <div className=" flex w-full gap-2 flex-col justify-between">
           <div className="h-[450px]">
             <Image height={500} width={500} src="/coll4.jpg" alt="" className="res-img" />
@@ -117,7 +96,7 @@ const Page = () => {
           </div>
           <div className="">
             <h2 className="text-lg font-semibold">Chess Board Set</h2>
-            <p className="w-[450px] max-w-full">Our exquisite marble chess board with black and white pieces, a perfect blend of elegance and strategy. Crafted from high-quality marble, this board showcases a timeless design that will enhance any setting
+            <p className="w-[450px] max-w-full">Our exquisite marble chess board with black and white pieces, a perfect blend of elegance and strategy. Crafted from high-quality marble.
             </p>
           </div>
         </div>

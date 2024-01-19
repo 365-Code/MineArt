@@ -19,7 +19,6 @@ const Page = () => {
     category: "All",
   });
   const [showFilter, setShowFilter] = useState(false);
-  const [price, setPrice] = useState(200);
   const [loading, setLoading] = useState(true);
 
   const searchParams = useSearchParams();
@@ -36,6 +35,7 @@ const Page = () => {
       return res.products;
     } catch (error) {
       console.log(error);
+      return error
     }
   };
   
@@ -129,7 +129,7 @@ const Page = () => {
           </div>
         </div>
         <div className="flex gap-4 py-4">
-          <div className={`flex-col gap-4 md:flex`}>
+          <div className={`flex-col gap-4 hidden md:flex`}>
             <div className="space-y-2">
               <h3 className="bg-pink-500 p-2 text-lg text-white font-semibold tracking-wide">Collections</h3>
               {categories.map((ctg, i) => (

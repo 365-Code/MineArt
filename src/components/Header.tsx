@@ -60,7 +60,7 @@ const Header = () => {
   }, [showSearch, showCart, showMenu]);
 
   useEffect(()=>{
-    handleSearch()
+    searchInput && handleSearch()
   }, [searchInput])
 
   const toggleSearch = () => {

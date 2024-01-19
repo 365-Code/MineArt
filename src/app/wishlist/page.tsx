@@ -1,10 +1,14 @@
 "use client";
 import Quantity from "@/components/Quantity";
+import { useAppSelector } from "@/redux/store";
 import { cartArray } from "@/utils";
 import Image from "next/image";
 import React from "react";
 
 const Page = () => {
+
+  const wishItems = useAppSelector((state) => state.wishReducer.value.items)
+
   return (
     <main className="container1">
     <h1 className="text-3xl font-semibold py-4">Shopping Wishlist</h1>
@@ -14,7 +18,7 @@ const Page = () => {
             <p>Description</p>
             <p>Quantity</p>
         </div>
-        {cartArray.map((c: any, i) => (
+        {wishItems?.map((c: any, i) => (
           <div key={c._id} className="p-2 grid grid-cols-3 sm:grid-cols-4  items-center justify-between">
             <div className="h-[112px] w-[112px] overflow-hidden rounded-lg">
               <Image
