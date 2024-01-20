@@ -35,10 +35,10 @@ const Page = () => {
       return res.products;
     } catch (error) {
       console.log(error);
-      return error
+      return error;
     }
   };
-  
+
   const handleSort = () => {
     dispatch(sortProducts());
   };
@@ -88,7 +88,6 @@ const Page = () => {
 
   useEffect(() => {
     setLoading(true);
-
     setProducts(() =>
       allProducts.slice((currentPage - 1) * 9, currentPage * 9),
     );
@@ -96,7 +95,7 @@ const Page = () => {
   }, [allProducts, currentPage, setCurrentPage]);
 
   return (
-    <main className="container1">
+    <main className="container1 relative">
       <div className="container2">
         <h2 className="text-4xl">Catalog</h2>
         <hr className="my-1 h-[2px] w-3/5 bg-slate-900" />
@@ -128,8 +127,75 @@ const Page = () => {
             </button>
           </div>
         </div>
-        <div className="flex gap-4 py-4">
-          <div className={`flex-col gap-4 hidden md:flex`}>
+        <div className="flex flex-col gap-4 py-4">
+          <div
+            className={`${
+              !showFilter ? "h-fit border-2 p-8" : "h-0 border-none p-0"
+            } max-h-fit w-full min-h-fit max-w-full space-y-2 overflow-hidden border-black text-center`}
+          >
+            <div>
+              <h3 className="text-lg font-semibold">Category</h3>
+              <ul className="no-scrollbar mx-auto flex w-fit max-w-full items-center gap-2 overflow-x-scroll text-center">
+                {categories.map((ctg, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <span
+                      onClick={() =>
+                        setFiltersInput((preVal) => ({
+                          ...preVal,
+                          category: ctg,
+                        }))
+                      }
+                      className={`cursor-pointer whitespace-nowrap px-1 ${
+                        ctg == filtersInput.category &&
+                        "font-semibold underline underline-offset-4 drop-shadow"
+                      } `}
+                    >
+                      {ctg}
+                    </span>
+                    {i != categories.length - 1 && (
+                      <hr className="h-[20px] border border-slate-400" />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">Material</h3>
+              <ul className="no-scrollbar mx-auto flex w-fit max-w-full items-center gap-2 overflow-x-scroll text-center">
+                {materials.map((mtrl, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <span
+                      onClick={() =>
+                        setFiltersInput((preVal) => ({
+                          ...preVal,
+                          material: mtrl,
+                        }))
+                      }
+                      className={`cursor-pointer whitespace-nowrap px-1 ${
+                        mtrl == filtersInput.material &&
+                        "font-semibold underline underline-offset-4 drop-shadow"
+                      } `}
+                    >
+                      {mtrl}
+                    </span>
+                    {i != materials.length - 1 && (
+                      <hr className="h-[20px] border border-slate-400" />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+              <h3 className="font-semibold">Price Range</h3>
+              {/* <div className="flex w-[400px]"> */}
+              <RangeSelector min={0} max={1000} />
+              {/* <RangeSelector min={501} max={1000} /> */}
+              {/* </div> */}
+            </div>
+
+          </div>
+          {/* <div className={`absolute min-h-fit h-[600px] top-0 left-0 z-[4] bg-white h md:p-0 md:relative flex-col gap-4 max-w-full w-[300px] md:flex`}>
             <div className="space-y-2">
               <h3 className="bg-pink-500 p-2 text-lg text-white font-semibold tracking-wide">Collections</h3>
               {categories.map((ctg, i) => (
@@ -169,20 +235,20 @@ const Page = () => {
                 <RangeSelector max={500} />
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex-1 space-y-4">
             <div className="display-cards">
               {products.length > 0 &&
-                products.map((p, i) => <ProductCard key={p._id} product={p} />)
-              }
+                products.map((p, i) => <ProductCard key={p._id} product={p} />)}
               {loading &&
-                [...Array(3)].map((v, i) => <ProductCardSkeleton key={i} />)
-              }
+                [...Array(3)].map((v, i) => <ProductCardSkeleton key={i} />)}
             </div>
-            {
-              !loading && !products.length && <div className="w-full h-full flex flex-col items-center justify-center"><h3 className="text-2xl font-semibold">Products Not Found</h3></div>
-            }
+            {!loading && !products.length && (
+              <div className="flex h-full w-full flex-col items-center justify-center">
+                <h3 className="text-2xl font-semibold">Products Not Found</h3>
+              </div>
+            )}
             {allProducts.length > 0 && (
               <Pagination
                 pages={pages}

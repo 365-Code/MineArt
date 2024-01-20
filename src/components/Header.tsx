@@ -17,11 +17,6 @@ const Header = () => {
   const nav = useRouter();
   const dispatch = useDispatch<AppDispatch>()
 
-  const onSearch = () => {
-    console.log("Searching");
-    setShowSearch(false);
-  };
-
   const searchProduct = async ()=>{
     try {
       const result = await fetch(`/api/product/searchProducts?search=${searchInput}&filter=${searchInput}`)

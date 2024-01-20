@@ -25,7 +25,6 @@ const AdminProductCard = ({ product }: { product: any }) => {
   }
 
   const [showPrompt, setShowPrompt] = useState({} as PromptType)
-  // console.log(product)
 
   const dispatch = useDispatch<AppDispatch>();
   const handleAdd = () => {

@@ -81,7 +81,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        <hr />
         {/* Section 2 */}
         <section className="flex flex-col items-center justify-center gap-8 sm:flex-row">
           <div className="flex items-center gap-4">
@@ -114,12 +114,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <hr />
         {/* Section 3 */}
         <section className="w-full">
           <div className="flex items-center justify-between">
-            <h3 className="w-fit cursor-pointer border p-4 hover:bg-pink-500">
+            <h3 className="w-fit cursor-pointer border p-4 hover:bg-pink-500 hover:text-white">
               Featured
             </h3>
             <div className="flex items-center gap-4">
@@ -145,7 +144,7 @@ export default function Home() {
             )}
           </div>
         </section>
-
+        <hr />
         {/* Section 4 */}
         <section className="flex w-full flex-col justify-between gap-2 overflow-hidden md:h-[80vh] md:flex-row">
           <div className="flex flex-col gap-2 md:w-1/2 ">
@@ -294,8 +293,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-
+        <hr />
+        {/* Section 5 */}
         <section className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d342.50421379484084!2d74.7266009351273!3d27.049602890133876!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396b9da5cd2d0495%3A0x5c6d53a27ef2fb1f!2sMine%20Art!5e0!3m2!1sen!2sin!4v1705638829958!5m2!1sen!2sin"

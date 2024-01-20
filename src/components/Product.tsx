@@ -43,7 +43,6 @@ const Product = ({ item }: { item?: any }) => {
     minQty: product.minQty,
     material: product.material
     }
-    console.log(itm)
     dispatch(addToCart(itm))
   }
 
@@ -70,30 +69,22 @@ const Product = ({ item }: { item?: any }) => {
       }
     }catch(error){
       console.log(error)
+      return error
     }
   }
-
 
   useEffect(() => {
     if (item) {
       setProduct(item);
       setImgPreview({ id: 0, img: item.thumbnail });
     }
-
     pId && fetchProduct()
-
-  }, [pId, item, fetchProduct]);
+  }, [pId, item]);
 
   const handleQty = (q: number) => {
     if (qty + q >= 1 && qty + q <= 150) {
       setQty((preQ: number) =>  preQ + q);
     }
-  };
-
-
-
-  const handlePreview = (img: any) => {
-    setImgPreview(img);
   };
 
   const handleAvl = async (e: any) => {
@@ -110,7 +101,7 @@ const Product = ({ item }: { item?: any }) => {
 
   return (
     <div className="container2">
-      <div className="flex w-[800px] max-w-full flex-col gap-8 sm:flex-row">
+      <div className="mx-auto flex max-w-full flex-col gap-8 sm:flex-row">
         <div className=" w-full space-y-1 sm:w-1/2">
           <div id="imgPreview" className="h-[400px] w-full transition-all overflow-hidden">
           <Image
@@ -129,7 +120,7 @@ const Product = ({ item }: { item?: any }) => {
                 className={`h-[112px] min-h-[112px] w-[112px] min-w-[112px] cursor-pointer border-pink-500 transition-all focus-visible:w-0 ${
                   imgPreview.id == index ? "border-4" : "border-none"
                 }`}
-                onClick={() => handlePreview({ id: index, img })}
+                onClick={() => setImgPreview({ id: index, img })}
               >
                 <Image
                 width={400}

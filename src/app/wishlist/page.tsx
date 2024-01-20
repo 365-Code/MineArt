@@ -1,7 +1,6 @@
 "use client";
 import Quantity from "@/components/Quantity";
 import { useAppSelector } from "@/redux/store";
-import { cartArray } from "@/utils";
 import Image from "next/image";
 import React from "react";
 

@@ -1,42 +1,43 @@
-"use client"
-import React, { useEffect, useState } from 'react'
+"use client";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
-const RangeSelector = ({min, max}: {min?: number, max: number}) => {
+const RangeSelector = ({ min, max }: { min?: number; max: number }) => {
+  const [price, setPrice] = useState(0);
+  let priceRef = useRef()
 
-    const [price, setPrice] = useState(0)
-    const [translate, setTranslate] = useState(0)
 
-    useEffect(() => {
-        const priceSelector = document.getElementById('price-selector')
-        // if(priceSelector){
-        //     const rate = (price/max)*240
-        //     priceSelector.style.transform = `translate(${rate}px)`
-        // }
-        if(priceSelector){
-            priceSelector.ontouchmove
-            priceSelector.ondrag = () => {
-                console.log('blue');
-            }
+
+  useEffect(() => {
+    const priceSelector = document.getElementById("price-selector");
+    const rangePrice = document.getElementById("range-price");
+    if (priceSelector) {
+      priceSelector.oninput = function () {
+        if (rangePrice) {
+          const rate = (price - (min || 0)) / (max - (min || 0));
+          rangePrice.style.left = rate * 100 + "%";
         }
-    }, [price])
+      };
+    }
+  }, [price]);
 
   return (
-    <div>
-
-        {/* <div className='w-[250px] h-2 relative flex border items-center bg-pink-900'>
-            <div id='price-selector' className={`transition-all translate-x-0 w-4 h-4 rounded-full cursor-pointer bg-black text-left`}></div>
-        </div> */}
-
-        <input id='price-selector' type="range" value={price} min={0} max={max} step={50} onChange={(e: any) => setPrice(e.target.value)} className='w-full'/>
-
+    <div className="relative flex items-center">
+      <input
+        type="range"
+        id="price-selector"
+        value={price}
+        min={0}
+        max={max}
+        step={50}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setPrice(Number(e.target.value)) }
+        className="w-[400px]"
+      />
+      <span id="range-price" className="absolute top-full translate-y-2 transition-none font-semibold">&#x20b9;{price}</span>
     </div>
-  )
-}
+  );
+};
 
-export default RangeSelector
-
-
-
+export default RangeSelector;
 
 // import React from "react";
 

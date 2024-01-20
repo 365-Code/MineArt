@@ -11,11 +11,12 @@ const Page = () => {
 
   const searchProduct = async () => {
     try {
-      // const result = await fetch(`/api/product/searchProducts?category=${cId}`);
-      const result = await fetch(`/api/product/searchProducts?search=${cId}`);
+      const result = await fetch(`/api/product/searchProducts?category=${cId}`);
+      // const result = await fetch(`/api/product/searchProducts?search=${cId}`);
       const res = await result.json();
       if (res.success) {
         setProducts(res.products);
+        
       }
     } catch (error) {
       console.log(error);

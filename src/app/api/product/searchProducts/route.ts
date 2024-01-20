@@ -13,7 +13,6 @@ export async function GET(req: NextRequest){
         let product;
         
         if(pId){
-            console.log(pId);
             product = await productModel.findById(pId).select("category")
         }
         const category = searchParams.get('category') == "All" ? "" : searchParams.get('category') || product?.category || ""
