@@ -16,7 +16,7 @@ export async function GET(req: NextRequest){
             product = await productModel.findById(pId).select("category")
         }
         const category = searchParams.get('category') == "All" ? "" : searchParams.get('category') || product?.category || ""
-        const search = slugify(searchParams.get('search') == "All"? "" : searchParams.get('search') || "", '-')
+        const search = slugify(searchParams.get('search') == "All" ? "" : searchParams.get('search') || "", '-')
 
         const products = await productModel.find({
             $and:[
@@ -37,7 +37,7 @@ export async function GET(req: NextRequest){
                     material: {$regex: material, $options: "i"}
                 }
             ]
-        })
+        }).sort({updatedAt: -1})
 
         return NextResponse.json({total: products.length, success: true, products}, {status: 200})
         

@@ -40,8 +40,8 @@ const Header = () => {
 
   const handleSearch = (e?: React.FormEvent)=>{
     e?.preventDefault()
-    searchProduct()
     nav.push(`/products?search=${searchInput}`)
+    searchProduct()
   }
 
   useEffect(() => {
