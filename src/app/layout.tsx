@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // const inter = Inter({ subsets: ['latin'] })
 // const firaCode = Fira_Code({ subsets: ['latin'] })
-const poppins = Poppins({ subsets: ['latin'], weight: ["300"]} )
+const poppins = Poppins({ subsets: ['latin'], weight: ['300']} )
 
 export const metadata: Metadata = {
   title: 'MineArt',

@@ -8,10 +8,14 @@ export async function PUT(request: NextRequest) {
         await connectDB()
         const body = await request.json()
         const {searchParams} = new URL(request.url)
+        
         const pId = searchParams.get('pId')
-        const product = {slug: slugify(body.title.toLowerCase(), "-"), ...body}
-        const pro = await productModel.findByIdAndUpdate(pId, product)
-        return NextResponse.json({product: pro, success: true, msg: "Product Deleted Successfully"}, {status: 200})
+        const thumbnail = body.images[0]
+        const item = {...body, thumbnail}
+        // const product = await productModel.findByIdAndUpdate(pId, body)
+        const product = await productModel.findByIdAndUpdate(pId, item)
+
+        return NextResponse.json({product, success: true, msg: "Product Deleted Successfully"}, {status: 200})
     } catch (err: any){
         console.log(err)
         return NextResponse.json({success: false, msg: err.message}, {status: 500})

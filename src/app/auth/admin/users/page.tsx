@@ -21,7 +21,7 @@ const Page = () => {
               <p>{u.id}</p>
               <p>{u.username}</p>
               <p>+91 {u.phone}</p>
-              <p>{u.address}</p>
+              <p>{u.address || 'Not Available'}</p>
             </div>
             <hr />
           </div>

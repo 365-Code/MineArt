@@ -7,11 +7,11 @@ export async function POST(request: NextRequest) {
     try{
         await connectDB()
         const body = await request.json();
-        const images = [body.thumbnail, ...body.images]
-        const category = slugify(body.category, '-')
-        const product = {...body, images, category, slug: slugify(body.title.toLowerCase(), "-")}
-        const pro = await productModel.create(product)
-        return NextResponse.json({pro, success: true, msg: "Product Added Successfully"}, {status: 200})
+        const category = slugify(body.category.toLowerCase(), '-')
+        const thumbnail = body.images[0]
+        const item = {...body,thumbnail, category, slug: slugify(body.title.toLowerCase(), "-")}
+        const product = await productModel.create(item)
+        return NextResponse.json({product, success: true, msg: "Product Added Successfully"}, {status: 200})
 
     } catch (err: any){
         return NextResponse.json({success: false, msg: err.message}, {status: 500})

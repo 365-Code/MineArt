@@ -6,6 +6,10 @@ import SideCart from "./SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from "@/redux/features/productSlice";
+import { logout } from "@/redux/features/authSlice";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "@/utils/firebase";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -16,6 +20,8 @@ const Header = () => {
   const pathname = usePathname();
   const nav = useRouter();
   const dispatch = useDispatch<AppDispatch>()
+
+  const authUser = useAppSelector((state) => state.authReducer.value)
 
   const searchProduct = async ()=>{
     try {
@@ -69,6 +75,12 @@ const Header = () => {
   const toggleMenu = () => {
     showMenu ? setShowMenu(false) : setShowMenu(true);
   };  
+
+  const handleLogOut = ()=>{
+    dispatch(logout())
+    signOut(auth)
+    toast('Logged out')
+  }
 
   return (
     <header
@@ -149,14 +161,20 @@ const Header = () => {
           <div className="group/pMenu relative">
             <i className="fi fi-rs-user icons" />
             <div className="absolute right-0 top-[30px] h-0 w-0 space-y-2 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-sm shadow-black/30 transition-all group-hover/pMenu:h-auto group-hover/pMenu:w-[220px] group-hover/pMenu:p-4">
-              <Link
-                href={"/auth/login"}
-                className="flex items-center gap-2 hover:text-pink-500"
-              >
-                <i className="fi fi-rr-sign-in-alt icons" />
-                <span>login</span>
-              </Link>
-              <hr />
+              {
+                !authUser.isLogged &&
+                <>
+                  <Link
+                  href={"/auth/login"}
+                  className="flex items-center gap-2 hover:text-pink-500"
+                  >
+                  <i className="fi fi-rr-sign-in-alt icons" />
+                  <span>login</span>
+                </Link>
+                <hr />
+                </>
+              }
+
               <Link
                 href={"/user/profile"}
                 className="flex items-center gap-2 hover:text-pink-500"
@@ -190,7 +208,19 @@ const Header = () => {
                 <span>admin</span>
               </Link>
                 </>
-
+              }
+              {
+                (authUser.isLogged) && 
+                <>
+                <hr />
+                <button 
+                  onClick={handleLogOut}
+                  className="flex items-center gap-2 hover:text-pink-500"
+                  >
+                  <i className="fi fi-rr-sign-in-alt icons" />
+                  <span>log out</span>
+                </button>
+                  </>
               }
 
             </div>

@@ -12,7 +12,7 @@ module.exports = {
       },
       {
         protocol: 'https',
-        hostname: 'prestashop.templatemela.com'
+        hostname: 'res.cloudinary.com'
       },
     ],
   },

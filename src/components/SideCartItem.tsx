@@ -9,8 +9,6 @@ import { productQuantity, removeFromCart } from "@/redux/features/cartSlice";
 
 const SideCartItem = ({ cartItem }: { cartItem: any }) => {
 
-  // console.log(cartItem)
-
   const dispatch = useDispatch<AppDispatch>()
 
   const handleRemove = ()=>{

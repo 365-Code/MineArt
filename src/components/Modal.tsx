@@ -20,9 +20,9 @@ const Modal = ({
       {
       showModal &&
         <div
-          className={`${showModal? "h-screen p-8" : "h-0 bg-white"} w-screen overflow-hidden fixed left-0 top-0 z-[20] flex flex-col justify-center bg-black/30 transition-all backdrop:blur-sm`}
+          className={`${showModal? "h-screen p-4 md:p-8" : "h-0 bg-white"} w-screen overflow-hidden fixed left-0 top-0 z-[20] flex flex-col justify-center bg-black/30 transition-all backdrop:blur-sm`}
         >
-          <div className={`h-full max-w-full w-[800px] mx-auto relative bg-white p-8`}>
+          <div className={`h-full overflow-y-scroll md:overflow-auto no-scrollbar max-w-full w-[800px] mx-auto relative bg-white p-4 md:p-8`}>
             {compo}
             <i
               onClick={() => setShowModal(false)}

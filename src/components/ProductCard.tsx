@@ -13,7 +13,6 @@ import { addToWish } from "@/redux/features/wishSlice";
 
 const ProductCard = ({ product }: { product: any }) => {
   const [showModal, setShowModal] = useState(false);
-  // console.log(product)
 
   const dispatch = useDispatch<AppDispatch>();
   const handleAddToCart = () => {

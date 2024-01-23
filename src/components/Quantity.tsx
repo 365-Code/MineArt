@@ -6,7 +6,7 @@ const Quantity = ({ Qty, minQty, handleChangeQty }: { Qty?: number; minQty?: num
   const handleQty = (q: number) => {
     if (qty + q >= (minQty || 1) && qty + q <= 150) {
       setQty(qty + q);
-      handleChangeQty(qty+q)
+      handleChangeQty && handleChangeQty(qty+q)
     }
   };
 

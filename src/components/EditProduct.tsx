@@ -1,31 +1,39 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { stringify } from "querystring";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import CloudinaryUpload from "./CloudinaryUpload";
+import { CldUploadWidgetResults } from "next-cloudinary";
+import { useRouter } from "next/navigation";
+import AskPrompt from "./AskPrompt";
 
-const EditProduct = ({ item, type }: { item?: any, type: string}) => {
-  const [keywords, setKeywords] = useState( (item ? item.keywords : [] as Array<string>));
-  const [imgPreview, setImgPreview] = useState( {
+const EditProduct = ({ item, type }: { item?: any; type: string }) => {
+  const nav = useRouter()
+  const [keywords, setKeywords] = useState(
+    item ? item.keywords : ([] as Array<string>),
+  );
+  const [keyword, setKeyword] = useState('')
+  const [imgPreview, setImgPreview] = useState({
     id: 0,
-    img: item?.thumbnail || "" as string
-  })
+    img: item?.thumbnail || "",
+  });
+
+  const [resource, setResource] = useState([] as Array<any>);
 
   const initialValidate = {
     material: "",
     title: "",
     description: "",
     price: "",
-    thumbnail: ""
+    images: ""
+  };
+  const [validateMsg, setValidateMsg] = useState(initialValidate);
 
-  }
-  const [validateMsg, setValidateMsg] = useState(initialValidate)
-
-  const [images, setImages] = useState( item?.images || [] as Array<string> )
+  const [images, setImages] = useState(item?.images || ([] as Array<string>));
   const [productData, setProductData] = useState(
     item || {
       material: "",
       title: "",
-      thumbnail: "",
       images: [],
       price: Number,
       description: "",
@@ -34,67 +42,158 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
       width: Number,
       height: Number,
       length: Number,
-      keyword: "",
     },
   );
 
   const handleChange = (e: any) => {
     e.preventDefault();
-    setValidateMsg(initialValidate)
+    setValidateMsg(initialValidate);
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
   };
 
   const handleKeywords = (keyword: string, mode: string) => {
-    const ind = (keywords.findIndex((k: string) => k == keyword) == -1)
-    if (keyword != "" && mode == "add" && ind){
+    const ind = keywords.findIndex((k: string) => k == keyword) == -1;
+    if (keyword != "" && mode == "add" && ind) {
       setKeywords((preVal: Array<string>) => [...preVal, keyword]);
-      setProductData({...productData, keyword: ""})
-    } else if(keyword != "" && !ind ){
+      setKeyword("")
+    } else if (keyword != "" && !ind) {
       setKeywords((preVal: Array<string>) =>
         preVal.filter((p: string) => p != keyword),
       );
     }
   };
 
-  const handleValidate = ()=>{
-    if(!productData.material){setValidateMsg({...initialValidate, material: "Material is required"})}
-    else if(!productData.title){setValidateMsg({...initialValidate, title: "Title is required"})}
-    else if(!productData.description){setValidateMsg({...initialValidate, description: "Description is required"})}
-    else if(!productData.thumbnail){setValidateMsg({...initialValidate, thumbnail: "Thumbnail is required"})}
-    else if(!productData.price){setValidateMsg({...initialValidate, price: "Price is required"})}
-    else return true
-    return false
+  const handleValidate = () => {
+    if (!productData.material) {
+      setValidateMsg({ ...initialValidate, material: "Material is required" });
+      
+    } else if (!productData.title) {
+      setValidateMsg({ ...initialValidate, title: "Title is required" });
+
+    } else if (!productData.description) {
+      setValidateMsg({
+        ...initialValidate,
+        description: "Description is required",
+      });
+
+    } else if (!images.length) {
+      setValidateMsg({
+        ...initialValidate,
+        images: "Product Image is required",
+      });
+
+    } else if (!productData.price) {
+      setValidateMsg({ ...initialValidate, price: "Price is required" });
+    } else return true;
+    return false;
+  };
+
+  const handleSubmit = async () => {
+    const product = { ...productData, images, keywords };
+    const valid = handleValidate();
+    if(!valid) return;
+    try {
+      
+      if (type == "add") {
+        const result = await fetch("/api/product/addProduct", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        });
+
+        const res = await result.json();
+        if(res.success){
+          setTimeout(()=>{
+            nav.refresh()
+          }, 2000)
+        }
+      } else if (type == "edit") {
+        const result = await fetch(`/api/product/updateProduct?pId=${product._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        });
+
+        const res = await result.json();
+        if(res.success){
+          setTimeout(()=>{
+            nav.refresh()
+          }, 2000)
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  };
+
+  const removeImg = (image: string) => {
+    setImages((preVal: Array<string>) => {
+      return preVal.filter((i) => i != image);
+    });
+  };
+  
+  type PromptType = {
+    type: string,
+    title: string,
+    show: boolean,
+    handle: Function
   }
 
-  const handleSubmit = async ()=>{
-    const product = {...productData, keywords}
-    const valid = handleValidate()
-    if(valid && type == "add"){
-      const result = await fetch('/api/product/addProduct', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(product)
-      })
+  const [showPrompt, setShowPrompt] = useState({} as PromptType)
 
-      const res = await result.json();
-      console.log(res)
-    } else if(valid && type == "edit"){
-      console.log("edit", product);
+  const hidePrompt = (show: boolean) => {
+    setShowPrompt({
+      type: "",
+      title: "",
+      show: false,
+      handle: ()=>(null)
+    })
+  }
+
+  useEffect(() => {
+    let imgArray = [] as Array<string>;
+    resource?.map((res) => {
+      imgArray.push(res.secure_url);
+    });
+    
+    if(imgArray.length>0){
+      setImages([...imgArray, ...images]);
+      setImgPreview({id: 0, img: imgArray[0]})
+    }
+
+
+  }, [resource]);
+
+  const handleImageRef = ()=>{
+    const cldUpload = document.getElementById('cld-upload')
+    if(cldUpload){
+      cldUpload.click()
     }
   }
 
+
   return (
-    <div className="flex flex-col sm:flex-row overflow-hidden w-[800px] max-w-full gap-4">
+    <div className="flex w-[800px] max-w-full flex-col gap-4 overflow-hidden sm:flex-row">
       <div className="basis-1/2 space-y-2">
-        <div className="flex h-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-400 hover:bg-gray-500">
-          {
-            productData.thumbnail 
-            ? <Image width={500} height={500} alt='preview' src={imgPreview.img || productData.thumbnail} className="h-full w-full object-cover object-center"/>
-            :
+        <div className="flex h-[300px] items-center justify-center overflow-hidden rounded-lg bg-gray-400 hover:bg-gray-500">
+          {imgPreview.img ? (
+            <Image
+              width={500}
+              height={500}
+              alt="preview"
+              src={imgPreview.img}
+              className="h-full w-full object-cover object-center"
+            />
+          ) : (
             <svg
+              className="cursor-pointer"
+              onClick={handleImageRef}
               width="115px"
               height="115px"
               viewBox="0 0 24.00 24.00"
@@ -121,24 +220,67 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
                 ></path>{" "}
               </g>
             </svg>
-          }
+          )}
         </div>
-        <div className="flex min-w-full gap-2 no-scrollbar w-[200px] overflow-x-scroll">
-          <div className="min-h-[102px] h-[102px] min-w-[102px] w-[102px] cursor-pointer flex justify-center items-center rounded-lg bg-gray-400 hover:bg-gray-500 ">
-          <svg height={80} width={80} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18.5 7.5H20.5V19.5H6.5V17.5M4.5 14.5L7.79289 11.2071C8.18342 10.8166 8.81658 10.8166 9.20711 11.2071L11.8867 13.8867C12.2386 14.2386 12.7957 14.2782 13.1938 13.9796L14.1192 13.2856C14.3601 13.1049 14.6696 13.0424 14.9618 13.1154L18.5 14M4.5 5.5H18.5V17.5H4.5V5.5ZM14.5 9.5C14.5 10.0523 14.0523 10.5 13.5 10.5C12.9477 10.5 12.5 10.0523 12.5 9.5C12.5 8.94772 12.9477 8.5 13.5 8.5C14.0523 8.5 14.5 8.94772 14.5 9.5Z" stroke="#ffffff" stroke-width="0.375"></path> </g></svg>
-          </div>
-            {
-              productData.images && images.map((image: string, i: number) => 
-              <div key={i} className={`min-h-[102px] h-[102px] min-w-[102px] w-[102px] cursor-pointer flex justify-center items-center rounded-lg bg-gray-400 hover:bg-gray-500 overflow-y-hidden ${imgPreview.id == i && "border-2 border-pink-500"}`}>
-                <Image width={200} height={200} alt="imagesi" src={image} onClick={()=> setImgPreview({id: i, img: image})} className="w-full h-full object-cover object-center"/>
+          <span className="text-xs text-red-500">{validateMsg.images}</span>
+        <div className="no-scrollbar flex w-[200px] min-w-full gap-2 overflow-x-scroll">
+          {/* <div className="flex h-[102px] min-h-[102px] w-[102px] min-w-[102px] cursor-pointer items-center justify-center rounded-lg bg-gray-400 hover:bg-gray-500 ">
+            <svg
+              height={80}
+              width={80}
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  d="M18.5 7.5H20.5V19.5H6.5V17.5M4.5 14.5L7.79289 11.2071C8.18342 10.8166 8.81658 10.8166 9.20711 11.2071L11.8867 13.8867C12.2386 14.2386 12.7957 14.2782 13.1938 13.9796L14.1192 13.2856C14.3601 13.1049 14.6696 13.0424 14.9618 13.1154L18.5 14M4.5 5.5H18.5V17.5H4.5V5.5ZM14.5 9.5C14.5 10.0523 14.0523 10.5 13.5 10.5C12.9477 10.5 12.5 10.0523 12.5 9.5C12.5 8.94772 12.9477 8.5 13.5 8.5C14.0523 8.5 14.5 8.94772 14.5 9.5Z"
+                  stroke="#ffffff"
+                  stroke-width="0.375"
+                ></path>{" "}
+              </g>
+            </svg>
+          </div> */}
+          <CloudinaryUpload setResource={setResource} resource={resource} />
+          {productData.images &&
+            images.map((image: string, i: number) => (
+              <div
+                key={i}
+                onClick={() => setImgPreview({ id: i, img: image })}
+                className={`relative h-[102px] min-h-[102px] w-[102px] min-w-[102px] cursor-pointer overflow-hidden rounded-lg bg-gray-400 hover:bg-gray-500 ${
+                  imgPreview.id == i && "border-2 border-pink-500"
+                }`}
+              >
+                <Image
+                  width={200}
+                  height={200}
+                  alt="imagesi"
+                  src={image}
+                  className="h-full w-full object-cover object-center"
+                />
+                <i
+                  onClick={() => removeImg(image)}
+                  className="fi fi-sr-cross-circle absolute left-1 top-1 rounded-full bg-black text-white hover:bg-white hover:text-black "
+                />
               </div>
-              )
-            }
-          </div>
+            ))}
+        </div>
+        {/* <CloudinaryUpload setResource={setResource} resource={resource}/> */}
       </div>
       <div className="basis-1/2 space-y-2">
         <div>
-          <p>Material:{" "}<span className="text-xs text-red-500">{validateMsg.material}</span></p>
+          <p>
+            *Material:{" "}
+            <span className="text-xs text-red-500">{validateMsg.material}</span>
+          </p>
           <input
             type="text"
             name="material"
@@ -149,7 +291,10 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
           />
         </div>
         <div>
-          <p>Title:{" "}<span className="text-xs text-red-500">{validateMsg.title}</span></p>
+          <p>
+            *Title:{" "}
+            <span className="text-xs text-red-500">{validateMsg.title}</span>
+          </p>
           <input
             type="text"
             name="title"
@@ -161,7 +306,10 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-          <p>Price:{" "}<span className="text-xs text-red-500">{validateMsg.price}</span></p>
+            <p>
+              *Price:{" "}
+              <span className="text-xs text-red-500">{validateMsg.price}</span>
+            </p>
             <input
               type="number"
               name="price"
@@ -183,7 +331,12 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
           </div>
         </div>
         <div>
-        <p>Description:{" "}<span className="text-xs text-red-500">{validateMsg.description}</span></p>
+          <p>
+            *Description:{" "}
+            <span className="text-xs text-red-500">
+              {validateMsg.description}
+            </span>
+          </p>
           <textarea
             name="description"
             value={productData.description}
@@ -228,7 +381,7 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
           </div>
         </div>
         <div>
-          Category:{" "}
+          *Category:{" "}
           <input
             type="text"
             name="category"
@@ -238,21 +391,33 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
             className="w-full rounded-lg p-2 shadow-sm shadow-black/30"
           />
         </div>
-        <form onSubmit={(e: any) => {e.preventDefault(); handleKeywords(productData.keyword, "add")} } className="flex items-center justify-between gap-4">
+
+        <form
+          onSubmit={(e: any) => {
+            e.preventDefault();
+            handleKeywords(keyword, "add");
+          }}
+          className="flex items-center justify-between gap-4"
+        >
           Keywords:{" "}
+          <div className="flex items-center border rounded-lg overflow-hidden">
           <input
             type="text"
             name="keyword"
-            onSubmit={() => handleKeywords(productData.keyword, "add")}
-            value={productData.keyword}
+            value={keyword}
             autoComplete="false"
-            onChange={handleChange}
+            onChange={(e)=>setKeyword(e.target.value)}
             placeholder="Enter Keywords"
-            className="w-full rounded-lg p-2 shadow-sm shadow-black/30"
-          />
-          <button type="submit"></button>
+            className="w-full p-2 shadow-sm shadow-black/30"
+            />
+          {/* <button type="submit"/> */}
+          <button type="submit" className="border p-3  hover:bg-black hover:text-white">
+            <i className="fi fi-sr-apps-sort" />
+          </button>
+            </div>
         </form>
-        <div className="custom-scrollbar flex h-[60px] p-2 flex-wrap gap-2 overflow-y-scroll">
+
+        <div className="custom-scrollbar flex h-[60px] flex-wrap gap-2 overflow-y-scroll p-2">
           {keywords.map((k: string, i: number) => (
             <p
               key={i}
@@ -268,11 +433,19 @@ const EditProduct = ({ item, type }: { item?: any, type: string}) => {
           <p></p>
         </div>
         <div className="text-right">
-          <button onClick={handleSubmit} className="py-2 px-4 rounded-lg text-right bg-blue-400 hover:bg-blue-500">Apply</button>
+          <button
+            // onClick={handleSubmit}
+            onClick={()=> setShowPrompt({type: "blue", title:`Want to ${type == "add"? "Add" : "Edit"} "${productData.title}"`, handle: handleSubmit, show:true})}
+            className="rounded-lg bg-blue-400 px-4 py-2 text-white hover:bg-blue-500"
+          >
+            {type == 'add' ? "Add" : "Apply Changes"}
+          </button>
+          <AskPrompt type={showPrompt.type} title={showPrompt.title} handle={handleSubmit} show={showPrompt.show} setShow={hidePrompt} />
+
         </div>
       </div>
     </div>
   );
 };
 
-export default EditProduct
+export default EditProduct;

@@ -51,7 +51,7 @@ const Page = () => {
               height={400}
               className="rounded-lg mx-auto"
               //   src="https://img.freepik.com/free-vector/error-404-concept-illustration_114360-1811.jpg?size=626&ext=jpg&ga=GA1.1.2058463804.1704785941&semt=sph"
-              src={"/404.png"}
+              src={"/404.svg"}
               alt=""
             />
 
