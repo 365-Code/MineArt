@@ -9,14 +9,18 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     email: {
-        type: String, 
-        unique: true, 
+        type: String,
+        unique: true,
         required: true,
     },
     address: {
         type: String,
-    }, 
-    phNo: {
+    },
+    pincode:{
+        type: Number,
+        length: 10,
+    },
+    phone: {
         type: Number,
         length: 10,
     }

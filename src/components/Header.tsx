@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from "@/redux/features/productSlice";
 import { logout } from "@/redux/features/authSlice";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
 
@@ -172,14 +172,16 @@ const Header = () => {
                 <hr />
                 </>
               }
-
-              <Link
-                href={"/user/profile"}
+              {
+                authUser.isLogged &&
+                <Link
+                href={`/${authUser.token}/profile`}
                 className="flex items-center gap-2 hover:text-pink-500"
-              >
+                >
                 <i className="fi fi-ss-user-pen" />
                 <span>Profile</span>
               </Link>
+              }
               <Link
                 href={"/wishlist"}
                 className="flex items-center gap-2 hover:text-pink-500"
