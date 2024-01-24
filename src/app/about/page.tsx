@@ -97,7 +97,7 @@ const Page = () => {
             </li>
             <li>
               Each team member is skilled in their respective areas,
-              contributing to the overall excellence of MineArt's creations.
+              contributing to the overall excellence of MineArt&apos;s creations.
             </li>
             <li>
               Works collaboratively, sharing knowledge and expertise to
@@ -106,9 +106,9 @@ const Page = () => {
             <li>
               Incorporating a passionate tone throughout the company page
               outline will help convey the enthusiasm and dedication of MineArt
-              towards its craft. By emphasizing the company's commitment to
+              towards its craft. By emphasizing the company&apos;s commitment to
               excellence, preservation of art, and customer satisfaction, the
-              page will inspire readers and instill confidence in MineArt's
+              page will inspire readers and instill confidence in MineArt&apos;s
               products.
             </li>
           </ul>
