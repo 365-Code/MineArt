@@ -20,8 +20,8 @@ const Header = () => {
   const pathname = usePathname();
   const nav = useRouter();
   const dispatch = useDispatch<AppDispatch>()
-
   const authUser = useAppSelector((state) => state.authReducer.value)
+  const cart = useAppSelector((state) => state.cartReducer.value);
 
   const searchProduct = async ()=>{
     try {
@@ -34,9 +34,6 @@ const Header = () => {
       return error
     }
   }
-
-
-  const cart = useAppSelector((state) => state.cartReducer.value);
 
   const handleSearch = (e?: React.FormEvent)=>{
     e?.preventDefault()
@@ -88,6 +85,7 @@ const Header = () => {
       className="container1 fixed left-0 top-0 z-10 w-full space-y-2 bg-white/90 text-center drop-shadow-xl transition-all backdrop:blur-sm"
     >
       <div className="container3 flex items-center justify-between">
+
         <div className="flex w-fit items-center gap-4">
           <button onClick={toggleMenu} className="relative md:hidden">
             <i className="fi fi-sr-bars-staggered icons" />
@@ -101,9 +99,9 @@ const Header = () => {
           id="navMenu"
           className={`${
             showMenu
-              ? "visible z-30 w-[300px] translate-x-0 border bg-[#f5f5f5]"
+              ? "visible z-30 w-[300px] px-8 md:p-0 md:w-fit translate-x-0 border bg-[#f5f5f5]"
               : "invisible -translate-x-full "
-          } absolute left-0 top-0 flex h-screen flex-col items-center gap-6 py-8 text-lg font-semibold transition-all md:visible md:relative md:h-auto md:translate-x-0 md:flex-row md:gap-8 md:border-none md:p-0`}
+          } absolute border left-0 top-0 flex h-screen flex-col items-start sm:items-center gap-6 py-8 text-lg font-semibold transition-all md:visible md:relative md:h-auto md:translate-x-0 md:flex-row md:gap-8 md:border-none md:p-0`}
         >
           <button onClick={toggleMenu} className={`text-sm md:hidden`}>
             <i className="fi fi-sr-cross" />
@@ -240,6 +238,7 @@ const Header = () => {
             <SideCart setShowCart={setShowCart} />
           </div>
         </div>
+
       </div>
 
       <div

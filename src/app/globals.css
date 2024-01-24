@@ -115,9 +115,9 @@ input::-webkit-inner-spin-button {
 }
 
 .display-cards {
-  @apply grid justify-items-center md:justify-items-start gap-4;
+  @apply grid justify-items-start md:justify-items-start md:gap-4;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  /* grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); */
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
 }
 
 .btn {

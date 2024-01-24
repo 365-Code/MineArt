@@ -346,6 +346,18 @@ const EditProduct = ({ item, type }: { item?: any; type: string }) => {
           />
         </div>
         <div className="grid grid-cols-3 gap-4">
+          
+        <div>
+            Length:{" "}
+            <input
+              type="number"
+              name="length"
+              value={productData.length}
+              onChange={handleChange}
+              placeholder="Enter Length"
+              className="w-full rounded-lg p-2 shadow-sm shadow-black/30"
+            />
+          </div>
           <div>
             Width:{" "}
             <input
@@ -365,17 +377,6 @@ const EditProduct = ({ item, type }: { item?: any; type: string }) => {
               value={productData.height}
               onChange={handleChange}
               placeholder="Enter Height"
-              className="w-full rounded-lg p-2 shadow-sm shadow-black/30"
-            />
-          </div>
-          <div>
-            Length:{" "}
-            <input
-              type="number"
-              name="length"
-              value={productData.length}
-              onChange={handleChange}
-              placeholder="Enter Length"
               className="w-full rounded-lg p-2 shadow-sm shadow-black/30"
             />
           </div>
