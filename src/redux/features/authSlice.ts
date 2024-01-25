@@ -3,17 +3,24 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 const initialState = {
     value: {
         token: "",
-        isLogged: false
+        isLogged: false,
+        isAdm: false
     }
+}
+
+type authType = {
+    user: string,
+    isMe: boolean
 }
 
 const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login: (state, action: PayloadAction<string>)=>{
+        login: (state, action: PayloadAction<authType>)=>{
             state.value.isLogged = true
-            state.value.token = action.payload
+            state.value.token = action.payload.user
+            state.value.isAdm = action.payload.isMe
         },
         logout: (state)=>{
             state.value.token = ""

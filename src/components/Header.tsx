@@ -16,7 +16,6 @@ const Header = () => {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('')
-  const [isAdmin, setIsAdmin] = useState(false)
 
   const pathname = usePathname();
   const nav = useRouter();
@@ -80,31 +79,12 @@ const Header = () => {
     toast.success('Logged out')
   }
 
-  const checkAdmin = async () => {
-    try {
-      const result = await fetch(`/api/auth/admin/checkAdmin?uId=${authUser.token}`)
-      const res = await result.json()
-      if(!res.isMe){
-        setIsAdmin(false)
-        nav.push('/error/unauth')
-      } else{
-        setIsAdmin(true)
-      }
-    } catch (error) {
-      return error
-    }
-  }
-
   useEffect(()=>{
     
-    // if(pathname.includes('/auth/admin')){
-    //   if(authUser.isLogged){
-    //     checkAdmin()
-    //   } else{
-    //     nav.push('/')
-    //   }
-    // } 
-    authUser.isLogged && checkAdmin()
+    if(pathname.includes('/auth/admin') && (!authUser.isLogged && !authUser.isAdm) ){
+        nav.push('/error/unauth')
+    } 
+    // authUser.isLogged && checkAdmin()
   }, [authUser.isLogged, pathname])
 
   return (
@@ -225,7 +205,7 @@ const Header = () => {
                 <span>cart</span>
               </Link>
               {
-                isAdmin &&
+                authUser.isAdm &&
                 <>
                 <hr />
               <Link

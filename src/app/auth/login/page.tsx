@@ -34,7 +34,7 @@ const Page = () => {
       })
       const res = await result.json()
       if(res.success){
-        dispatch(login(res.user._id))
+        dispatch(login(res))
         toast.success("Logged In Successfully")
         nav.push('/')
       }
