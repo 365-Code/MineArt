@@ -57,7 +57,7 @@ const AdminMenu = ({ activeMenu }: { activeMenu: string }) => {
         onMouseEnter={() => setShowAdminMenu(true)}
         className={`${
           showAdminMenu && "invisible translate-x-10"
-        } absolute py-2 rounded-lg rotate-90 -left-2 top-0 transition-none sm:hidden`}
+        } absolute py-2 rounded-lg -left-2 top-0 transition-none sm:hidden`}
       >
         <i className="fi fi-rs-menu-dots-vertical" />
       </button>

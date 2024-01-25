@@ -75,7 +75,7 @@ const AdminProductCard = ({ product }: { product: any }) => {
       />
 
 
-      <div className="group/product h-auto w-full min-w-[280px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
+      <div className="group/product h-auto  w-full min-w-[230px] max-w-[350px] space-y-2 justify-self-center">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
@@ -87,7 +87,7 @@ const AdminProductCard = ({ product }: { product: any }) => {
             />
           </Link>
 
-          <div className="absolute left-4 top-4 h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 md:group-hover/product:h-[300px]">
+          <div className="absolute left-4 top-4 md:h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 h-fit md:group-hover/product:h-[300px]">
             <i
               onClick={() => setShowEditModal(true)}
               className="fi fi-ss-replace cursor-pointer rounded-lg bg-white p-2 text-blue-500 transition-all hover:bg-blue-500 hover:text-white"

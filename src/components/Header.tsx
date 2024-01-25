@@ -77,6 +77,7 @@ const Header = () => {
 
   const handleLogOut = ()=>{
     dispatch(logout())
+    localStorage.clear()
     signOut(auth)
     toast.success('Logged out')
   }

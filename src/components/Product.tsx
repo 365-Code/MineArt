@@ -151,9 +151,6 @@ const Product = ({ item }: { item?: any }) => {
           <h2 className="text-3xl font-semibold">{product.title}</h2>
           <p>
             {product.description}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-            similique soluta nam ab dolores dolore consequuntur sit illum
-            facilis non!
           </p>
           <hr />
           <div className="flex items-center gap-8">
@@ -221,7 +218,7 @@ const Product = ({ item }: { item?: any }) => {
 
       </div>
       <hr />
-      <div className="h-[300px]">
+      <div className="overflow-y-scroll no-scrollbar max-h-[300px]">
         <div>
           <button onClick={()=> setDetail('description')} className={`${detail == "description" && "bg-slate-300 text-black"} p-4 w-[150px] hover:bg-slate-300 hover:text-black`}>
             Description
@@ -233,7 +230,7 @@ const Product = ({ item }: { item?: any }) => {
         <div className="p-4 max-w-full w-[700px]">
         {
           detail == "description" && <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium voluptatem tenetur error ullam accusamus doloribus hic, vitae nisi impedit animi voluptas, asperiores perspiciatis pariatur omnis eaque! Unde, animi magni. Officia repellendus natus nostrum explicabo non perspiciatis sapiente! Ea, perferendis exercitationem?
+            {product.description}
             </p>
         }
         {

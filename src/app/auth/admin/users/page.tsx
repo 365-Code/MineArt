@@ -39,11 +39,11 @@ const Page = () => {
         <h1 className='mb-4 text-left font-semibold text-xl'>All Users</h1>
       <div>
         <div className="grid grid-cols-5 rounded-lg p-2">
-          <h3 className='flex items-center gap-2 font-semibold text-base'><span><i className="fi fi-rs-id-badge icons"/></span>User ID</h3>
-          <h3 className='flex items-center gap-2 font-semibold text-base'><span><i className="fi fi-rr-id-card-clip-alt icons"/></span>Username</h3>
-          <h3 className='flex items-center gap-2 font-semibold text-base'><span><i className="fi fi-rr-id-card-clip-alt icons"/></span>Email</h3>
-          <h3 className='flex items-center gap-2 font-semibold text-base'><span><i className="fi fi-rs-phone-call icons"/></span>Phone Number</h3>
-          <h3 className='flex items-center gap-2 font-semibold text-base'><span><i className="fi fi-rr-address-book icons"/></span>Address</h3>
+          <h3 className='flex items-center gap-2 font-semibold text-base'><i className="fi fi-rs-id-badge icons"/><span>User ID</span></h3>
+          <h3 className='flex items-center gap-2 font-semibold text-base'><i className="fi fi-rr-id-card-clip-alt icons"/><span>Username</span></h3>
+          <h3 className='flex items-center gap-2 font-semibold text-base'><i className="fi fi-rr-id-card-clip-alt icons"/><span>Email</span></h3>
+          <h3 className='flex items-center gap-2 font-semibold text-base'><i className="fi fi-rs-phone-call icons"/><span>Phone Number</span></h3>
+          <h3 className='flex items-center gap-2 font-semibold text-base'><i className="fi fi-rr-address-book icons"/><span>Address</span></h3>
         </div>
         <hr />
         {usersList.users?.map((u) => (
