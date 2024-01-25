@@ -35,6 +35,7 @@ const Page = () => {
       const res = await result.json()
       if(res.success){
         dispatch(login(res))
+        localStorage.setItem('authUser', res.user)
         toast.success("Logged In Successfully")
         nav.push('/')
       }

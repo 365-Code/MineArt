@@ -96,7 +96,7 @@ const Page = () => {
 
     </AdminLayout>
       <Modal
-        compo={<EditProduct type="add" />}
+        compo={<EditProduct setShowModal={setShowModal} type="add" />}
         showModal={showModal}
         setShowModal={setShowModal}
       />

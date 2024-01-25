@@ -11,8 +11,9 @@ export async function PUT(request: NextRequest) {
         
         const pId = searchParams.get('pId')
         const thumbnail = body.images[0]
-        const item = {...body, thumbnail}
-        // const product = await productModel.findByIdAndUpdate(pId, body)
+        const category = slugify(body.category.toLowerCase(), '-')
+        const material = slugify(body.material.toLowerCase(), '-')
+        const item = {...body, thumbnail, material, category}
         const product = await productModel.findByIdAndUpdate(pId, item)
 
         return NextResponse.json({product, success: true, msg: "Product Deleted Successfully"}, {status: 200})

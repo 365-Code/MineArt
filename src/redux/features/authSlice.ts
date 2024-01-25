@@ -1,4 +1,3 @@
-import { auth } from "@/utils/firebase"
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 const initialState = {
     value: {
@@ -19,12 +18,14 @@ const authSlice = createSlice({
     reducers: {
         login: (state, action: PayloadAction<authType>)=>{
             state.value.isLogged = true
-            state.value.token = action.payload.user
-            state.value.isAdm = action.payload.isMe
+                // checkAdmin(ac)
+                state.value.token = action.payload.user
+                state.value.isAdm = action.payload.isMe
         },
         logout: (state)=>{
             state.value.token = ""
             state.value.isLogged = false
+            state.value.isAdm = false
         }
     }
 })

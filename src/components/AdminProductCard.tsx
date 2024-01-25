@@ -75,7 +75,7 @@ const AdminProductCard = ({ product }: { product: any }) => {
       />
 
 
-      <div className="group/product h-auto min-w-[280px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
+      <div className="group/product h-auto w-full min-w-[280px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
@@ -111,7 +111,7 @@ const AdminProductCard = ({ product }: { product: any }) => {
       </div>
 
       <Modal
-        compo={<EditProduct item={product} type="edit" />}
+        compo={<EditProduct setShowModal={setShowEditModal} item={product} type="edit" />}
         showModal={showEditModal}
         setShowModal={setShowEditModal}
       />

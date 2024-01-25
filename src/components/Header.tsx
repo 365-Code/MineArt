@@ -6,16 +6,18 @@ import SideCart from "./SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from "@/redux/features/productSlice";
-import { logout } from "@/redux/features/authSlice";
+import { login, logout } from "@/redux/features/authSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
+import { checkAdmin } from "@/utils";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('')
+  const [admin, setAdmin] = useState(false)
 
   const pathname = usePathname();
   const nav = useRouter();
@@ -80,12 +82,21 @@ const Header = () => {
   }
 
   useEffect(()=>{
-    
-    if(pathname.includes('/auth/admin') && (!authUser.isLogged && !authUser.isAdm) ){
+    const data = localStorage.getItem('authUser')
+    !authUser.isLogged && signUser()
+    if(pathname.includes('/auth/admin') && (!data && !authUser.isLogged && !authUser.isAdm) ){
         nav.push('/error/unauth')
     } 
     // authUser.isLogged && checkAdmin()
   }, [authUser.isLogged, pathname])
+
+  const signUser = async () => {
+    const data = localStorage.getItem('authUser')
+    if(data){
+      const isMe = await checkAdmin(data)
+      dispatch(login({user: data, isMe}))
+    }
+  }
 
   return (
     <header

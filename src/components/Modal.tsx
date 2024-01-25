@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Modal = ({
   compo,
@@ -9,17 +9,13 @@ const Modal = ({
   showModal: boolean;
   setShowModal: any;
 }) => {
-  // useEffect(()=>{
-  //     if(showModal){
-  //         window.scrollTo(0,0)
-  //     }
-  // }, [showModal, setShowModal])
 
   return (
     <>
       {
       showModal &&
         <div
+          id="Modal"
           className={`${showModal? "h-screen p-4 md:p-8" : "h-0 bg-white"} w-screen overflow-hidden fixed left-0 top-0 z-[20] flex flex-col justify-center bg-black/30 transition-all backdrop:blur-sm`}
         >
           <div className={`h-full overflow-y-scroll md:overflow-auto no-scrollbar max-w-full w-[800px] mx-auto relative bg-white p-4 md:p-8`}>

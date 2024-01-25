@@ -143,7 +143,7 @@ const Page = () => {
                           category: ctg,
                         }))
                       }
-                      className={`cursor-pointer whitespace-nowrap px-1 ${
+                      className={`capitalize cursor-pointer whitespace-nowrap px-1 ${
                         ctg == filtersInput.category &&
                         "font-semibold underline underline-offset-4 drop-shadow"
                       } `}
@@ -169,7 +169,7 @@ const Page = () => {
                           material: mtrl,
                         }))
                       }
-                      className={`cursor-pointer whitespace-nowrap px-1 ${
+                      className={`capitalize cursor-pointer whitespace-nowrap px-1 ${
                         mtrl == filtersInput.material &&
                         "font-semibold underline underline-offset-4 drop-shadow"
                       } `}

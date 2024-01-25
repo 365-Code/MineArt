@@ -8,8 +8,9 @@ export async function POST(request: NextRequest) {
         await connectDB()
         const body = await request.json();
         const category = slugify(body.category.toLowerCase(), '-')
+        const material = slugify(body.material.toLowerCase(), '-')
         const thumbnail = body.images[0]
-        const item = {...body,thumbnail, category, slug: slugify(body.title.toLowerCase(), "-")}
+        const item = {...body,thumbnail, category, material, slug: slugify(body.title.toLowerCase(), "-")}
         const product = await productModel.create(item)
         return NextResponse.json({product, success: true, msg: "Product Added Successfully"}, {status: 200})
 

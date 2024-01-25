@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
-import { stringify } from "querystring";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloudinaryUpload from "./CloudinaryUpload";
-import { CldUploadWidgetResults } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import AskPrompt from "./AskPrompt";
+import { toast } from "react-toastify";
 
-const EditProduct = ({ item, type }: { item?: any; type: string }) => {
+const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; setShowModal: any }) => {
   const nav = useRouter()
   const [keywords, setKeywords] = useState(
     item ? item.keywords : ([] as Array<string>),
@@ -106,10 +105,11 @@ const EditProduct = ({ item, type }: { item?: any; type: string }) => {
 
         const res = await result.json();
         if(res.success){
-          setTimeout(()=>{
-            nav.refresh()
-          }, 2000)
+          toast.success(product.title + "Added Successfully")
+        } else{
+          toast.error("Some error occured")
         }
+        setShowModal(false)
       } else if (type == "edit") {
         const result = await fetch(`/api/product/updateProduct?pId=${product._id}`, {
           method: "PUT",
@@ -121,13 +121,16 @@ const EditProduct = ({ item, type }: { item?: any; type: string }) => {
 
         const res = await result.json();
         if(res.success){
+          toast.success(product.title + "Updated Successfully")
           setTimeout(()=>{
             nav.refresh()
           }, 2000)
+        } else{
+          toast.error("Some error occured")
         }
+        setShowModal(false)
       }
     } catch (error) {
-      console.log(error);
       return error;
     }
   };
@@ -179,7 +182,7 @@ const EditProduct = ({ item, type }: { item?: any; type: string }) => {
 
 
   return (
-    <div className="flex w-[800px] max-w-full flex-col gap-4 overflow-hidden sm:flex-row">
+    <div className="flex overflow-y-scroll no-scrollbar w-[800px] max-w-full flex-col gap-4 overflow-hidden sm:flex-row">
       <div className="basis-1/2 space-y-2">
         <div className="flex h-[300px] items-center justify-center overflow-hidden rounded-lg bg-gray-400 hover:bg-gray-500">
           {imgPreview.img ? (

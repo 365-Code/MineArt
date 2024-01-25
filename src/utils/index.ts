@@ -14,6 +14,16 @@ export const imgArray = [
   "https://img.freepik.com/premium-photo/close-up-arrangement-modern-vases_23-2149646544.jpg?size=626&ext=jpg",
 ];
 
+export async function checkAdmin(uId: string){
+    try {
+        const result = await fetch(`/api/auth/admin/checkAdmin?uId=${uId}`)
+        const res = await result.json()
+        return res.isMe
+      } catch (error) {
+        return error
+      }
+}
+
 const imgs = {
   img0: [
     "https://img.freepik.com/free-photo/elegant-modern-vase-design_23-2150529803.jpg?ga=GA1.1.1494205593.1703951523&semt=ais_ai_generated",
