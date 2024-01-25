@@ -12,8 +12,9 @@ export async function PUT(req: NextRequest){
                 return NextResponse.json({success: false, msg: "User Not found"}, {status: 400})
             }
             const body = await req.json()
+            // console.log(body);
             const user = await userModel.findByIdAndUpdate(uId, body)
-            return NextResponse.json({user, success: true, msg: "Registered Successfully"}, {status: 200})
+            return NextResponse.json({user, success: true, msg: "Updated Successfully"}, {status: 200})
         } catch (error: any) {
         return NextResponse.json({success: false, msg: error?.message}, {status: 500})
     }

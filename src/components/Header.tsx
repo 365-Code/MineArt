@@ -79,6 +79,12 @@ const Header = () => {
     toast('Logged out')
   }
 
+  useEffect(() => {
+    console.log(
+      auth.currentUser
+    );
+  }, [])
+
   return (
     <header
       id="header"
