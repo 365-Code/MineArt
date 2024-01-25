@@ -76,14 +76,31 @@ const Header = () => {
   const handleLogOut = ()=>{
     dispatch(logout())
     signOut(auth)
-    toast('Logged out')
+    toast.success('Logged out')
   }
 
-  useEffect(() => {
-    console.log(
-      auth.currentUser
-    );
-  }, [])
+  const checkAdmin = async () => {
+    try {
+      const result = await fetch(`/api/auth/admin/checkAdmin?uId=${authUser.token}`)
+      const res = await result.json()
+      if(!res.isMe){
+        nav.push('/error/unauth')
+      }
+    } catch (error) {
+      return error
+    }
+  }
+
+  useEffect(()=>{
+    
+    if(pathname.includes('/auth/admin')){
+      if(authUser.isLogged){
+        checkAdmin()
+      } else{
+        nav.push('/')
+      }
+    } 
+  }, [authUser.isLogged, pathname])
 
   return (
     <header
@@ -172,7 +189,7 @@ const Header = () => {
                   href={"/auth/login"}
                   className="flex items-center gap-2 hover:text-pink-500"
                   >
-                  <i className="fi fi-rr-sign-in-alt icons" />
+                  <i className="fi fi-sr-enter icons" />
                   <span>login</span>
                 </Link>
                 <hr />
@@ -223,7 +240,7 @@ const Header = () => {
                   onClick={handleLogOut}
                   className="flex items-center gap-2 hover:text-pink-500"
                   >
-                  <i className="fi fi-rr-sign-in-alt icons" />
+                  <i className="fi fi-sr-power icons" />
                   <span>log out</span>
                 </button>
                   </>

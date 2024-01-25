@@ -40,9 +40,6 @@ const Page = () => {
 
   const { uId } = params;
 
-  console.log(user.avatar);
-  
-
   const handleAvatar = (e: ChangeEvent<HTMLInputElement>) => {
     if(e.target.files?.length && e.target.files[0].type.includes('image') ) {
       setAvatarFile( {file: e.target.files[0], image: URL.createObjectURL(e.target.files[0])} ) 

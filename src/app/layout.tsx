@@ -34,8 +34,8 @@ export default function RootLayout({
         </ReactProvider>
         <ToastContainer 
           position="top-center"
-          autoClose={3000}
-          hideProgressBar={false}
+          autoClose={1000}
+          hideProgressBar={true}
           newestOnTop={false}
           closeOnClick
           rtl={false}

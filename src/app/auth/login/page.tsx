@@ -21,8 +21,10 @@ const Page = () => {
 
   const handleLogin = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
     try {
       await signInWithEmailAndPassword(auth, authInfo.email, authInfo.password)
+
       const result = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
@@ -51,7 +53,7 @@ const Page = () => {
 
   useEffect(() => {
     authUser.isLogged && nav.push('/')
-  }, [authUser])
+  }, [authUser.isLogged])
 
 
   return (
