@@ -31,7 +31,7 @@ const Page = () => {
         headers: {
           'Content-type': "application/json"
         },
-        body: JSON.stringify(authInfo)
+        body: JSON.stringify({...authInfo, email: authInfo.email.toLowerCase()})
       })
       const res = await result.json()
       if(res.success){

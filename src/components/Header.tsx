@@ -16,6 +16,7 @@ const Header = () => {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [searchInput, setSearchInput] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const pathname = usePathname();
   const nav = useRouter();
@@ -84,7 +85,10 @@ const Header = () => {
       const result = await fetch(`/api/auth/admin/checkAdmin?uId=${authUser.token}`)
       const res = await result.json()
       if(!res.isMe){
+        setIsAdmin(false)
         nav.push('/error/unauth')
+      } else{
+        setIsAdmin(true)
       }
     } catch (error) {
       return error
@@ -93,13 +97,14 @@ const Header = () => {
 
   useEffect(()=>{
     
-    if(pathname.includes('/auth/admin')){
-      if(authUser.isLogged){
-        checkAdmin()
-      } else{
-        nav.push('/')
-      }
-    } 
+    // if(pathname.includes('/auth/admin')){
+    //   if(authUser.isLogged){
+    //     checkAdmin()
+    //   } else{
+    //     nav.push('/')
+    //   }
+    // } 
+    authUser.isLogged && checkAdmin()
   }, [authUser.isLogged, pathname])
 
   return (
@@ -220,7 +225,7 @@ const Header = () => {
                 <span>cart</span>
               </Link>
               {
-                process.env.NEXT_PUBLIC_DEV_MODE == "true" &&
+                isAdmin &&
                 <>
                 <hr />
               <Link
