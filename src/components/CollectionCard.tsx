@@ -9,8 +9,8 @@ type ItemType = {
 
 const CollectionCard = ({item}: {item?: any}) => {
   return (
-    <div className='w-[300px] h-auto space-y-3'>
-        <div className='h-[300px] w-[300px]'>
+    <div className='min-w-[180px] w-auto max-w-[300px] h-auto space-y-3'>
+        <div className='h-[300px] w-full'>
             <Image height={500} width={500} src={item.thumbnail || "thumbnail"} alt="" className='res-img'/>
         </div>
         <div>

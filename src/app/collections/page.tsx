@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Page = () => {
@@ -8,9 +9,9 @@ const Page = () => {
 
       <section id="slide1" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
         <div className=" flex w-full gap-2 flex-col justify-between">
-          <div className="h-[400px]">
+          <Link href={'/collections/decors'} className="h-[400px]">
             <Image height={500} width={500} src="/coll1.jpg" alt="" className="res-img" />
-          </div>
+          </Link>
           <div>
             <h2 className="text-lg font-semibold">Home Decor Set</h2>
             <p className="w-[450px] max-w-full">
@@ -20,18 +21,18 @@ const Page = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex w-full flex-col justify-between">
-            <div className="h-[450px]">
+            <Link href={'/collections/coaster'} className="h-[450px]">
               <Image height={500} width={500} src="/coll2.jpg" alt="" className="res-img" />
-            </div>
+            </Link>
             <div>
             <h2 className="font-semibold text-lg">Coaster Set</h2>
             <p>Crafted with precision, these coasters are designed to protect your surfaces while adding a touch of sophistication to your home decor.</p>
             </div>
           </div>
           <div className="flex flex-col justify-between">
-            <div className="h-[450px]">
+            <Link href={'/collections/tableware'} className="h-[450px]">
               <Image height={500} width={500} src="/coll3.jpg" alt="" className="res-img" />
-            </div>
+            </Link>
             <div>
             <h2 className="font-semibold text-lg">Tablewares</h2>
             <p>Made from high-quality materials, its unique design resembles a fruit bowl, making it a versatile piece that can also be used as a decorative item in other areas of your home.  </p>
@@ -42,9 +43,9 @@ const Page = () => {
       
       <section id="slide2" className="slide grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-8">
         <div className=" flex w-full gap-2 flex-col justify-between">
-          <div className="h-[450px]">
+          <Link href={'/collections/kitchen'} className="h-[450px]">
             <Image height={500} width={500} src="/coll4.jpg" alt="" className="res-img" />
-          </div>
+          </Link>
           <div>
             <h2 className="text-lg font-semibold">Kitchen Set</h2>
             <p className="w-[450px] max-w-full">
@@ -54,9 +55,9 @@ const Page = () => {
         </div>
 
         <div className=" flex w-full gap-2 flex-col md:flex-col-reverse justify-between">
-          <div className="h-[450px]">
-            <Image height={500} width={500} src="/coll5.jpg" alt="" className="res-img" />
-          </div>
+          <Link href={'/collections/bathroom'} className="h-[450px]">
+            <Image height={500} width={500} src="/coll5.jpg" alt="" className="h-full w-full object-fill object-center" />
+          </Link>
           <div>
             <h2 className="text-lg font-semibold">Bathroom Set</h2>
             <p className="w-[450px] max-w-full">
@@ -122,10 +123,10 @@ const Page = () => {
           <Image height={500} width={500} src="/coll10.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-lg font-semibold">This is a product</h2>
+          <h2 className="text-lg font-semibold">Marble Mortar</h2>
           <p className="max-w-full">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-            consequatur cupiditate eaque alias, ipsa harum.
+          This marble mortar and pestle is the perfect addition to any kitchen for those who love to cook with fresh herbs and garlic
+          The heavy-duty design allows you to easily crush and grind your herbs and garlic, releasing their full flavor and aroma.
           </p>
         </div>
       </div>
@@ -180,7 +181,7 @@ const Page = () => {
               <Image height={500} width={500} src="/coll14.jpg" alt="" className="res-img" />
             </div>
             <div>
-            <h2 className="font-semibold text-lg">Coaster Set</h2>
+            <h2 className="font-semibold text-lg">Modern Vase</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime expedita iure est numquam quo.</p>
             </div>
           </div>
@@ -199,10 +200,9 @@ const Page = () => {
             <Image height={500} width={500} src="/coll16.jpg" alt="" className="res-img" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">Home Decor</h2>
+            <h2 className="text-lg font-semibold">Marble Furniture</h2>
             <p className="w-[450px] max-w-full">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-              consequatur cupiditate eaque alias, ipsa harum.
+            This stunning set of furniture will add a touch of elegance to any living space. The centerpiece is a beautiful white marble coffee table, exuding a sense of luxury and sophistication.
             </p>
           </div>
         </div>

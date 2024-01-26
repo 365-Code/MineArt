@@ -13,7 +13,7 @@ export default function Home() {
     ft && ft.scrollLeft >= 1280 ? ft?.scrollTo(0, 0) : ft?.scrollBy(50 * n, 0);
   };
 
-  const images = [imgArray[0], imgArray[1], imgArray[2]];
+  const images = ['/coll13.jpg', '/coll18.jpg', '/coll6.jpg'];
 
   return (
     <main className="container1">
@@ -23,7 +23,7 @@ export default function Home() {
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
             <div className="flex h-full min-h-[350px] w-full flex-col items-start justify-center gap-4 px-12">
               <p className="text-lg text-slate-500">Summer Sales Start</p>
-              <h1 className="text-4xl font-semibold">
+              <h1 className="text-4xl mix-blend-darken font-semibold">
                 Buy White Marble
                 <br />
                 Best Quality
@@ -210,7 +210,7 @@ export default function Home() {
                     item
                   </h3>
                   <Link
-                    href={"/products/pId7"}
+                    href={"/products"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -226,7 +226,7 @@ export default function Home() {
                 <Image
                   width={400}
                   height={400}
-                  src={imgArray[7]}
+                  src={'/coll6.jpg'}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
                 />
@@ -237,7 +237,7 @@ export default function Home() {
                     item
                   </h3>
                   <Link
-                    href={"/products/pId7"}
+                    href={"/products"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -249,7 +249,7 @@ export default function Home() {
                 <Image
                   width={400}
                   height={400}
-                  src={imgArray[8]}
+                  src={'/coll7.jpg'}
                   alt=""
                   className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
                 />
@@ -260,7 +260,7 @@ export default function Home() {
                     item
                   </h3>
                   <Link
-                    href={"/products/pId7"}
+                    href={"/products"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -273,18 +273,18 @@ export default function Home() {
               <Image
                 width={400}
                 height={400}
-                src={imgArray[6]}
+                src={'/coll12.jpg'}
                 alt=""
                 className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
               />
               <div>
                 <h3 className="text-2xl text-white">
-                  Dinner Ware
+                  Table ware
                   <br />
                   item
                 </h3>
                 <Link
-                  href={"/products/pId7"}
+                  href={"/products"}
                   className="text-sm font-semibold text-pink-500 underline"
                 >
                   SHOP NOW

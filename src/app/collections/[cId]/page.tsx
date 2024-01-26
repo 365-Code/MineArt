@@ -11,8 +11,8 @@ const Page = () => {
 
   const searchProduct = async () => {
     try {
-      const result = await fetch(`/api/product/searchProducts?category=${cId}`);
-      // const result = await fetch(`/api/product/searchProducts?search=${cId}`);
+      // const result = await fetch(`/api/product/searchProducts?category=${cId}`);
+      const result = await fetch(`/api/product/searchProducts?search=${cId}`);
       const res = await result.json();
       if (res.success) {
         setProducts(res.products);
@@ -32,7 +32,7 @@ const Page = () => {
         {products.length ? 
         <>
         <h2 className="text-3xl font-semibold py-4 capitalize">{cId}</h2>
-      <div className="display-cards">
+      <div className="display-collection-cards">
         {
             (
                 products.map((p, i) => 

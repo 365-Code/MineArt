@@ -10,8 +10,8 @@ const Carousal = ({ images }: { images: Array<string> }) => {
       {images.map((image, i) => (
         <div key={i} className={`-z-[2] h-full overflow-hidden max-w-full transition-all ${selected == i ? "w-screen opacity-100": "w-0 opacity-0" }`}>
           <Image
-            width={400}
-            height={400}
+            width={800}
+            height={800}
             src={image}
             alt=""
             className={`-z-[2] h-full w-full object-cover object-center transition-all `}

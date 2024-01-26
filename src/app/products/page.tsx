@@ -5,7 +5,7 @@ import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import RangeSelector from "@/components/RangeSelector";
 import { setAllProducts, sortProducts } from "@/redux/features/productSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Provider, useDispatch } from "react-redux";
 
@@ -67,6 +67,7 @@ const Page = () => {
     fetchAllFilters();
   }, []);
 
+  const nav= useRouter()
   const handleFilters = async () => {
     const searchQuery = searchParams.get("search") || "All";
     const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
@@ -75,6 +76,7 @@ const Page = () => {
       const res = await result.json();
       if (res.success) {
         dispatch(setAllProducts(res.products));
+        nav.push(`/products?${query}`)
       }
     } catch (error) {
       return error;
@@ -102,7 +104,7 @@ const Page = () => {
             searchParams.get("search") && "justify-between"
           } gap-4 `}
         >
-          {searchParams.get("search") && (
+          {searchParams.get("search") && searchParams.get("search") != ("All" || "") && (
             <h2 className="text-xl">
               Search Results For:{" "}
               <span className="font-semibold">
