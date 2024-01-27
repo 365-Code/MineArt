@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
-const HeaderCategories = () => {
+const FooterCategories = () => {
 
     const [categories, setCategories] = useState([] as Array<string>)
 
@@ -24,10 +24,10 @@ const HeaderCategories = () => {
 
 
   return (
-    <div className='sm:hidden absolute left-0 text-center gap-2 justify-center w-full no-scrollbar top-full p-2 overflow-x-scroll flex'>
+    <div className=' text-center gap-2 justify-center w-screen no-scrollbar top-full p-2 overflow-x-scroll flex'>
         {
             categories?.map((c, i) => 
-                c != 'All' && <Link key={i} href={`/collections/${c}`} className='bg-slate-400 hover:bg-slate-500 text-white w-fit py-1 px-2 rounded-lg'>{c}</Link>
+                c != 'All' && <Link key={i} href={`/collections/${c}`} className='bg-slate-400 hover:bg-slate-500 text-white w-fit py-1 px-2 rounded-lg whitespace-nowrap'>{c}</Link>
             )
         }
 
@@ -35,4 +35,4 @@ const HeaderCategories = () => {
   )
 }
 
-export default HeaderCategories
+export default FooterCategories

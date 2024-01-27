@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useParams, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideCart from "./SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
@@ -11,7 +11,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
 import { checkAdmin } from "@/utils";
-import HeaderCategories from "./HeaderCategories";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -285,7 +284,6 @@ const Header = () => {
         </form>
       </div>
 
-      {/* <HeaderCategories /> */}
     </header>
   );
 };

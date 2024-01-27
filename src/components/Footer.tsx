@@ -1,11 +1,14 @@
 import { footerArray } from "@/utils";
 import Link from "next/link";
 import React from "react";
+import FooterCategories from "./FooterCategories";
 
 const Footer = () => {
   const today = new Date()
 
   return (
+    <>
+    <FooterCategories />
     <footer className="container1">
       <div className="container3 text-center space-y-6 font-semibold ">
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -24,6 +27,8 @@ const Footer = () => {
         <p className="text-sm">Copyright &copy; {today.getFullYear()}. MineArt. All Right Reserved</p>
       </div>
     </footer>
+    </>
+
   );
 };
 
