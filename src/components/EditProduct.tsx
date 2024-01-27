@@ -422,7 +422,7 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
             </div>
         </form>
 
-        <div className="custom-scrollbar flex h-[60px] flex-wrap gap-2 overflow-y-scroll p-2">
+        <div className="custom-scrollbar flex max-h-[60px] flex-wrap gap-2 overflow-y-scroll p-2">
           {keywords.map((k: string, i: number) => (
             <p
               key={i}
@@ -437,6 +437,7 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
           ))}
           <p></p>
         </div>
+        
         <div className="text-right">
           <button
             // onClick={handleSubmit}
@@ -449,6 +450,7 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
 
         </div>
       </div>
+
     </div>
   );
 };
