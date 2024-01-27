@@ -285,7 +285,7 @@ const Header = () => {
         </form>
       </div>
 
-      <HeaderCategories />
+      {/* <HeaderCategories /> */}
     </header>
   );
 };

@@ -7,7 +7,7 @@ import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import RangeSelector from "@/components/RangeSelector";
 import { setAllProducts, sortProducts } from "@/redux/features/productSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Provider, useDispatch } from "react-redux";
 
@@ -23,7 +23,10 @@ const Page = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const searchParams = useSearchParams();
+  
   const dispatch = useDispatch<AppDispatch>();
+
 
 
   const fetchAllProducts = async () => {
@@ -70,25 +73,24 @@ const Page = () => {
   }, []);
 
   const nav= useRouter()
+  const handleFilters = async () => {
+    const searchQuery = searchParams.get("search") || "All";
+    const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
+    try {
+      const result = await fetch(`/api/product/searchProducts?${query}`);
+      const res = await result.json();
+      if (res.success) {
+        dispatch(setAllProducts(res.products));
+        nav.push(`/products?${query}`)
+      }
+    } catch (error) {
+      return error;
+    }
+  };
 
-  // const handleFilters = async () => {
-  //   const searchQuery = searchParams.get("search") || "All";
-  //   const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
-  //   try {
-  //     const result = await fetch(`/api/product/searchProducts?${query}`);
-  //     const res = await result.json();
-  //     if (res.success) {
-  //       dispatch(setAllProducts(res.products));
-  //       nav.push(`/products?${query}`)
-  //     }
-  //   } catch (error) {
-  //     return error;
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   handleFilters();
-  // }, [filtersInput]);
+  useEffect(() => {
+    handleFilters();
+  }, [filtersInput]);
 
   useEffect(() => {
     setProducts(() =>
@@ -102,11 +104,19 @@ const Page = () => {
       <div className="container2">
         <h2 className="text-4xl">Catalog</h2>
         <hr className="my-1 h-[2px] w-3/5 bg-slate-900" />
-        
         <div
-          className={`flex items-center justify-between gap-4`}
+          className={`flex items-center ${
+            searchParams.get("search") && "justify-between"
+          } gap-4 `}
         >
-
+          {searchParams.get("search") && searchParams.get("search") != ("All" || "") && (
+            <h2 className="text-xl">
+              Search Results For:{" "}
+              <span className="font-semibold">
+                {searchParams.get("search")}
+              </span>
+            </h2>
+          )}
           <div className="flex flex-1 items-center justify-end gap-4 justify-self-end">
             <button
               onClick={() => setShowFilter(!showFilter)}
@@ -122,7 +132,6 @@ const Page = () => {
             </button>
           </div>
         </div>
-
         <div className="flex flex-col gap-4 py-4">
           <div
             className={`${

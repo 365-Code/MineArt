@@ -53,13 +53,13 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
 
   const handleKeywords = (keyWord: string, mode: string) => {
     let keyword = keyWord.toLowerCase()
-    const ind = keywords.findIndex((k: string) => k == keyword) == -1;
+    const ind = keywords.findIndex((k: string) => k.toLowerCase() == keyword) == -1;
     if (keyword != "" && mode == "add" && ind) {
       setKeywords((preVal: Array<string>) => [...preVal, keyword]);
       setKeyword("")
     } else if (keyword != "" && !ind) {
       setKeywords((preVal: Array<string>) =>
-        preVal.filter((p: string) => p != keyword),
+        preVal.filter((p: string) => p.toLowerCase() != keyword),
       );
     }
   };
