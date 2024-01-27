@@ -51,7 +51,8 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
     setProductData({ ...productData, [name]: value });
   };
 
-  const handleKeywords = (keyword: string, mode: string) => {
+  const handleKeywords = (keyWord: string, mode: string) => {
+    let keyword = keyWord.toLowerCase()
     const ind = keywords.findIndex((k: string) => k == keyword) == -1;
     if (keyword != "" && mode == "add" && ind) {
       setKeywords((preVal: Array<string>) => [...preVal, keyword]);

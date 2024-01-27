@@ -11,6 +11,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
 import { checkAdmin } from "@/utils";
+import HeaderCategories from "./HeaderCategories";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -60,7 +61,7 @@ const Header = () => {
   }, [showSearch, showCart, showMenu]);
 
   useEffect(()=>{
-    searchInput && handleSearch()
+    handleSearch()
   }, [searchInput])
 
   const toggleSearch = () => {
@@ -283,6 +284,8 @@ const Header = () => {
           <button type="submit" className="hidden" />
         </form>
       </div>
+
+      <HeaderCategories />
     </header>
   );
 };
