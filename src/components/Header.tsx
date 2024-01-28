@@ -60,7 +60,7 @@ const Header = () => {
   }, [showSearch, showCart, showMenu]);
 
   useEffect(()=>{
-    handleSearch()
+    searchInput && handleSearch()
   }, [searchInput])
 
   const toggleSearch = () => {
@@ -110,7 +110,7 @@ const Header = () => {
           <button onClick={toggleMenu} className="relative md:hidden">
             <i className="fi fi-sr-bars-staggered icons" />
           </button>
-          <Link href={"/"} className="w-fit text-2xl font-bold ">
+          <Link href={"/"} className="w-fit text-3xl font-bold ">
             MineArt
           </Link>
         </div>

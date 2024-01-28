@@ -27,7 +27,7 @@ const AskPrompt = ({
     <div
       className={`${
         show ? "visible fixed top-4 translate-y-0" : "invisible absolute -top-4"
-      } left-1/2 z-[10] h-fit w-[300px] -translate-x-1/2 -translate-y-full space-y-2 rounded-lg bg-[#f5f5f5] p-4 shadow-sm shadow-black/30 transition-all`}
+      } left-1/2 z-[30] h-fit w-[300px] -translate-x-1/2 -translate-y-full space-y-2 rounded-lg bg-[#f5f5f5] p-4 shadow-sm shadow-black/30 transition-all`}
     >
       <h1 className="text-left text-base font-semibold capitalize">
         {title} &#63;

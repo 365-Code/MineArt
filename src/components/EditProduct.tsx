@@ -110,6 +110,7 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
         } else{
           toast.error("Some error occured")
         }
+        nav.refresh()
         setShowModal(false)
       } else if (type == "edit") {
         const result = await fetch(`/api/product/updateProduct?pId=${product._id}`, {
@@ -129,6 +130,8 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
         } else{
           toast.error("Some error occured")
         }
+        nav.refresh()
+
         setShowModal(false)
       }
     } catch (error) {
@@ -279,7 +282,7 @@ const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; s
         </div>
         {/* <CloudinaryUpload setResource={setResource} resource={resource}/> */}
       </div>
-      <div className="basis-1/2 space-y-2">
+      <div className="h-auto basis-1/2 space-y-2">
         <div>
           <p>
             *Material:{" "}

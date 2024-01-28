@@ -75,7 +75,7 @@ const AdminProductCard = ({ product }: { product: any }) => {
       />
 
 
-      <div className="group/product h-auto  w-full min-w-[230px] max-w-[350px] space-y-2 justify-self-center">
+      <div className="group/product h-auto  w-full min-w-[250px] max-w-[350px] space-y-2 justify-self-center">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
