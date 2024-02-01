@@ -38,7 +38,7 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
             />
           </Link>
 
-          <div className="absolute left-4 top-4 md:h-0 max-h-fit space-y-2 overflow-hidden transition-all duration-300 h-[300px] md:group-hover/product:h-[300px]">
+          <div className="absolute left-4 top-4 md:h-0 min-h-fit space-y-2 overflow-hidden transition-all duration-300 h-fit md:group-hover/product:h-[112px]">
             <i
               onClick={handleAddToCart}
               className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white"

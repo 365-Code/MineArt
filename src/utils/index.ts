@@ -29,6 +29,24 @@ export function getPages(arr: Array<any>, noOfItems: number){
   return (pL / noOfItems > 1 ? Math.floor(pL / noOfItems) + (pL % noOfItems > 0 ? 1 : 0) : 1);
 }
 
+export type ProductTyped = {
+      _id: string,
+      title: string,
+      thumbnail: string,
+      images: Array<string>
+      price: number,
+      slug: string,
+      category: string,
+      description: string,
+      material: string,
+      minQty: number,
+      keywords: Array<string>,
+      length: number,
+      width: number,
+      height: number,
+      rating: number
+}
+
 const imgs = {
   img0: [
     "https://img.freepik.com/free-photo/elegant-modern-vase-design_23-2150529803.jpg?ga=GA1.1.1494205593.1703951523&semt=ais_ai_generated",

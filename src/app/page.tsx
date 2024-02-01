@@ -2,6 +2,7 @@
 import Carousal from "@/components/Carousal";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
+import { ProductType } from "@/redux/features/productSlice";
 import { imgArray, productArray } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ export default function Home() {
     ft && ft.scrollLeft >= 1280 ? ft?.scrollTo(0, 0) : ft?.scrollBy(50 * n, 0);
   };
 
-  const [products, setProducts] = useState(Array<any>);
+  const [products, setProducts] = useState(Array<ProductType>);
 
   const fetchAllProducts = async () => {
     try {
@@ -45,8 +46,8 @@ export default function Home() {
         <section className="flex flex-col justify-between gap-8 md:h-[80vh] md:flex-row">
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
             <div className="flex h-full min-h-[350px] w-full flex-col items-start justify-center gap-4 px-12">
-              <p className="text-lg text-slate-500">Summer Sales Start</p>
-              <h1 className="text-4xl mix-blend-darken font-semibold">
+              <p className="text-lg fonsem text-slate-500">Summer Sales Start</p>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl mix-blend-darken font-semibold">
                 Buy White Marble
                 <br />
                 Best Quality
@@ -73,7 +74,7 @@ export default function Home() {
                   Items
                 </h3>
                 <Link
-                  href={`/products/pId2`}
+                  href={`/products`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -95,7 +96,7 @@ export default function Home() {
                   Plate
                 </h3>
                 <Link
-                  href={`/products/pId3`}
+                  href={`/products`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -197,7 +198,7 @@ export default function Home() {
                   item
                 </h3>
                 <Link
-                  href={"/products/pId7"}
+                  href={"/products"}
                   className="text-sm font-semibold text-pink-500 underline"
                 >
                   SHOP NOW
@@ -221,7 +222,7 @@ export default function Home() {
                     item
                   </h3>
                   <Link
-                    href={"/products/pId7"}
+                    href={"/products"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
