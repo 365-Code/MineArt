@@ -116,10 +116,11 @@ const Product = ({ item }: { item?: any }) => {
               alt=""
             />
           </div>
-
-          <div className="no-scrollbar flex max-w-full gap-2 overflow-x-scroll">
+          {
+            product.images?.length > 1 &&
+            <div className="no-scrollbar flex max-w-full gap-2 overflow-x-scroll">
             {/* {imgArray?.map((img, index) => ( */}
-            {product.images ?.map((img, index) => (
+            {product.images?.map((img, index) => (
               <div
                 key={index}
                 className={`h-[112px] min-h-[112px] w-[112px] min-w-[112px] cursor-pointer border-pink-500 transition-all focus-visible:w-0 ${
@@ -136,7 +137,7 @@ const Product = ({ item }: { item?: any }) => {
                 />
               </div>
             ))}
-          </div>
+          </div>}
 
         </div>
 

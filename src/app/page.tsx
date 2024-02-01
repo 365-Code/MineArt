@@ -5,13 +5,36 @@ import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { imgArray, productArray } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+
+
+
   const scrollFeatured = (n: number) => {
     const ft = document.getElementById("featured");
 
     ft && ft.scrollLeft >= 1280 ? ft?.scrollTo(0, 0) : ft?.scrollBy(50 * n, 0);
   };
+
+  const [products, setProducts] = useState(Array<any>);
+
+  const fetchAllProducts = async () => {
+    try {
+      const result = await fetch("/api/product/getAllProducts");
+      const res = await result.json();
+      if (res.success) {
+        setProducts(res.products);
+      }
+      return res.products;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(()=>{
+    fetchAllProducts()
+  }, [])
 
   const images = ['/coll13.jpg', '/coll18.jpg', '/coll6.jpg'];
 
@@ -135,14 +158,25 @@ export default function Home() {
             id="featured"
             className="no-scrollbar flex max-w-full items-center gap-4 overflow-x-scroll"
           >
-            {productArray.length ? (
+            {/* {productArray.length ? (
               productArray.map((p, i) => (
                 <ProductCard key={p._id} product={p} />
               ))
             ) : (
               <ProductCardSkeleton />
+            )} */}
+            
+            {products.length ? (
+              products.map((p, i) => (
+                <ProductCard key={p._id} product={p} showDet={false}/>
+              ))
+            ) : (
+              <ProductCardSkeleton />
             )}
           </div>
+
+
+
         </section>
         <hr />
         {/* Section 4 */}

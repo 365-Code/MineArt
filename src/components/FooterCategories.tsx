@@ -17,7 +17,6 @@ const FooterCategories = () => {
           return error;
         }
       };
-    
       useEffect(() => {
         fetchAllFilters()
       }, [])
@@ -30,7 +29,6 @@ const FooterCategories = () => {
                 c != 'All' && <Link key={i} href={`/collections/${c}`} className='bg-slate-400 hover:bg-slate-500 text-white w-fit py-1 px-2 rounded-lg whitespace-nowrap'>{c}</Link>
             )
         }
-
     </div>
   )
 }

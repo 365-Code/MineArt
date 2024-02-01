@@ -7,6 +7,7 @@ import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import RangeSelector from "@/components/RangeSelector";
 import { setAllProducts, sortProducts } from "@/redux/features/productSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
+import { getPages } from "@/utils";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Provider, useDispatch } from "react-redux";
@@ -63,8 +64,9 @@ const Page = () => {
   };
 
   const allProducts = useAppSelector((state) => state.productReducer.value);
-  const pL = allProducts.length;
-  const pages = pL / 9 > 1 ? Math.round(pL / 9) + (pL % 9 ? 1 : 0) : 1;
+  // const pL = allProducts.length;
+  const noOfItems = 12;
+  const pages = getPages(allProducts, noOfItems)
 
   useEffect(() => {
     setLoading(true)
@@ -94,7 +96,7 @@ const Page = () => {
 
   useEffect(() => {
     setProducts(() =>
-      allProducts.slice((currentPage - 1) * 9, currentPage * 9),
+      allProducts.slice((currentPage - 1) * noOfItems, currentPage * noOfItems),
     );
     setLoading(false)
   }, [allProducts, currentPage]);

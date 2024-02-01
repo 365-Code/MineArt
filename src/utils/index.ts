@@ -24,6 +24,11 @@ export async function checkAdmin(uId: string){
       }
 }
 
+export function getPages(arr: Array<any>, noOfItems: number){
+  const pL = arr.length
+  return (pL / noOfItems > 1 ? Math.floor(pL / noOfItems) + (pL % noOfItems > 0 ? 1 : 0) : 1);
+}
+
 const imgs = {
   img0: [
     "https://img.freepik.com/free-photo/elegant-modern-vase-design_23-2150529803.jpg?ga=GA1.1.1494205593.1703951523&semt=ais_ai_generated",

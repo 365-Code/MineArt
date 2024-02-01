@@ -11,7 +11,7 @@ import { AppDispatch } from "@/redux/store";
 import { addToCart } from "@/redux/features/cartSlice";
 import { addToWish } from "@/redux/features/wishSlice";
 
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) => {
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -55,7 +55,7 @@ const ProductCard = ({ product }: { product: any }) => {
         </div>
         {/* <div className='flex justify-between items-end'> */}
         <div>
-          <Rating rate={product.rating} />
+          {showDet && <Rating rate={product.rating} />}
           <h3 className="text-nowrap font-semibold">{product.title}</h3>
           <p className="text-base ">Rs.{product.price}</p>
         </div>

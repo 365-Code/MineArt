@@ -11,11 +11,6 @@ const Footer = () => {
     <FooterCategories />
     <footer className="container1">
       <div className="container3 text-center space-y-6 font-semibold ">
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {footerArray.map((f, i) => (
-            <Link key={i} href={`${"/collections/" + f}`} className="hover:text-pink-500 capitalize">{f}</Link>
-          ))}
-        </div>
         <div className="flex items-center justify-center gap-6">
           <Link href={'https://github.com/365-Code/MineArt'}>
             <i className="fi fi-brands-github text-slate-500 text-2xl" />
