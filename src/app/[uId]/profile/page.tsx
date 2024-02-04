@@ -3,6 +3,7 @@ import { useAppSelector } from "@/redux/store";
 import { fireStorage } from "@/utils/firebase";
 import { FirestoreError } from "firebase/firestore";
 import { StorageError, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Image from "next/image";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -223,7 +224,9 @@ const Page = () => {
         <div className="relative w-fit space-y-2">
           <div className="rounded-full overflow-hidden sm:h-[200px] sm:w-[200px] w-[150px] h-[150px] shadow-sm shadow-black/20">
           <label htmlFor={edit ? 'userAvatar' : ''} className="cursor-pointer">
-            <img
+            <Image
+            width={500}
+            height={500}
               src={
                 avatarFile?.image ||
                 `https://img.freepik.com/free-photo/androgynous-avatar-non-binary-queer-person_23-2151100226.jpg?size=626&ext=jpg&ga=GA1.1.751509348.1705399346&semt=sph`

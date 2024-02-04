@@ -23,12 +23,12 @@ const Page = () => {
   });
   const [showFilter, setShowFilter] = useState(false);
   const [loading, setLoading] = useState(true);
+  
+  const nav= useRouter()
 
   const searchParams = useSearchParams();
   
   const dispatch = useDispatch<AppDispatch>();
-
-
 
   const fetchAllProducts = async () => {
     try {
@@ -50,31 +50,24 @@ const Page = () => {
     dispatch(sortProducts());
   };
 
-  const fetchAllFilters = async () => {
-    try {
-      const result = await fetch("/api/product/getFilters");
-      const res = await result.json();
-      if (res.success) {
-        setCategories(res.categories);
-        setMaterials(res.materials);
-      }
-    } catch (error) {
-      return error;
-    }
-  };
+  // const fetchAllFilters = async () => {
+  //   try {
+  //     const result = await fetch("/api/product/getFilters");
+  //     const res = await result.json();
+  //     if (res.success) {
+  //       setCategories(res.categories);
+  //       setMaterials(res.materials);
+  //     }
+  //   } catch (error) {
+  //     return error;
+  //   }
+  // };
 
   const allProducts = useAppSelector((state) => state.productReducer.value);
   // const pL = allProducts.length;
   const noOfItems = 12;
   const pages = getPages(allProducts, noOfItems)
 
-  useEffect(() => {
-    setLoading(true)
-    !allProducts.length && fetchAllProducts();
-    fetchAllFilters();
-  }, []);
-
-  const nav= useRouter()
   const handleFilters = async () => {
     const searchQuery = searchParams.get("search") || "All";
     const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
@@ -89,6 +82,12 @@ const Page = () => {
       return error;
     }
   };
+
+  useEffect(() => {
+    setLoading(true)
+    !allProducts.length && fetchAllProducts();
+    // fetchAllFilters();
+  }, []);
 
   useEffect(() => {
     handleFilters();
