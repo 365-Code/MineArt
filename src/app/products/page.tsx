@@ -15,8 +15,8 @@ import { Provider, useDispatch } from "react-redux";
 const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState(Array<any>);
-  const [categories, setCategories] = useState([] as Array<string>);
-  const [materials, setMaterials] = useState([] as Array<string>);
+  // const [categories, setCategories] = useState([] as Array<string>);
+  // const [materials, setMaterials] = useState([] as Array<string>);
   const [filtersInput, setFiltersInput] = useState({
     material: "All",
     category: "All",
@@ -68,20 +68,20 @@ const Page = () => {
   const noOfItems = 12;
   const pages = getPages(allProducts, noOfItems)
 
-  const handleFilters = async () => {
-    const searchQuery = searchParams.get("search") || "All";
-    const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
-    try {
-      const result = await fetch(`/api/product/searchProducts?${query}`);
-      const res = await result.json();
-      if (res.success) {
-        dispatch(setAllProducts(res.products));
-        nav.push(`/products?${query}`)
-      }
-    } catch (error) {
-      return error;
-    }
-  };
+  // const handleFilters = async () => {
+  //   const searchQuery = searchParams.get("search") || "All";
+  //   const query = `search=${searchQuery}&category=${filtersInput.category}&material=${filtersInput.material}`;
+  //   try {
+  //     const result = await fetch(`/api/product/searchProducts?${query}`);
+  //     const res = await result.json();
+  //     if (res.success) {
+  //       dispatch(setAllProducts(res.products));
+  //       nav.push(`/products?${query}`)
+  //     }
+  //   } catch (error) {
+  //     return error;
+  //   }
+  // };
 
   useEffect(() => {
     setLoading(true)
@@ -89,9 +89,9 @@ const Page = () => {
     // fetchAllFilters();
   }, []);
 
-  useEffect(() => {
-    handleFilters();
-  }, [filtersInput]);
+  // useEffect(() => {
+  //   filtersInput && handleFilters();
+  // }, [filtersInput]);
 
   useEffect(() => {
     setProducts(() =>
@@ -110,7 +110,7 @@ const Page = () => {
             searchParams.get("search") && "justify-between"
           } gap-4 `}
         >
-          {searchParams.get("search") && searchParams.get("search") != ("All" || "") && (
+          {searchParams.get("search") != ("All" || "") && (
             <h2 className="text-xl">
               Search Results For:{" "}
               <span className="font-semibold">
