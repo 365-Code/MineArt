@@ -25,7 +25,7 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
 
   return (
     <>
-      <div className="group/product overflow-x-hidden h-auto w-[280px] min-w-[230px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
+      <div className="group/product overflow-x-hidden h-auto min-w-[230px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image

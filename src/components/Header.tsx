@@ -41,8 +41,9 @@ const Header = () => {
 
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
-    searchInput && searchInput != "All" && nav.push(`/products?search=${searchInput || "All"}`);
+    // searchInput && searchInput != "All" && nav.push(`/products?search=${searchInput || "All"}`);
     searchProduct();
+    nav.push(`/products?search=${searchInput || "All"}`);
   };
 
   const toggleSearch = () => {
@@ -89,7 +90,7 @@ const Header = () => {
   }, [showSearch, showCart, showMenu]);
 
   useEffect(() => {
-    searchInput && handleSearch();
+    handleSearch();
   }, [searchInput]);
   
   useEffect(() => {
