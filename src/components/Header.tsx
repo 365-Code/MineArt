@@ -41,8 +41,35 @@ const Header = () => {
 
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
-    nav.push(`/products?search=${searchInput || "All"}`);
+    searchInput && searchInput != "All" && nav.push(`/products?search=${searchInput || "All"}`);
     searchProduct();
+  };
+
+  const toggleSearch = () => {
+    showSearch ? setShowSearch(false) : setShowSearch(true);
+  };
+
+  const toggleCart = () => {
+    showCart ? setShowCart(false) : setShowCart(true);
+  };
+
+  const toggleMenu = () => {
+    showMenu ? setShowMenu(false) : setShowMenu(true);
+  };
+
+  const handleLogOut = () => {
+    dispatch(logout());
+    localStorage.clear();
+    signOut(auth);
+    toast.success("Logged out");
+  };
+
+  const signUser = async () => {
+    const data = localStorage.getItem("authUser");
+    if (data) {
+      const isMe = await checkAdmin(data);
+      dispatch(login({ user: data, isMe }));
+    }
   };
 
   useEffect(() => {
@@ -64,26 +91,7 @@ const Header = () => {
   useEffect(() => {
     searchInput && handleSearch();
   }, [searchInput]);
-
-  const toggleSearch = () => {
-    showSearch ? setShowSearch(false) : setShowSearch(true);
-  };
-
-  const toggleCart = () => {
-    showCart ? setShowCart(false) : setShowCart(true);
-  };
-
-  const toggleMenu = () => {
-    showMenu ? setShowMenu(false) : setShowMenu(true);
-  };
-
-  const handleLogOut = () => {
-    dispatch(logout());
-    localStorage.clear();
-    signOut(auth);
-    toast.success("Logged out");
-  };
-
+  
   useEffect(() => {
     const data = localStorage.getItem("authUser");
     !authUser.isLogged && signUser();
@@ -97,14 +105,6 @@ const Header = () => {
     }
     // authUser.isLogged && checkAdmin()
   }, [authUser.isLogged, pathname]);
-
-  const signUser = async () => {
-    const data = localStorage.getItem("authUser");
-    if (data) {
-      const isMe = await checkAdmin(data);
-      dispatch(login({ user: data, isMe }));
-    }
-  };
 
   return (
     <header

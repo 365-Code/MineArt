@@ -47,7 +47,7 @@ export default function Home() {
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
             <div className="flex h-full min-h-[350px] w-full flex-col items-start justify-center gap-4 px-12">
               <p className="text-lg fonsem text-slate-500">Summer Sales Start</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl mix-blend-darken font-semibold">
+              <h1 className="bg-blend-lighten text-3xl sm:text-4xl md:text-5xl mix-blend-darken font-semibold">
                 Buy White Marble
                 <br />
                 Best Quality
