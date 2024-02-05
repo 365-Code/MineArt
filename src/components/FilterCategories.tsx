@@ -14,6 +14,7 @@ const FilterCategories = () => {
   const dispatch = useDispatch<AppDispatch>();
   
   const searchParams = useSearchParams();
+
   const handleFilters = async () => {
     const searchQuery = searchParams.get("search") || "All";
     const materialQuery = searchParams.get("material") || "All";
@@ -33,7 +34,7 @@ const FilterCategories = () => {
 
   useEffect(() => {
     handleFilters();
-  }, []);
+  }, [category]);
   
   const fetchAllFilters = async () => {
     try {
