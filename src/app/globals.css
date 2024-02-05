@@ -68,6 +68,10 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
+.home-img{
+  @apply absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center opacity-90;
+}
+
 .nav-link {
   text-transform: capitalize;
 }

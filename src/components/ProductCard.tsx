@@ -25,7 +25,7 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
 
   return (
     <>
-      <div className="group/product overflow-x-hidden h-auto w-full min-w-[230px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
+      <div className="group/product overflow-x-hidden h-auto w-[280px] min-w-[230px] max-w-[350px] space-y-2 justify-self-center md:justify-self-start">
         <div className="relative h-[300px] w-auto">
           <Link href={`/products/${product._id}`}>
             <Image
@@ -53,7 +53,6 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
             {/* <i className="fi fi-rr-zoom-in cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" /> */}
           </div>
         </div>
-        {/* <div className='flex justify-between items-end'> */}
         <div>
           {showDet && <Rating rate={product.rating} />}
           <h3 className="text-nowrap font-semibold">{product.title}</h3>

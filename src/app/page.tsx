@@ -25,7 +25,7 @@ export default function Home() {
       const result = await fetch("/api/product/getAllProducts");
       const res = await result.json();
       if (res.success) {
-        setProducts(res.products);
+        setProducts(res.products.slice(0, 10));
       }
       return res.products;
     } catch (error) {
@@ -45,13 +45,15 @@ export default function Home() {
         {/* Section 1 */}
         <section className="flex flex-col justify-between gap-8 md:h-[80vh] md:flex-row">
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
-            <div className="flex h-full min-h-[350px] w-full flex-col items-start justify-center gap-4 px-12">
-              <p className="text-lg fonsem text-slate-500">Summer Sales Start</p>
-              <h1 className="bg-blend-lighten text-3xl sm:text-4xl md:text-5xl mix-blend-darken font-semibold">
+            <div className="absolute w-full h-full flex flex-col justify-center gap-4 px-12">
+              <div className="bg-black/40 p-4 sm:py-6 md:py-8 w-fit h-fit">
+              {/* <p className="text-lg fonsem text-white underline underline-offset-2">Summer Sales Start</p> */}
+              <h1 className="text-2xl text-white sm:text-3xl md:text-5xl mix-blend-lighten font-semibold">
                 Buy White Marble
                 <br />
                 Best Quality
               </h1>
+              </div>
             </div>
             <div className="absolute left-0 top-0 h-full w-full ">
               <Carousal images={images} />
@@ -65,16 +67,14 @@ export default function Home() {
                 height={400}
                 src={imgArray[1]}
                 alt=""
-                className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                className="home-img"
               />
               <div className="space-y-2">
-                <h3 className="text-2xl font-semibold">
-                  Dinner Wear
-                  <br />
-                  Items
+                <h3 className="text-2xl font-semibold mix-blend-darken">
+                  Vases Items
                 </h3>
                 <Link
-                  href={`/products`}
+                  href={`/collections/vase`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -87,16 +87,16 @@ export default function Home() {
                 height={400}
                 src={imgArray[2]}
                 alt=""
-                className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                className="object-contain home-img"
               />
               <div className="space-y-2">
                 <h3 className="text-2xl font-semibold">
-                  New Serving
+                  Kitchen
                   <br />
-                  Plate
+                  Containers
                 </h3>
                 <Link
-                  href={`/products`}
+                  href={`/collections/kitchen`}
                   className="text-sm text-pink-500 underline"
                 >
                   SHOP NOW
@@ -157,27 +157,19 @@ export default function Home() {
 
           <div
             id="featured"
-            className="no-scrollbar flex max-w-full items-center gap-4 overflow-x-scroll"
-          >
-            {/* {productArray.length ? (
-              productArray.map((p, i) => (
-                <ProductCard key={p._id} product={p} />
-              ))
-            ) : (
-              <ProductCardSkeleton />
-            )} */}
-            
-            {products.length ? (
+            // className="no-scrollbar flex w-screen max-w-full items-center gap-4 overflow-x-scroll"
+            className="no-scrollbar flex max-w-fit gap-4 overflow-x-scroll"
+          > 
+            {products.length != 0 ? (
               products.map((p, i) => (
                 <ProductCard key={p._id} product={p} showDet={false}/>
               ))
             ) : (
+              [...Array(5)].map((a, i) => 
               <ProductCardSkeleton />
+              )
             )}
           </div>
-
-
-
         </section>
         <hr />
         {/* Section 4 */}
@@ -189,16 +181,16 @@ export default function Home() {
                 height={400}
                 src={imgArray[6]}
                 alt=""
-                className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                className="home-img"
               />
               <div>
-                <h3 className="text-2xl text-white">
-                  Dinner Ware
+                  <h3 className="text-2xl text-white mix-blend-luminosity">
+                  Big Vases
                   <br />
                   item
                 </h3>
                 <Link
-                  href={"/products"}
+                  href={"/collections/vase"}
                   className="text-sm font-semibold text-pink-500 underline"
                 >
                   SHOP NOW
@@ -213,16 +205,16 @@ export default function Home() {
                   height={400}
                   src={imgArray[7]}
                   alt=""
-                  className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                  className="home-img"
                 />
                 <div>
-                  <h3 className="text-2xl text-white">
-                    Dinner Ware
+                  <h3 className="text-2xl text-white mix-blend-exclusion">
+                    Decorative
                     <br />
                     item
                   </h3>
                   <Link
-                    href={"/products"}
+                    href={"/collections/decors"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -236,16 +228,16 @@ export default function Home() {
                   height={400}
                   src={imgArray[8]}
                   alt=""
-                  className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                  className="home-img"
                 />
                 <div>
-                  <h3 className="text-2xl text-white">
-                    Dinner Ware
+                  <h3 className="text-2xl text-white mix-blend-lighten">
+                    Decor
                     <br />
-                    item
+                    items
                   </h3>
                   <Link
-                    href={"/products"}
+                    href={"/collections/decors"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -263,16 +255,16 @@ export default function Home() {
                   height={400}
                   src={'/coll6.jpg'}
                   alt=""
-                  className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                  className="home-img"
                 />
                 <div>
-                  <h3 className="text-2xl text-white">
-                    Dinner Ware
+                  <h3 className="text-2xl text-white mix-blend-exclusion">
+                    Sugar N Salt
                     <br />
-                    item
+                    Containers
                   </h3>
                   <Link
-                    href={"/products"}
+                    href={"/collections/kitchen"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -286,16 +278,14 @@ export default function Home() {
                   height={400}
                   src={'/coll7.jpg'}
                   alt=""
-                  className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                  className="home-img"
                 />
                 <div>
-                  <h3 className="text-2xl text-white">
-                    Dinner Ware
-                    <br />
-                    item
+                  <h3 className="text-2xl text-black mix-blend-color-">
+                    Candle Stands
                   </h3>
                   <Link
-                    href={"/products"}
+                    href={"/collections/candle-stand"}
                     className="text-sm font-semibold text-pink-500 underline"
                   >
                     SHOP NOW
@@ -310,7 +300,7 @@ export default function Home() {
                 height={400}
                 src={'/coll12.jpg'}
                 alt=""
-                className="absolute left-0 top-0 -z-[2] h-full w-full object-cover object-center"
+                className="home-img"
               />
               <div>
                 <h3 className="text-2xl text-white">
@@ -319,7 +309,7 @@ export default function Home() {
                   item
                 </h3>
                 <Link
-                  href={"/products"}
+                  href={"/collections/tableware"}
                   className="text-sm font-semibold text-pink-500 underline"
                 >
                   SHOP NOW

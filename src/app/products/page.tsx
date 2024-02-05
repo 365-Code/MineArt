@@ -110,7 +110,7 @@ const Page = () => {
             searchParams.get("search") && "justify-between"
           } gap-4 `}
         >
-          {searchParams.get("search") != ("All" || "") && (
+          { (searchParams.get("search") != "All" || searchParams.get("search") != "") && (
             <h2 className="text-xl">
               Search Results For:{" "}
               <span className="font-semibold">

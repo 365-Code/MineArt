@@ -81,9 +81,9 @@ const Page = () => {
         </div>
 
         <div className=" flex w-full gap-2 flex-col justify-between">
-          <div className="h-[450px]">
+          <Link href={'/collections/candle-stand'} className="h-[450px]">
             <Image height={500} width={500} src="/coll7.jpg" alt="" className="res-img" />
-          </div>
+          </Link>
           <div className="">
             <h2 className="text-lg font-semibold">Candle Stand</h2>
             <p className="w-[450px] max-w-full">The contrasting black and white marble design adds a touch of modernity, while the sturdy construction ensures durability and stability.
@@ -103,9 +103,9 @@ const Page = () => {
         </div>
         
         <div className=" flex w-full gap-2 flex-col justify-between">
-          <div className="h-[450px]">
+          <Link href={'/collections/plate'} className="h-[450px]">
             <Image height={500} width={500} src="/coll9.jpg" alt="" className="res-img" />
-          </div>
+          </Link>
           <div className="">
             <h2 className="text-lg font-semibold">Marble Plates</h2>
             <p className="w-[450px] max-w-full"> Crafted with precision, this set features stunning marble plates that add a touch of sophistication to any dining experience.
@@ -133,7 +133,7 @@ const Page = () => {
       
       <div className="flex h-fit sm:h-auto flex-col md:flex-row items-center gap-2">
         <div className="h-[350px] max-h-full w-full md:w-1/2">
-          <Image height={500} width={500} src="/coll11.jpg" alt="" className="res-img" />
+          <Image height={500} width={500} src="/coll20.jpg" alt="" className="res-img" />
         </div>
         <div className="md:w-1/2">
           <h2 className="text-lg font-semibold">This is a product</h2>
