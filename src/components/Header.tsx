@@ -282,7 +282,7 @@ const Header = () => {
             type="search"
             id="search"
             autoComplete="off"
-            autoFocus={true}
+            autoFocus={showSearch}
             className="input-fill w-full rounded-lg px-6 py-2 text-lg font-semibold transition-all"
           />
           <button type="submit" className="hidden" />

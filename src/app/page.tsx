@@ -165,7 +165,7 @@ export default function Home() {
               ))
             ) : (
               [...Array(5)].map((a, i) => 
-              <ProductCardSkeleton />
+              <ProductCardSkeleton key={i} />
               )
             )}
           </div>
