@@ -206,6 +206,10 @@ const Product = ({ item }: { item?: any }) => {
               >
                 Product is {avl == "invalid" && "Not"} Deliverable
               </p>
+              <div>
+                <p className="flex items-center gap-2"><i className="fi fi-sr-shipping-fast" /> All India FREE shipping</p>
+                <p className="flex items-center gap-2"><i className="fi fi-sr-box-open" /> 10 days Returns</p>
+              </div>
             </div>
             {/* <hr /> */}
           </div>
