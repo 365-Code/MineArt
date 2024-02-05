@@ -105,13 +105,14 @@ const Product = ({ item }: { item?: any }) => {
               width={400}
               height={400}
               src={imgPreview.img}
-              className={`h-full w-full object-contain object-center ${!product._id && "animate-pulse"}`}
+              className={`h-full w-full object-contain object-center ${
+                !product._id && "animate-pulse"
+              }`}
               alt=""
             />
           </div>
           {product.images?.length > 1 && (
             <div className="no-scrollbar flex max-w-full gap-2 overflow-x-scroll">
-              {/* {imgArray?.map((img, index) => ( */}
               {product.images?.map((img, index) => (
                 <div
                   key={index}
@@ -137,7 +138,6 @@ const Product = ({ item }: { item?: any }) => {
           <span className="font-semibold">
             Material:
             <Link href="#" className="px-1 italic text-slate-500 underline">
-              {/* Veitnam */}
               {product.material}
             </Link>
           </span>
@@ -188,12 +188,6 @@ const Product = ({ item }: { item?: any }) => {
                   placeholder="Enter Pincode"
                   className={`w-full flex-1 px-4 py-3 outline-none autofill:bg-transparent`}
                 />
-                {/* <button
-                  type="submit"
-                  className="w-auto bg-slate-900 px-3 py-2 text-white"
-                >
-                  Check Availablity
-                </button> */}
               </div>
               <p
                 className={`text-sm font-semibold transition-all ${
@@ -207,11 +201,15 @@ const Product = ({ item }: { item?: any }) => {
                 Product is {avl == "invalid" && "Not"} Deliverable
               </p>
               <div>
-                <p className="flex items-center gap-2"><i className="fi fi-sr-shipping-fast" /> All India FREE shipping</p>
-                <p className="flex items-center gap-2"><i className="fi fi-sr-box-open" /> 10 days Returns</p>
+                <p className="flex items-center gap-2">
+                  <i className="fi fi-sr-shipping-fast" /> All India FREE
+                  shipping
+                </p>
+                <p className="flex items-center gap-2">
+                  <i className="fi fi-sr-box-open" /> 10 days Returns
+                </p>
               </div>
             </div>
-            {/* <hr /> */}
           </div>
         </div>
       </div>

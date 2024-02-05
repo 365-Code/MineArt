@@ -47,7 +47,6 @@ export default function Home() {
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
             <div className="absolute w-full h-full flex flex-col justify-center gap-4 px-12">
               <div className="bg-black/40 p-4 sm:py-6 md:py-8 w-fit h-fit">
-              {/* <p className="text-lg fonsem text-white underline underline-offset-2">Summer Sales Start</p> */}
               <h1 className="text-2xl text-white sm:text-3xl md:text-5xl mix-blend-lighten font-semibold">
                 Buy White Marble
                 <br />

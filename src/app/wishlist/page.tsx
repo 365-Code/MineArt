@@ -20,11 +20,6 @@ const Page = () => {
     <main className="container1">
     <h1 className="text-3xl font-semibold py-4">Shopping Wishlist</h1>
       <div className="w-full p-4 max-w-full h-[70vh] overflow-y-scroll no-scrollbar shadow-sm shadow-black/30 rounded-lg">
-        {/* <div className="grid grid-cols-3 sm:grid-cols-4 p-2">
-            <p>Product</p>
-            <p>Description</p>
-            <p>Quantity</p>
-        </div> */}
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {wishItems?.map((w: any, i) => (
           <div key={w._id} className="shadow-sm shadow-black/30 rounded-lg p-2 grid grid-cols-3  items-center justify-between">
