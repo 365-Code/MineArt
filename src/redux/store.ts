@@ -4,13 +4,15 @@ import { useSelector, TypedUseSelectorHook } from "react-redux";
 import productReducer from "./features/productSlice";
 import wishReducer from "./features/wishSlice";
 import authReducer from './features/authSlice'
+import orderReducer from "./features/orderSlice";
 
 export const store = configureStore({
     reducer:{
         cartReducer,     
         productReducer,
         wishReducer,
-        authReducer
+        authReducer,
+        orderReducer
     }
 })
 // Infer the `RootState` and `AppDispatch` types from the store itself

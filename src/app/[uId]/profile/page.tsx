@@ -1,7 +1,6 @@
 "use client";
 import { useAppSelector } from "@/redux/store";
 import { fireStorage } from "@/utils/firebase";
-import { FirestoreError } from "firebase/firestore";
 import { StorageError, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Image from "next/image";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -240,7 +239,7 @@ const Page = () => {
             <i onClick={()=> setAvatarFile({file: null, image: null}) } className="hover:text-slate-300 fi fi-sr-cross-circle cursor-pointer absolute top-0 right-0" />
           }
           </div>
-          <input accept="image/*" onChange={handleAvatar} multiple={false} id="userAvatar" type="file" className="hidden"/>
+          <input accept="image/*" onChange={handleAvatar} multiple={false} id="userAvatar" value={""} type="file" className="hidden"/>
           <div>
             {edit ? (
               <div className="flex gap-2">

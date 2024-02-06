@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ProductType } from "./productSlice"
+import { ProductType } from "@/utils"
 
 const initialState = {
     value: {
@@ -21,7 +21,9 @@ const cart = createSlice({
                 state.value.items.push({...action.payload, qty: action.payload.qty})
                 state.value.subtotal += action.payload.price * action.payload.qty
             }
-            // subTotal()
+
+            const crt = state.value.items.map((c) => c._id)
+            localStorage.setItem('cart', JSON.stringify(crt))
         },
         removeFromCart: (state, action: PayloadAction<string>) => {
             state.value.items = state.value.items.filter((p: ProductType) => {
@@ -30,6 +32,8 @@ const cart = createSlice({
                 }
                 return p._id != action.payload
             })
+            const crt = {items: state.value.items, subtotal: state.value.subtotal}
+            localStorage.setItem('cart', JSON.stringify(crt))
         },
         productQuantity: (state, action: PayloadAction<any>)=> {
             const ind = state.value.items.findIndex((p: ProductType) => p._id == action.payload._id)

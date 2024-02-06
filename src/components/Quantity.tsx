@@ -31,7 +31,7 @@ const Quantity = ({ Qty, minQty, handleChangeQty }: { Qty?: number; minQty?: num
         className="fi fi-rs-plus cursor-pointer text-2xl border border-black p-2"
         onClick={()=>handleQty(1)}
       /> */}
-      {qty == minQty && (
+      {qty == 500 && (
         <span className="text-right text-xs font-bold text-red-500">
           Max Limit Reached
         </span>

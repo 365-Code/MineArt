@@ -124,7 +124,7 @@ input::-webkit-inner-spin-button {
 
 .display-cards {
   @apply grid justify-items-center gap-2 md:justify-items-start md:gap-4;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   /* grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); */
 }
 

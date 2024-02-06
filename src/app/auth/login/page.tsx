@@ -53,7 +53,7 @@ const Page = () => {
   const authUser = useAppSelector((state) => state.authReducer.value)
 
   useEffect(() => {
-    authUser.isLogged && nav.push('/')
+    authUser?.isLogged && nav.push('/')
   }, [authUser.isLogged])
 
 

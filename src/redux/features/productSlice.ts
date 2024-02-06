@@ -1,17 +1,5 @@
+import { ProductType } from "@/utils";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-export type ProductType = {
-    _id: string,
-    thumbnail: string,
-    title: string,
-    price: number,
-    images?: Array<string>,
-    material: string
-    description: string,
-    qty: number,
-    minQty: number,
-    category?: string,
-}
 
 const initialState = {
     value: [] as Array<ProductType>

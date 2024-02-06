@@ -29,7 +29,21 @@ export function getPages(arr: Array<any>, noOfItems: number){
   return (pL / noOfItems > 1 ? Math.floor(pL / noOfItems) + (pL % noOfItems > 0 ? 1 : 0) : 1);
 }
 
-export type ProductTyped = {
+
+// export type ProductType = {
+//   _id: string,
+//   thumbnail: string,
+//   title: string,
+//   price: number,
+//   images?: Array<string>,
+//   material: string
+//   description: string,
+//   qty: number,
+//   minQty: number,
+//   category?: string,
+// }
+
+export type ProductType = {
       _id: string,
       title: string,
       thumbnail: string,
@@ -44,7 +58,13 @@ export type ProductTyped = {
       length: number,
       width: number,
       height: number,
-      rating: number
+      rating: number,
+      qty: 1
+}
+
+export type OrderType = {
+  item: Array<ProductType>,
+  shipping: string
 }
 
 const imgs = {

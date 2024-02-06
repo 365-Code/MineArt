@@ -2,11 +2,11 @@
 import Carousal from "@/components/Carousal";
 import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
-import { ProductType } from "@/redux/features/productSlice";
-import { imgArray, productArray } from "@/utils";
+import { imgArray } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ProductType } from "@/utils";
 
 export default function Home() {
 

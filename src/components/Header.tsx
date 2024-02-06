@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import SideCart from "./SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from "@/redux/features/productSlice";
 import { login, logout } from "@/redux/features/authSlice";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
 import { checkAdmin } from "@/utils";
@@ -33,12 +33,13 @@ const Header = () => {
       if (result.ok) {
         const res = await result.json();
         dispatch(setAllProducts(res.products));
+
       }
     } catch (error) {
       return error;
     }
   };
-
+  
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
     // searchInput && searchInput != "All" && nav.push(`/products?search=${searchInput || "All"}`);
@@ -89,9 +90,22 @@ const Header = () => {
     }
   }, [showSearch, showCart, showMenu]);
 
+  // useEffect(() => {
+  //   handleSearch();
+  // }, [searchInput]);
+
   useEffect(() => {
-    handleSearch();
-  }, [searchInput]);
+    onAuthStateChanged(auth, (user) => {
+      auth.updateCurrentUser(user)
+    })
+    const cartData = localStorage.getItem('cart');
+    if(cartData){
+      console.log(
+        JSON.parse(cartData)
+        );
+        
+    }
+  }, [])
   
   useEffect(() => {
     const data = localStorage.getItem("authUser");

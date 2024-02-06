@@ -158,7 +158,7 @@ const Product = ({ item }: { item?: any }) => {
                 className="fi fi-sr-square-plus cursor-pointer text-2xl"
                 onClick={() => handleQty(1)}
               />
-              {qty == 20 && (
+              {qty == 500 && (
                 <span className="px-4 text-xs font-bold text-red-500">
                   Max Limit Reached
                 </span>

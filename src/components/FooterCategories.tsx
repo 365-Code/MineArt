@@ -17,6 +17,7 @@ const FooterCategories = () => {
           return error;
         }
       };
+      
       useEffect(() => {
         fetchAllFilters()
       }, [])
