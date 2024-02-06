@@ -32,34 +32,34 @@ export function getPages(arr: Array<any>, noOfItems: number){
 
 // export type ProductType = {
 //   _id: string,
-//   thumbnail: string,
 //   title: string,
-//   price: number,
+//   thumbnail: string,
 //   images?: Array<string>,
+//   price: number,
 //   material: string
+//   category?: string,
 //   description: string,
 //   qty: number,
 //   minQty: number,
-//   category?: string,
 // }
 
 export type ProductType = {
       _id: string,
       title: string,
       thumbnail: string,
-      images: Array<string>
+      images?: Array<string>
       price: number,
-      slug: string,
-      category: string,
-      description: string,
       material: string,
+      category?: string,
+      description: string,
+      qty: number
       minQty: number,
-      keywords: Array<string>,
-      length: number,
-      width: number,
-      height: number,
-      rating: number,
-      qty: 1
+      slug?: string,
+      keywords?: Array<string>,
+      length?: number,
+      width?: number,
+      height?: number,
+      rating?: number,
 }
 
 export type OrderType = {

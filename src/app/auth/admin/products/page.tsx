@@ -4,11 +4,12 @@ import AdminProductCard from "@/components/AdminProductCard";
 import EditProduct from "@/components/EditProduct";
 import Modal from "@/components/Modal";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
-import { ProductType, setAllProducts } from "@/redux/features/productSlice";
+import { setAllProducts } from "@/redux/features/productSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { ProductType } from "@/utils";
 
 const Page = () => {
   const [showModal, setShowModal] = useState(false);

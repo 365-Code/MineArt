@@ -1,7 +1,7 @@
 "use client";
 import Quantity from "@/components/Quantity";
 import { addToCart } from "@/redux/features/cartSlice";
-import { ProductType } from "@/redux/features/productSlice";
+import { ProductType } from "@/utils";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import Image from "next/image";
 import React from "react";
