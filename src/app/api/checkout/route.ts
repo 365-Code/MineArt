@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
-console.log(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req: NextRequest) {
     try {
@@ -33,6 +32,7 @@ export async function POST(req: NextRequest) {
             client_reference_id: body.user._id,
             mode: 'payment',
             metadata: {shippingInfo},
+
             shipping_options: [
                 {
                     shipping_rate: "shr_1OgpdESJtMJHYJ6A5jeEhqaT"

@@ -21,7 +21,7 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
 
 
   return (
-    <div className="group/side-cart-item flex w-full items-center justify-between gap-8 p-4 shadow-sm shadow-black/30 hover:bg-slate-100">
+    <div className="group/side-cart-item flex w-full items-center justify-between gap-4 sm:gap-8 p-4 shadow-sm shadow-black/30 hover:bg-slate-100">
       <Link
         href={`/products/${cartItem._id}`}
         className="h-[102px] w-[102px] overflow-hidden rounded-lg"
@@ -35,7 +35,7 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
         />
       </Link>
       <div className="flex-1 text-left">
-        <div className="flex justify-between text-center font-semibold">
+        <div className="flex justify-between font-semibold">
             <Link href={`/products/${cartItem._id}`}>{cartItem.title}</Link>
           <i onClick={handleRemove} className="cursor-pointer group-focus/side-cart-item:translate-x-full fi fi-ss-cross-circle text-pink-500" />
         </div>
@@ -48,7 +48,10 @@ const SideCartItem = ({ cartItem }: { cartItem: any }) => {
 
         <div className="flex items-center justify-between">
           <p>Rs.{cartItem.price}</p>
+          <p className="sm:hidden font-semibold">Qty: {cartItem.qty}</p>
+          <div className="hidden sm:block">
           <Quantity Qty={cartItem.qty} minQty={cartItem.minQty} handleChangeQty={handleQty}/>
+          </div>
         </div>
       </div>
     </div>

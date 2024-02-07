@@ -1,27 +1,44 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 import Product from "./Product";
 import Rating from "./Rating";
 import Image from "next/image";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch, useAppSelector } from "@/redux/store";
 import { addToCart } from "@/redux/features/cartSlice";
 import { addToWish } from "@/redux/features/wishSlice";
 
 const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) => {
   const [showModal, setShowModal] = useState(false);
-
   const dispatch = useDispatch<AppDispatch>();
   const handleAddToCart = () => {
     dispatch(addToCart({ ...product, qty: product.minQty }));
   };
   
   const handleAddToWishlist = ()=>{
-    dispatch(addToWish({ ...product, qty: product.minQty }));
+    if(!inWish){
+      setInWish(true)
+      dispatch(addToWish({ ...product, qty: product.minQty }));
+    } else{
+      setInWish(false)
+    }
   }
+
+  const wish = useAppSelector((state) => state.wishReducer.value.items)
+
+  useEffect(()=>{
+    wish.forEach((w) => {
+      if (w._id == product._id){
+        setInWish(true)
+      }
+    })
+
+  }, [])
+
+  const [inWish, setInWish] = useState(false);
 
   return (
     <>
@@ -41,7 +58,7 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
           <div className="absolute left-4 top-4 md:h-0 min-h-fit space-y-2 overflow-hidden transition-all duration-300 h-fit md:group-hover/product:h-[112px]">
             <i
               onClick={handleAddToCart}
-              className="fi fi-sr-shopping-cart-add cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white"
+              className={`fi fi-sr-shopping-cart-add cursor-pointer rounded-lg p-2 transition-all hover:bg-slate-900 hover:text-white bg-white`}
             />
             <i
               onClick={() => setShowModal(true)}
@@ -49,7 +66,7 @@ const ProductCard = ({ product, showDet }: { product: any, showDet?: boolean }) 
             />
             <i 
               onClick={handleAddToWishlist}
-            className="fi fi-rs-heart cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" />
+            className={`fi fi-sr-heart cursor-pointer rounded-lg p-2 transition-all hover:bg-slate-900 hover:text-white ${inWish ? "bg-slate-900 text-white": "bg-white"}`} />
             {/* <i className="fi fi-rr-zoom-in cursor-pointer rounded-lg bg-white p-2 transition-all hover:bg-slate-900 hover:text-white" /> */}
           </div>
         </div>

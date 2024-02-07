@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ProductType } from "@/utils"
+import { ProductType, subTotal } from "@/utils"
 
 const initialState = {
     value: {
@@ -22,7 +22,7 @@ const cart = createSlice({
                 state.value.subtotal += action.payload.price * action.payload.qty
             }
 
-            const crt = state.value.items.map((c) => c._id)
+            const crt = state.value.items.map((c) => ({id: c._id, qty: c.qty}) )
             localStorage.setItem('cart', JSON.stringify(crt))
         },
         removeFromCart: (state, action: PayloadAction<string>) => {
@@ -32,7 +32,8 @@ const cart = createSlice({
                 }
                 return p._id != action.payload
             })
-            const crt = {items: state.value.items, subtotal: state.value.subtotal}
+            
+            const crt = state.value.items.map((c) => ({id: c._id, qty: c.qty}) )
             localStorage.setItem('cart', JSON.stringify(crt))
         },
         productQuantity: (state, action: PayloadAction<any>)=> {
@@ -40,7 +41,15 @@ const cart = createSlice({
             state.value.subtotal -= state.value.items[ind].qty * state.value.items[ind].price
             state.value.items[ind].qty = action.payload.qty
             state.value.subtotal += action.payload.qty * state.value.items[ind].price
+            
+            const crt = state.value.items.map((c) => ({id: c._id, qty: c.qty}) )
+            localStorage.setItem('cart', JSON.stringify(crt))
             // subTotal()
+        },
+        setInitialCart: (state, action: PayloadAction<Array<ProductType>>) => {
+            state.value.items = action.payload;
+            state.value.subtotal = 0;
+            state.value.items.forEach((e: ProductType) => state.value.subtotal += e.price * e.qty)
         },
         subTotal: (state)=> {
             state.value.subtotal = 0;
@@ -51,4 +60,4 @@ const cart = createSlice({
 
 const cartReducer = cart.reducer
 export default cartReducer
-export const {addToCart, removeFromCart, productQuantity} = cart.actions;
+export const {addToCart, removeFromCart, productQuantity, setInitialCart} = cart.actions;

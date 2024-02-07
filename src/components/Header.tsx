@@ -10,20 +10,22 @@ import { login, logout } from "@/redux/features/authSlice";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/utils/firebase";
 import { toast } from "react-toastify";
-import { checkAdmin } from "@/utils";
+import { ProductType, checkAdmin } from "@/utils";
+import { setInitialCart } from "@/redux/features/cartSlice";
+import { setInitialWish } from "@/redux/features/wishSlice";
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [admin, setAdmin] = useState(false);
 
   const pathname = usePathname();
   const nav = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const authUser = useAppSelector((state) => state.authReducer.value);
   const cart = useAppSelector((state) => state.cartReducer.value);
+  const allProducts = useAppSelector((state) => state.productReducer.value)
 
   const searchProduct = async () => {
     try {
@@ -42,7 +44,6 @@ const Header = () => {
   
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
-    // searchInput && searchInput != "All" && nav.push(`/products?search=${searchInput || "All"}`);
     searchProduct();
     nav.push(`/products?search=${searchInput || "All"}`);
   };
@@ -90,22 +91,63 @@ const Header = () => {
     }
   }, [showSearch, showCart, showMenu]);
 
-  // useEffect(() => {
-  //   handleSearch();
-  // }, [searchInput]);
+  const fetchAllProducts = async () => {
+    try {
+      const result = await fetch("/api/product/getAllProducts");
+      const res = await result.json();
+      if (res.success) {
+        const allProducts = res.products
+        dispatch(setAllProducts(allProducts));
+        const cartData = localStorage.getItem('cart');
+        const wishData = localStorage.getItem('wish');
+        if(cartData){
+          const cart = JSON.parse(cartData);
+          const crt = cart.map((c: {id: string, qty: number}) => {
+            const index = allProducts.findIndex((p: ProductType) => p._id == c.id);
+            
+            if(index != -1){
+              return {
+                ...allProducts[index],
+                qty: c.qty
+              }
+            }
+          })
+          
+          if(crt){
+            dispatch(setInitialCart(crt))
+          }
+        }
+        if(wishData){
+          const wish = JSON.parse(wishData);
+          const wsh = wish.map((c: {id: string, qty: number}) => {
+            const index = allProducts.findIndex((p: ProductType) => p._id == c.id);
+            
+            if(index != -1){
+              return {
+                ...allProducts[index],
+                qty: c.qty
+              }
+            }
+          })
+          
+          if(wsh){
+            dispatch(setInitialWish(wsh))
+          }
+        }
+      }
+      return allProducts;
+    } catch (error) {
+      return error;
+    }
+  };
 
-  useEffect(() => {
+  
+  useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
       auth.updateCurrentUser(user)
     })
-    const cartData = localStorage.getItem('cart');
-    if(cartData){
-      console.log(
-        JSON.parse(cartData)
-        );
-        
-    }
-  }, [])
+    fetchAllProducts()
+  },[])
   
   useEffect(() => {
     const data = localStorage.getItem("authUser");

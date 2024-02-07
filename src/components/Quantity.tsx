@@ -13,12 +13,11 @@ const Quantity = ({ Qty, minQty, handleChangeQty }: { Qty?: number; minQty?: num
   return (
     <div className="flex items-center">
       <div className="flex items-center">
-
       <i
         className="fi fi-rr-square-minus cursor-pointer text-2xl"
         onClick={() => handleQty(-1)}
       />
-      <span className="mx-1 flex h-8 w-8 items-center justify-center rounded-lg text-center font-semibold">
+      <span className="flex h-8 w-8 items-center justify-center rounded-lg text-center font-semibold">
         {Qty || qty}
       </span>
       <i
@@ -26,11 +25,6 @@ const Quantity = ({ Qty, minQty, handleChangeQty }: { Qty?: number; minQty?: num
         onClick={() => handleQty(1)}
       />
       </div>
-
-      {/* <i 
-        className="fi fi-rs-plus cursor-pointer text-2xl border border-black p-2"
-        onClick={()=>handleQty(1)}
-      /> */}
       {qty == 500 && (
         <span className="text-right text-xs font-bold text-red-500">
           Max Limit Reached

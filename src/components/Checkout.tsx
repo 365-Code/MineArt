@@ -39,9 +39,9 @@ const Checkout = () => {
         body: JSON.stringify(orderInfo)
       })
 
+      
       const res = await result.json()
       if(res.success){
-        // console.log(res);
         nav.push(res.url)
       }
     } catch (error) {
