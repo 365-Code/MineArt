@@ -47,8 +47,11 @@ const CartItem = ({ cartItem }: { cartItem: any }) => {
       <div className="text-center">
         <Quantity Qty={cartItem.qty} minQty={cartItem.minQty} handleChangeQty={handleQty}/>
         <p className="font-semibold py-1">Rs.{cartItem.price}</p>
+        <button onClick={handleRemove} className=" sm:hidden flex items-center text-sm hover:text-red-500 cursor-pointer"><i className="fi fi-sr-cross-small"/><span>Remove</span></button>
       </div>
+      <span className="hidden sm:block">
       <i onClick={handleRemove} className="fi fi-ss-trash icons text-red-600" />
+      </span>
     </div>
   );
 };

@@ -134,84 +134,103 @@ const Product = ({ item }: { item?: any }) => {
           )}
         </div>
 
-        <div className="flex w-[550px] max-w-full flex-col gap-2 space-y-2 sm:py-8">
-          <span className="font-semibold">
-            Material:
-            <Link href="#" className="px-1 italic text-slate-500 underline">
-              {product.material}
-            </Link>
-          </span>
-          <h2 className="text-3xl font-semibold">{product.title}</h2>
-          <p>{product.description}</p>
-          <hr />
-          <div className="flex items-center gap-8">
-            <p className="text-lg font-semibold">Rs. {product.price}</p>
-            <div className="flex items-center">
-              <i
-                className="fi fi-sr-square-minus cursor-pointer text-2xl"
-                onClick={() => handleQty(-1)}
-              />
-              <span className="mx-1 flex h-8 w-8 items-center justify-center rounded-lg text-center font-semibold">
-                {qty}
-              </span>
-              <i
-                className="fi fi-sr-square-plus cursor-pointer text-2xl"
-                onClick={() => handleQty(1)}
-              />
-              {qty == 500 && (
-                <span className="px-4 text-xs font-bold text-red-500">
-                  Max Limit Reached
-                </span>
-              )}
+        {!product._id && (
+          <div className="flex-1 space-y-4">
+            <div className="h-[40px] w-full flex-1 animate-pulse bg-slate-500 delay-0" />
+            <div className="h-[30px] w-4/5 flex-1 animate-pulse bg-slate-500 delay-75" />
+            <div className="h-[80px] w-4/6 flex-1 animate-pulse bg-slate-500 delay-100" />
+            <div className="flex gap-4">
+              <div className="h-[40px] w-1/2 flex-1 animate-pulse bg-slate-500 p-4 delay-150" />
+              <div className="h-[40px] w-1/2 flex-1 animate-pulse bg-slate-500 p-4 delay-150" />
             </div>
+            
+            <div className="h-[40px] w-full flex-1 animate-pulse bg-slate-500 delay-0" />
+            <div className="h-[30px] w-4/5 flex-1 animate-pulse bg-slate-500 delay-75" />
+            <div className="h-[30px] w-1/2 flex-1 animate-pulse bg-slate-500 delay-200" />
+            <div className="h-[20px] w-1/2 flex-1 animate-pulse bg-slate-500 delay-300" />
           </div>
-          <hr />
-          <div className="w-full space-y-2">
-            <div className="flex flex-col flex-wrap gap-2 sm:flex-row">
-              <button
-                onClick={handleAddToCart}
-                className="min-w-[200px] flex-1 border border-slate-900 px-2 py-3 transition-all hover:bg-slate-900 hover:text-white"
-              >
-                Add to Cart
-              </button>
-              <button className="min-w-[200px] flex-1 border border-slate-900 bg-slate-900 px-2 py-3 text-white hover:bg-slate-950">
-                Buy Now
-              </button>
-            </div>
-            <div>
-              <div className="overflow-hidden rounded-lg shadow-sm shadow-black/20">
-                <input
-                  type="number"
-                  onChange={handleAvl}
-                  min={100000}
-                  max={999999}
-                  placeholder="Enter Pincode"
-                  className={`w-full flex-1 px-4 py-3 outline-none autofill:bg-transparent`}
+        )}
+
+        {product._id && (
+          <div className="flex w-[550px] max-w-full flex-col gap-2 space-y-2 sm:py-8">
+            <span className="font-semibold">
+              Material:
+              <Link href="#" className="px-1 italic text-slate-500 underline">
+                {product.material}
+              </Link>
+            </span>
+            <h2 className="text-3xl font-semibold">{product.title}</h2>
+            <p>{product.description}</p>
+            <hr />
+            <div className="flex items-center gap-8">
+              <p className="text-lg font-semibold">Rs. {product.price}</p>
+              <div className="flex items-center">
+                <i
+                  className="fi fi-sr-square-minus cursor-pointer text-2xl"
+                  onClick={() => handleQty(-1)}
                 />
+                <span className="mx-1 flex h-8 w-8 items-center justify-center rounded-lg text-center font-semibold">
+                  {qty}
+                </span>
+                <i
+                  className="fi fi-sr-square-plus cursor-pointer text-2xl"
+                  onClick={() => handleQty(1)}
+                />
+                {qty == 500 && (
+                  <span className="px-4 text-xs font-bold text-red-500">
+                    Max Limit Reached
+                  </span>
+                )}
               </div>
-              <p
-                className={`text-sm font-semibold transition-all ${
-                  avl == "valid" || avl == "invalid"
-                    ? "visible"
-                    : "invisible text-transparent"
-                } ${avl == "valid" && "text-green-400"} ${
-                  avl == "invalid" && "text-red-400"
-                }`}
-              >
-                Product is {avl == "invalid" && "Not"} Deliverable
-              </p>
+            </div>
+            <hr />
+            <div className="w-full space-y-2">
+              <div className="flex flex-col flex-wrap gap-2 sm:flex-row">
+                <button
+                  onClick={handleAddToCart}
+                  className="min-w-[200px] flex-1 border border-slate-900 px-2 py-3 transition-all hover:bg-slate-900 hover:text-white"
+                >
+                  Add to Cart
+                </button>
+                <button className="min-w-[200px] flex-1 border border-slate-900 bg-slate-900 px-2 py-3 text-white hover:bg-slate-950">
+                  Buy Now
+                </button>
+              </div>
               <div>
-                <p className="flex items-center gap-2">
-                  <i className="fi fi-sr-shipping-fast" /> All India FREE
-                  shipping
+                <div className="overflow-hidden rounded-lg shadow-sm shadow-black/20">
+                  <input
+                    type="number"
+                    onChange={handleAvl}
+                    min={100000}
+                    max={999999}
+                    placeholder="Enter Pincode"
+                    className={`w-full flex-1 px-4 py-3 outline-none autofill:bg-transparent`}
+                  />
+                </div>
+                <p
+                  className={`text-sm font-semibold transition-all ${
+                    avl == "valid" || avl == "invalid"
+                      ? "visible"
+                      : "invisible text-transparent"
+                  } ${avl == "valid" && "text-green-400"} ${
+                    avl == "invalid" && "text-red-400"
+                  }`}
+                >
+                  Product is {avl == "invalid" && "Not"} Deliverable
                 </p>
-                <p className="flex items-center gap-2">
-                  <i className="fi fi-sr-box-open" /> 10 days Returns
-                </p>
+                <div>
+                  <p className="flex items-center gap-2">
+                    <i className="fi fi-sr-shipping-fast" /> All India FREE
+                    shipping
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <i className="fi fi-sr-box-open" /> 10 days Returns
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <hr />
       <div className="no-scrollbar max-h-[300px] overflow-y-scroll">

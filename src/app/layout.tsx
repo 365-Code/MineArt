@@ -6,6 +6,8 @@ import Footer from '@/components/Footer'
 import ReactProvider from '@/redux/provider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { Suspense } from 'react'
+import Loading from './loading'
 
 // const inter = Inter({ subsets: ['latin'] })
 // const firaCode = Fira_Code({ subsets: ['latin'] })
@@ -26,9 +28,11 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ReactProvider>
         <Header/>
+        <Suspense fallback={<Loading/>}>
         <main id='main' key={"main"} className='h-full flex-1 pt-[5.2rem]'>
           {children}
         </main>
+          </Suspense>
         <Footer/>
         </ReactProvider>
         <ToastContainer 
