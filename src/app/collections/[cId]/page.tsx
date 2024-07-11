@@ -4,6 +4,7 @@ import CollectionCard from "@/components/CollectionCard";
 import { ProductType } from "@/utils";
 import Image from "next/image";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 interface PageParams {
   params: {
@@ -14,12 +15,14 @@ interface PageParams {
 const searchProduct = async (cId: string) => {
   try {
     // const result = await fetch(`/api/product/searchProducts?category=${cId}`);
-    const response = await fetch(`/api/product/searchProducts?search=${cId}`);
+    const response = await fetch(
+      `${process.env.BASE_URL}/api/product/searchProducts?search=${cId}`,
+    );
     const result = await response.json();
     if (result.success) {
       return result.prodcuts as ProductType[];
     }
-    return [];
+    return notFound();
   } catch (error) {
     throw error;
   }
@@ -33,9 +36,9 @@ export const generateMetadata = async ({
     title: params.cId,
     openGraph: {
       images: {
-        url: collections[0]?.images ? collections[0].images[0] : ""
-      }
-    }
+        url: collections[0]?.images ? collections[0].images[0] : "",
+      },
+    },
   };
 };
 
