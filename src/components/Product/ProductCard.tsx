@@ -5,7 +5,6 @@ import Modal from "../Utilities/Modal";
 import Product from "./Product";
 import Rating from "../Utilities/Rating";
 import Image from "next/image";
-import ProductCardSkeleton from "./ProductCardSkeleton";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { addToCart } from "@/redux/features/cartSlice";

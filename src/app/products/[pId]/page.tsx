@@ -13,16 +13,14 @@ interface PageParams {
 
 const fetchProduct = async (pId: string) => {
   try {
-    const result = await fetch(`/api/product/getSingleProduct?pId=${pId}`);
-    const res = await result.json();
+    const response = await fetch(`${process.env.BASE_URL}/api/product/getSingleProduct?pId=${pId}`);
+    const res = await response.json();
     if (res.success) {
       return res.product;
-      // setProduct(res.product);
-      // setImgPreview({ id: 0, img: res.product.thumbnail });
     }
     return notFound();
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -35,13 +33,22 @@ export const generateMetadata = async ({
     description: product.description,
     keywords: product.keywords,
     openGraph: {
-      images: product.images,
+      images: {
+        url: product.thumbnail
+      },
     },
+    twitter: {
+      card: "summary_large_image",
+      title: product.title,
+      description: product.description
+    }
   };
 };
 
 const Page = async ({ params }: PageParams) => {
   const product = await fetchProduct(params.pId);
+  
+
   return (
     <div className="container1 space-y-4">
       <Product item={product} />
