@@ -20,10 +20,12 @@ const searchProduct = async (cId: string) => {
     );
     const result = await response.json();
     if (result.success) {
-      return result.prodcuts as ProductType[];
+      return result.products as ProductType[];
     }
     return notFound();
   } catch (error) {
+    console.log("error");
+
     throw error;
   }
 };
