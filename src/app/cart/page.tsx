@@ -1,4 +1,4 @@
-import CartItems from '@/components/CartItems'
+import CartItems from '@/components/Cart/CartItems'
 import Checkout from '@/components/Checkout'
 import React from 'react'
 

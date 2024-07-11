@@ -143,7 +143,7 @@ const Product = ({ item }: { item?: any }) => {
               <div className="h-[40px] w-1/2 flex-1 animate-pulse bg-slate-500 p-4 delay-150" />
               <div className="h-[40px] w-1/2 flex-1 animate-pulse bg-slate-500 p-4 delay-150" />
             </div>
-            
+
             <div className="h-[40px] w-full flex-1 animate-pulse bg-slate-500 delay-0" />
             <div className="h-[30px] w-4/5 flex-1 animate-pulse bg-slate-500 delay-75" />
             <div className="h-[30px] w-1/2 flex-1 animate-pulse bg-slate-500 delay-200" />

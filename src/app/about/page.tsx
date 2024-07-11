@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about MineArt, your premier destination for luxury marble handicrafts, sculptures, and custom marble products. Discover our commitment to craftsmanship and elegance.",
+  keywords:
+    "about MineArt, marble handicrafts, marble sculptures, custom marble products, luxury marble items, elegant marble art, handcrafted marble",
+};
 
 const Page = () => {
   return (
@@ -23,70 +32,69 @@ const Page = () => {
           </ul>
           <li>B. Unique Selling Point:</li>
           <ul>
-          <li>
-            - Meticulously handcrafted by skilled artisans, ensuring the highest
-            level of quality and precision.
-          </li>
-          <li>
-            - Use of premium quality marble adds a touch of elegance and
-            sophistication to every creation.
-          </li>
-          <h3>C. Product Range:</h3>
-          <li>
-            - Offers a wide range of products, including intricately carved
-            sculptures and beautifully designed home decor items.
-          </li>
-          <li>
-            - Catering to the discerning tastes of customers who appreciate fine
-            art and craftsmanship.
-          </li>
+            <li>
+              - Meticulously handcrafted by skilled artisans, ensuring the
+              highest level of quality and precision.
+            </li>
+            <li>
+              - Use of premium quality marble adds a touch of elegance and
+              sophistication to every creation.
+            </li>
+            <h3>C. Product Range:</h3>
+            <li>
+              - Offers a wide range of products, including intricately carved
+              sculptures and beautifully designed home decor items.
+            </li>
+            <li>
+              - Catering to the discerning tastes of customers who appreciate
+              fine art and craftsmanship.
+            </li>
           </ul>
           <li>II. Mission and Vision:</li>
           <ul>
-          <li>
-            Mission: To create and deliver exceptional marble handicraft
-            products that exceed customer expectations.
-          </li>
-          <li>
-            Vision: To be recognized globally as a premier provider of exquisite
-            marble handicrafts, inspiring and delighting customers with our
-            creations.
-          </li>
+            <li>
+              Mission: To create and deliver exceptional marble handicraft
+              products that exceed customer expectations.
+            </li>
+            <li>
+              Vision: To be recognized globally as a premier provider of
+              exquisite marble handicrafts, inspiring and delighting customers
+              with our creations.
+            </li>
           </ul>
           <li>III. Core Values:</li>
           <ul>
-          <h3>A. Excellence:</h3>
-          <li>
-            - Committed to delivering products of the highest quality and
-            craftsmanship.
-          </li>
-          <li>
-            - Strive for continuous improvement and innovation in our creations.
-          </li>
+            <h3>A. Excellence:</h3>
+            <li>
+              - Committed to delivering products of the highest quality and
+              craftsmanship.
+            </li>
+            <li>
+              - Strive for continuous improvement and innovation in our
+              creations.
+            </li>
           </ul>
           <h3>B. Preservation of Art:</h3>
           <ul>
-
-          <li>
-            - Dedicated to preserving the traditional art of marble handicraft
-            and passing it on to future generations.
-          </li>
-          <li>
-            - Respect for the heritage and cultural significance of marble
-            craftsmanship.
-          </li>
+            <li>
+              - Dedicated to preserving the traditional art of marble handicraft
+              and passing it on to future generations.
+            </li>
+            <li>
+              - Respect for the heritage and cultural significance of marble
+              craftsmanship.
+            </li>
           </ul>
           <h3>C. Customer Satisfaction:</h3>
           <ul>
-
-          <li>
-            - Customer-centric approach, ensuring their needs and preferences
-            are met.
-          </li>
-          <li>
-            - Building long-term relationships with customers based on trust and
-            satisfaction.
-          </li>
+            <li>
+              - Customer-centric approach, ensuring their needs and preferences
+              are met.
+            </li>
+            <li>
+              - Building long-term relationships with customers based on trust
+              and satisfaction.
+            </li>
           </ul>
 
           <li>IV. The Team:</li>
@@ -97,7 +105,8 @@ const Page = () => {
             </li>
             <li>
               Each team member is skilled in their respective areas,
-              contributing to the overall excellence of MineArt&apos;s creations.
+              contributing to the overall excellence of MineArt&apos;s
+              creations.
             </li>
             <li>
               Works collaboratively, sharing knowledge and expertise to

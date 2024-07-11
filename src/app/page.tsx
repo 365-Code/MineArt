@@ -1,17 +1,15 @@
 "use client";
-import Carousal from "@/components/Carousal";
-import ProductCard from "@/components/ProductCard";
-import ProductCardSkeleton from "@/components/ProductCardSkeleton";
+import Carousal from "@/components/Utilities/Carousal";
+import ProductCard from "@/components/Product/ProductCard";
+import ProductCardSkeleton from "@/components/Product/ProductCardSkeleton";
 import { imgArray } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ProductType } from "@/utils";
+import { collImages } from "@/constants/images";
 
 export default function Home() {
-
-
-
   const scrollFeatured = (n: number) => {
     const ft = document.getElementById("featured");
 
@@ -33,11 +31,11 @@ export default function Home() {
     }
   };
 
-  useEffect(()=>{
-    fetchAllProducts()
-  }, [])
-
-  const images = ['/coll13.jpg', '/coll18.jpg', '/coll6.jpg'];
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
+  // const images = ['/src/assets/coll13.jpg', '/src/assets/coll18.jpg', 'src/assets/coll6.jpg'];
+  const images = [collImages.coll13, collImages.coll18, collImages.coll6];
 
   return (
     <main className="container1">
@@ -45,13 +43,13 @@ export default function Home() {
         {/* Section 1 */}
         <section className="flex flex-col justify-between gap-8 md:h-[80vh] md:flex-row">
           <div className="relative h-full min-h-[350px] w-full md:basis-4/5 ">
-            <div className="absolute w-full h-full flex flex-col justify-center gap-4 px-12">
-              <div className="bg-black/40 p-4 sm:py-6 md:py-8 w-fit h-fit">
-              <h1 className="text-2xl text-white sm:text-3xl md:text-5xl mix-blend-lighten font-semibold">
-                Buy White Marble
-                <br />
-                Best Quality
-              </h1>
+            <div className="absolute flex h-full w-full flex-col justify-center gap-4 px-12">
+              <div className="h-fit w-fit bg-black/40 p-4 sm:py-6 md:py-8">
+                <h1 className="text-2xl font-semibold text-white mix-blend-lighten sm:text-3xl md:text-5xl">
+                  Buy White Marble
+                  <br />
+                  Best Quality
+                </h1>
               </div>
             </div>
             <div className="absolute left-0 top-0 h-full w-full ">
@@ -86,7 +84,7 @@ export default function Home() {
                 height={400}
                 src={imgArray[2]}
                 alt=""
-                className="object-contain home-img"
+                className="home-img object-contain"
               />
               <div className="space-y-2">
                 <h3 className="text-2xl font-semibold">
@@ -158,16 +156,12 @@ export default function Home() {
             id="featured"
             // className="no-scrollbar flex w-screen max-w-full items-center gap-4 overflow-x-scroll"
             className="no-scrollbar flex max-w-fit gap-4 overflow-x-scroll"
-          > 
-            {products.length != 0 ? (
-              products.map((p, i) => (
-                <ProductCard key={p._id} product={p} showDet={false}/>
-              ))
-            ) : (
-              [...Array(5)].map((a, i) => 
-              <ProductCardSkeleton key={i} />
-              )
-            )}
+          >
+            {products.length != 0
+              ? products.map((p, i) => (
+                  <ProductCard key={p._id} product={p} showDet={false} />
+                ))
+              : [...Array(5)].map((a, i) => <ProductCardSkeleton key={i} />)}
           </div>
         </section>
         <hr />
@@ -183,7 +177,7 @@ export default function Home() {
                 className="home-img"
               />
               <div>
-                  <h3 className="text-2xl text-white mix-blend-luminosity">
+                <h3 className="text-2xl text-white mix-blend-luminosity">
                   Big Vases
                   <br />
                   item
@@ -252,7 +246,7 @@ export default function Home() {
                 <Image
                   width={400}
                   height={400}
-                  src={'/coll6.jpg'}
+                  src={collImages.coll6}
                   alt=""
                   className="home-img"
                 />
@@ -275,12 +269,12 @@ export default function Home() {
                 <Image
                   width={400}
                   height={400}
-                  src={'/coll7.jpg'}
+                  src={collImages.coll7}
                   alt=""
                   className="home-img"
                 />
                 <div>
-                  <h3 className="text-2xl text-black mix-blend-color-">
+                  <h3 className="mix-blend-color- text-2xl text-black">
                     Candle Stands
                   </h3>
                   <Link
@@ -297,7 +291,7 @@ export default function Home() {
               <Image
                 width={400}
                 height={400}
-                src={'/coll12.jpg'}
+                src={collImages.coll12}
                 alt=""
                 className="home-img"
               />
@@ -319,7 +313,7 @@ export default function Home() {
         </section>
         <hr />
         {/* Section 5 */}
-        <section className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4">
+        <section className="grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d342.50421379484084!2d74.7266009351273!3d27.049602890133876!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396b9da5cd2d0495%3A0x5c6d53a27ef2fb1f!2sMine%20Art!5e0!3m2!1sen!2sin!4v1705638829958!5m2!1sen!2sin"
             width="600"
@@ -328,24 +322,35 @@ export default function Home() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="max-w-full"
-            />
-        <div className="space-y-2 max-w-full w-[500px]">
-          <div>
-              <h1 className="font-semibold text-3xl">Visit our store at</h1>
-              <p className="w-[250px] max-w-full"><span className="font-semibold text-xl">MineArt :</span>{" "}Taj gali, road, Mathabhar, Makrana, Rajasthan 341505</p>
+          />
+          <div className="w-[500px] max-w-full space-y-2">
+            <div>
+              <h1 className="text-3xl font-semibold">Visit our store at</h1>
+              <p className="w-[250px] max-w-full">
+                <span className="text-xl font-semibold">MineArt :</span> Taj
+                gali, road, Mathabhar, Makrana, Rajasthan 341505
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl">Contact Us</h3>
+              <form action={"mailto:aiomicrosoft563+mineart@gmail.com"} className="flex flex-col gap-2 rounded-lg bg-white p-2 ">
+                <textarea
+                  name="message"
+                  id=""
+                  className="no-scrollbar h-[150px] w-full resize-none rounded-lg p-4"
+                  placeholder="Enter Your Message"
+                />
+                <button className="ml-auto flex w-fit items-center gap-2 rounded-lg bg-blue-400 px-4 py-2 text-white hover:bg-blue-500">
+                  Send{" "}
+                  <span>
+                    <i className="fi fi-sr-paper-plane-top" />
+                  </span>{" "}
+                </button>
+              </form>
+            </div>
           </div>
-              <div>
-                <h3 className="text-2xl">Contact Us</h3>
-                <div className="bg-white p-2 rounded-lg flex flex-col gap-2 ">
-                  <textarea name="message" id="" className="no-scrollbar w-full rounded-lg resize-none p-4 h-[150px]" placeholder="Enter Your Message" />
-                  <button className="px-4 py-2 ml-auto w-fit rounded-lg bg-blue-400 hover:bg-blue-500 text-white flex items-center gap-2">Send <span><i className="fi fi-sr-paper-plane-top" /></span> </button>
-                </div>
-              </div>
-        </div>
-      </section>
-
+        </section>
       </div>
-
     </main>
   );
 }

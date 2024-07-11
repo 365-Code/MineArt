@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
 
-const Carousal = ({ images }: { images: Array<string> }) => {
+const Carousal = ({ images }: { images: Array<StaticImageData> }) => {
   const [selected, setSelected] = useState(0);
 
   return (

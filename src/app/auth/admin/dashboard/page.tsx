@@ -1,4 +1,4 @@
-import AdminLayout from '@/components/AdminLayout'
+import AdminLayout from '@/components/Admin/AdminLayout'
 import Image from 'next/image'
 import React from 'react'
 

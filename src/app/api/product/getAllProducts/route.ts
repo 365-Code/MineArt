@@ -1,14 +1,23 @@
 import connectDB from "@/lib/db";
 import productModel from "@/models/productModel";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export const revalidate = 1
-export async function GET(){
-    try{
-        await connectDB()
-        const products = await productModel.find({}).sort({updatedAt: -1});
-        return NextResponse.json({products ,success: true, msg: "All Fetced"})
-    }catch(err: any){
-        return NextResponse.json({success: false, msg: err.message})
+export async function GET(req: NextRequest) {
+  try {
+    await connectDB();
+    const { searchParams } = new URL(req.url);
+    const limit = searchParams.get("limit");
+    let products;
+    if (limit) {
+      products = await productModel
+        .find({})
+        .sort({ updatedAt: -1 })
+        .limit(Number(limit));
+    } else {
+      products = await productModel.find({}).sort({ updatedAt: -1 });
     }
+    return NextResponse.json({ products, success: true, msg: "All Fetced" });
+  } catch (err: any) {
+    return NextResponse.json({ success: false, msg: err.message });
+  }
 }

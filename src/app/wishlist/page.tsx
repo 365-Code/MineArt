@@ -1,5 +1,5 @@
 "use client";
-import Quantity from "@/components/Quantity";
+import Quantity from "@/components/Utilities/Quantity";
 import { addToCart } from "@/redux/features/cartSlice";
 import { ProductType } from "@/utils";
 import { AppDispatch, useAppSelector } from "@/redux/store";

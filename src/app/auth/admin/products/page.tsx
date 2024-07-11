@@ -1,9 +1,9 @@
 "use client";
-import AdminLayout from "@/components/AdminLayout";
-import AdminProductCard from "@/components/AdminProductCard";
-import EditProduct from "@/components/EditProduct";
-import Modal from "@/components/Modal";
-import ProductCardSkeleton from "@/components/ProductCardSkeleton";
+import AdminLayout from "@/components/Admin/AdminLayout";
+import AdminProductCard from "@/components/Admin/AdminProductCard";
+import EditProduct from "@/components/Admin/EditProduct";
+import Modal from "@/components/Utilities/Modal";
+import ProductCardSkeleton from "@/components/Product/ProductCardSkeleton";
 import { setAllProducts } from "@/redux/features/productSlice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import Image from "next/image";

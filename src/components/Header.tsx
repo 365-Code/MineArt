@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { use, useEffect, useState } from "react";
-import SideCart from "./SideCart";
+import SideCart from "./Cart/SideCart";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setAllProducts } from "@/redux/features/productSlice";
@@ -25,7 +25,7 @@ const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
   const authUser = useAppSelector((state) => state.authReducer.value);
   const cart = useAppSelector((state) => state.cartReducer.value);
-  const allProducts = useAppSelector((state) => state.productReducer.value)
+  const allProducts = useAppSelector((state) => state.productReducer.value);
 
   const searchProduct = async () => {
     try {
@@ -35,13 +35,12 @@ const Header = () => {
       if (result.ok) {
         const res = await result.json();
         dispatch(setAllProducts(res.products));
-
       }
     } catch (error) {
       return error;
     }
   };
-  
+
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
     searchProduct();
@@ -96,42 +95,46 @@ const Header = () => {
       const result = await fetch("/api/product/getAllProducts");
       const res = await result.json();
       if (res.success) {
-        const allProducts = res.products
+        const allProducts = res.products;
         dispatch(setAllProducts(allProducts));
-        const cartData = localStorage.getItem('cart');
-        const wishData = localStorage.getItem('wish');
-        if(cartData){
+        const cartData = localStorage.getItem("cart");
+        const wishData = localStorage.getItem("wish");
+        if (cartData) {
           const cart = JSON.parse(cartData);
-          const crt = cart.map((c: {id: string, qty: number}) => {
-            const index = allProducts.findIndex((p: ProductType) => p._id == c.id);
-            
-            if(index != -1){
+          const crt = cart.map((c: { id: string; qty: number }) => {
+            const index = allProducts.findIndex(
+              (p: ProductType) => p._id == c.id,
+            );
+
+            if (index != -1) {
               return {
                 ...allProducts[index],
-                qty: c.qty
-              }
+                qty: c.qty,
+              };
             }
-          })
-          
-          if(crt){
-            dispatch(setInitialCart(crt))
+          });
+
+          if (crt) {
+            dispatch(setInitialCart(crt));
           }
         }
-        if(wishData){
+        if (wishData) {
           const wish = JSON.parse(wishData);
-          const wsh = wish.map((c: {id: string, qty: number}) => {
-            const index = allProducts.findIndex((p: ProductType) => p._id == c.id);
-            
-            if(index != -1){
+          const wsh = wish.map((c: { id: string; qty: number }) => {
+            const index = allProducts.findIndex(
+              (p: ProductType) => p._id == c.id,
+            );
+
+            if (index != -1) {
               return {
                 ...allProducts[index],
-                qty: c.qty
-              }
+                qty: c.qty,
+              };
             }
-          })
-          
-          if(wsh){
-            dispatch(setInitialWish(wsh))
+          });
+
+          if (wsh) {
+            dispatch(setInitialWish(wsh));
           }
         }
       }
@@ -141,14 +144,13 @@ const Header = () => {
     }
   };
 
-  
-  useEffect(()=>{
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      auth.updateCurrentUser(user)
-    })
-    fetchAllProducts()
-  },[])
-  
+      auth.updateCurrentUser(user);
+    });
+    fetchAllProducts();
+  }, []);
+
   useEffect(() => {
     const data = localStorage.getItem("authUser");
     !authUser.isLogged && signUser();

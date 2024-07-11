@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Modal from "./Modal";
+import Modal from "../Utilities/Modal";
 import Product from "./Product";
-import Rating from "./Rating";
+import Rating from "../Utilities/Rating";
 import Image from "next/image";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import { useDispatch } from "react-redux";

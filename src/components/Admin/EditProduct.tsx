@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import CloudinaryUpload from "./CloudinaryUpload";
+import CloudinaryUpload from "../Utilities/CloudinaryUpload";
 import { useRouter } from "next/navigation";
-import AskPrompt from "./AskPrompt";
+import AskPrompt from "../Utilities/AskPrompt";
 import { toast } from "react-toastify";
 
 const EditProduct = ({ item, type, setShowModal }: { item?: any; type: string; setShowModal: any }) => {

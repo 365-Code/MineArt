@@ -1,5 +1,5 @@
-import AdminLayout from "@/components/AdminLayout";
-import AdminMenu from "@/components/AdminMenu";
+import AdminLayout from "@/components/Admin/AdminLayout";
+import AdminMenu from "@/components/Admin/AdminMenu";
 import OrderStatus from "@/components/OrderStatus";
 import { orderArray } from "@/utils";
 import React from "react";

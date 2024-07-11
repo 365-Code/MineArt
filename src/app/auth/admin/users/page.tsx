@@ -1,5 +1,5 @@
 "use client"
-import AdminLayout from '@/components/AdminLayout'
+import AdminLayout from '@/components/Admin/AdminLayout'
 import { userArray } from '@/utils'
 import React, { useEffect, useState } from 'react'
 

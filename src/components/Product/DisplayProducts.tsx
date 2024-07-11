@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 import { sortProducts } from "@/redux/features/productSlice";
 import { useDispatch } from "react-redux";
 import ProductCardSkeleton from "./ProductCardSkeleton";
-import Pagination from "./Pagination";
+import Pagination from "../Utilities/Pagination";
 
 const DisplayProducts = () => {
 

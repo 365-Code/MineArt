@@ -1,4 +1,4 @@
-import AdminLayout from "@/components/AdminLayout";
+import AdminLayout from "@/components/Admin/AdminLayout";
 import Link from "next/link";
 import React from "react";
 

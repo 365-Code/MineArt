@@ -1,5 +1,5 @@
 "use client"
-import AdminMenu from '@/components/AdminMenu'
+import AdminMenu from '@/components/Admin/AdminMenu'
 import { useAppSelector } from '@/redux/store'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'

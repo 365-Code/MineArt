@@ -1,16 +1,16 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Modal from "./Modal";
-import Product from "./Product";
-import Rating from "./Rating";
+import Modal from "../Utilities/Modal";
+import Product from "../Product/Product";
+import Rating from "../Utilities/Rating";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addToCart } from "@/redux/features/cartSlice";
 import { toast } from "react-toastify";
 import EditProduct from "./EditProduct";
-import AskPrompt from "./AskPrompt";
+import AskPrompt from "../Utilities/AskPrompt";
 
 const AdminProductCard = ({ product }: { product: any }) => {
   const [showModal, setShowModal] = useState(false);

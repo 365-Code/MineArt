@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import Quantity from "./Quantity";
+import Quantity from "../Utilities/Quantity";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
